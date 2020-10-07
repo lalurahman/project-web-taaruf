@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Dashboard
+    Daftar Calon Pasangan
 @endsection
 
 @section('content')
