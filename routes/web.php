@@ -19,7 +19,10 @@ Route::prefix('admin')
     // ->middleware(['auth','admin'])
     ->group(function () {
     Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
-    Route::get('/akhwat', 'Admin\AkhwatController@index')->name('daftar-akhwat');    
+    Route::get('/akhwat', 'Admin\AkhwatController@index')->name('daftar-akhwat');
+    Route::get('/ikhwan', 'Admin\IkhwanController@index')->name('daftar-ikhwan');
+    Route::get('/ikhwan/12', 'Admin\IkhwanController@details')->name('details-ikhwan');
+    Route::get('/pasangan', 'Admin\PasanganController@index')->name('daftar-pasangan');
 });
 
 Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');
