@@ -36,6 +36,7 @@
     </div>
     
     {{-- script --}}
+    @stack('prepend')
     @include('includes.script')
   </body>
 </html>

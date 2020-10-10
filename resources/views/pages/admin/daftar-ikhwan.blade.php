@@ -69,7 +69,7 @@ data-aos="fade-up"
                     <td>Lalu Abdurrahman</td>
                     <td>lalurahmanms@gmail.com</td>
                     <td>
-                        <a href="#" class="badge badge-info">edit</a>
+                        <a href="#" class="badge badge-info">lihat</a>
                         <a href="#" class="badge badge-danger">hapus</a>
                     </td>
                 </tr>
@@ -95,17 +95,17 @@ data-aos="fade-up"
             <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td>Lalu Abdurrahman</td>
-                <td>lalurahmanms@gmail.com</td>
+                <td>Harry Helvizar</td>
+                <td>helvizar@gmail.com</td>
                 <td>
                     <div class="btn-group">
-                        <a href="{{ route('details-ikhwan') }}" class="btn btn-primary text-white">Details</a>
+                        <a href="{{ route('details-ikhwan') }}" class="btn btn-primary text-white">Lihat Detail</a>
                         <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Verifikasi</a>
-                          <a class="dropdown-item" href="#">Hapus</a>
+                          <a class="dropdown-item" href="#">Aktivasi</a>
+                          <a class="dropdown-item text-danger" href="#">Hapus</a>
                           
                         </div>
                     </div>
@@ -113,7 +113,7 @@ data-aos="fade-up"
             </tr>
             
             </tbody>
-        </table>
+          </table>
           </div>
         </div>
       </div>

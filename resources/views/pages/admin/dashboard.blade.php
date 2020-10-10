@@ -16,7 +16,7 @@ data-aos="fade-up"
   </div>
   <div class="dashboard-content">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 mb-2">
         <div class="card mb-2">
           <div class="card-body">
             <div class="row">
@@ -36,7 +36,7 @@ data-aos="fade-up"
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 mb-2">
         <div class="card mb-2">
           <div class="card-body">
             <div class="row">
@@ -55,18 +55,40 @@ data-aos="fade-up"
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      
+      <div class="col-md-4 mb-2">
         <div class="card mb-2">
           <div class="card-body">
-            <div class="dashboard-card-title">
-              Ikhwa belum diverifikasi
+            <div class="row">
+              <div class="col-4">
+                <img src="/images/couple.png" alt="" width="100">
+              </div>
+              <div class="col-8">
+                <div class="dashboard-card-title">
+                  Daftar Pasangan
+                </div>
+                <div class="dashboard-card-subtitle">
+                  50 <small>pasangan</small>
+                </div>
+              </div>
             </div>
-            <div class="dashboard-card-subtitle">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-2">
+        <div class="card mb-2 bg-info">
+          <div class="card-body">
+            <div class="dashboard-card-title">
+              Ikhwan belum diverifikasi
+            </div>
+            <div class="dashboard-card-subtitle text-white">
               2560 <small>orang</small>
             </div>
           </div>
         </div>
       </div>
+
     </div>
     {{-- content --}}
   </div>

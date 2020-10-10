@@ -28,5 +28,10 @@
         class="list-group-item list-group-item-action {{ (request()->is('admin/pasangan*')) ? 'active' : '' }}"
         >Data Pasangan</a
       >
+      <a
+        href="{{ route('daftar-kriteria') }}"
+        class="list-group-item list-group-item-action {{ (request()->is('admin/kriteria*')) ? 'active' : '' }}"
+        >Data Kriteria</a
+      >
     </div>
 </div>

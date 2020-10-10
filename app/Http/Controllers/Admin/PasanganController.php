@@ -11,4 +11,9 @@ class PasanganController extends Controller
     {
         return view('pages.admin.daftar-pasangan');
     }
+
+    public function details()
+    {
+        return view('pages.admin.detail-pasangan');
+    }
 }

@@ -11,4 +11,9 @@ class AkhwatController extends Controller
     {
         return view('pages.admin.daftar-akhwat');
     }
+
+    public function details()
+    {
+        return view('pages.admin.detail-akhwat');
+    }
 }
