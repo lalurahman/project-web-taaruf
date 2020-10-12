@@ -21,6 +21,7 @@ Route::prefix('admin')
     ->group(function () {
     Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
     Route::get('/akhwat', 'Admin\AkhwatController@index')->name('daftar-akhwat');
+    Route::get('/akhwat/create', 'Admin\AkhwatController@create')->name('tambah-akhwat');
     Route::get('/akhwat/10', 'Admin\AkhwatController@details')->name('details-akhwat');
     Route::get('/ikhwan', 'Admin\IkhwanController@index')->name('daftar-ikhwan');
     Route::get('/ikhwan/12', 'Admin\IkhwanController@details')->name('details-ikhwan');

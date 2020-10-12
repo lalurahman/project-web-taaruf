@@ -19,7 +19,7 @@ data-aos="fade-up"
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <a href="#" class="btn btn-success mb-3">Tambah Data Akhwat</a>
+            <a href="{{ route('tambah-akhwat') }}" class="btn btn-success mb-3" >Tambah Data Akhwat</a>
             <table class="table">
               <thead>
               <tr>

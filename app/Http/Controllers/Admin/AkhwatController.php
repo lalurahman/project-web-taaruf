@@ -16,4 +16,9 @@ class AkhwatController extends Controller
     {
         return view('pages.admin.detail-akhwat');
     }
+
+    public function create()
+    {
+        return view('pages.admin.tambah-data-akhwat');
+    }
 }
