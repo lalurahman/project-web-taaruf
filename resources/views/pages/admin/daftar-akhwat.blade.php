@@ -25,7 +25,8 @@ data-aos="fade-up"
               <tr>
                   <th scope="col">#</th>
                   <th scope="col">Nama</th>
-                  <th scope="col">Email</th>
+                  <th scope="col">Nomor HP</th>
+                  <th scope="col">Alamat</th>
                   <th scope="col">Aksi</th>
               </tr>
               </thead>
@@ -33,19 +34,11 @@ data-aos="fade-up"
               <tr>
                   <th scope="row">1</th>
                   <td>Azizah Nur Safitri</td>
-                  <td>azizahns20@gmail.com</td>
+                  <td>0858268723642</td>
+                  <td>Jln. Bahagia Selalu</td>
                   <td>
-                    <div class="btn-group">
-                      <a href="{{ route('details-akhwat') }}" class="btn btn-primary text-white">Lihat Detail</a>
-                      <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only">Toggle Dropdown</span>
-                      </button>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Edit</a>
-                        <a class="dropdown-item text-danger" href="#">Hapus</a>
-                        
-                      </div>
-                    </div>
+                    <a href="{{ route('details-akhwat') }}" class="btn btn-primary btn-sm">Lihat Detail</a>
+                    <button class="btn btn-danger btn-sm">Hapus</button>
                   </td>
               </tr>
               

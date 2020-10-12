@@ -17,12 +17,11 @@ data-aos="fade-up"
   <div class="dashboard-content">
     <div class="row">
       <div class="col-12">
-        <button
-          type="submit"
+        <a href="{{ route('daftar-akhwat') }}"
           class="btn btn-secondary px-5 mb-3"
         >
           Kembali
-        </button>
+        </a>
         <form action="">
           <div class="card">
             <div class="card-body">
