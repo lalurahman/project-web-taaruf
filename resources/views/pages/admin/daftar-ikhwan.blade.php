@@ -69,8 +69,8 @@ data-aos="fade-up"
                     <td>Lalu Abdurrahman</td>
                     <td>lalurahmanms@gmail.com</td>
                     <td>
-                        <a href="#" class="badge badge-info">lihat</a>
-                        <a href="#" class="badge badge-danger">hapus</a>
+                      <a href="{{ route('details-ikhwan') }}" class="btn btn-primary btn-sm">Lihat Detail</a>
+                      <button class="btn btn-danger btn-sm">Hapus</button>
                     </td>
                 </tr>
                 
@@ -104,7 +104,7 @@ data-aos="fade-up"
                           <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Aktivasi</a>
+                          <a class="dropdown-item" href="#">Verifikasi</a>
                           <a class="dropdown-item text-danger" href="#">Hapus</a>
                           
                         </div>

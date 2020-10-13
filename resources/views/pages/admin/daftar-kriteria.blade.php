@@ -17,7 +17,7 @@ data-aos="fade-up"
   <div class="dashboard-content">
     <div class="row">
         <div class="col-12">
-            <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#daftarKriteriaModel">Tambah Kriteria</button>
+            <button type="button" class="btn btn-success mb-3">Tambah Kriteria</button>
             <div class="card">
                 <div class="card-body">
                     <table class="table">
@@ -41,8 +41,8 @@ data-aos="fade-up"
                                 </ol>
                             </td>
                             <td>
-                                <a href="#" class="badge badge-info">edit</a>
-                                <a href="#" class="badge badge-danger">hapus</a>
+                                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                <button class="btn btn-danger btn-sm">Hapus</button>
                             </td>
                           </tr>
                           <tr>
@@ -57,8 +57,8 @@ data-aos="fade-up"
                                 </ol>
                             </td>
                             <td>
-                                <a href="#" class="badge badge-info">edit</a>
-                                <a href="#" class="badge badge-danger">hapus</a>
+                                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                <button class="btn btn-danger btn-sm">Hapus</button>
                             </td>
                           </tr>
                           <tr>
@@ -72,8 +72,8 @@ data-aos="fade-up"
                                 </ol>
                             </td>
                             <td>
-                                <a href="#" class="badge badge-info">edit</a>
-                                <a href="#" class="badge badge-danger">hapus</a>
+                                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                <button class="btn btn-danger btn-sm">Hapus</button>
                             </td>
                           </tr>
                           
@@ -87,42 +87,3 @@ data-aos="fade-up"
 </div>
 </div>
 @endsection
-
-@push('prepend')
-{{-- modal --}}
-<div class="modal fade" id="daftarKriteriaModel" tabindex="-1" aria-labelledby="daftarKriteriaModelLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="daftarKriteriaModelLabel">Pilih Kriteria Calon Pasangan</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Jenis Kriteria</label>
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-group">
-                <label for="message-text" class="col-form-label">Kriteria</label>
-                <div class="row">
-                    <div class="col-10">
-                        <input type="text" class="form-control" name="" id="">
-                    </div>
-                    <div class="col-2">
-                        <button class="btn btn-primary">+</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success px-5">Simpan Kriteria</button>
-      </div>
-    </div>
-  </div>
-</div>
-@endpush
