@@ -19,12 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('biodata');
-            $table->string('rekomendasi_murobbi');
-            $table->string('keterangan_nikah');
-            $table->string('keterangan_sehat');
-            $table->string('status');
-
+            $table->enum('status', ['admin', 'user']);
+            $table->boolean('is_active')->default(false);
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

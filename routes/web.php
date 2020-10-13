@@ -13,12 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'DashboardController@index')->name('cari-akhwat');
-Route::get('/profile', 'AccountController@index')->name('profile');
-
-Route::prefix('admin')
-    // ->middleware(['auth','admin'])
-    ->group(function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['level:admin','auth']], function () {
     Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
     Route::get('/akhwat', 'Admin\AkhwatController@index')->name('daftar-akhwat');
     Route::get('/akhwat/10', 'Admin\AkhwatController@details')->name('details-akhwat');
@@ -28,6 +23,24 @@ Route::prefix('admin')
     Route::get('/pasangan/15', 'Admin\PasanganController@details')->name('details-pasangan');
     Route::get('/kriteria', 'Admin\KriteriaController@index')->name('daftar-kriteria');
 });
+
+Route::group(['prefix' => 'user', 'middleware' => ['level:user','auth']], function () {
+    Route::get('/', 'DashboardController@index')->name('cari-akhwat');
+    Route::get('/profile', 'AccountController@index')->name('profile');
+});
+
+// Route::prefix('admin')
+//     // ->middleware(['auth','admin'])
+//     ->group(function () {
+//     Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
+//     Route::get('/akhwat', 'Admin\AkhwatController@index')->name('daftar-akhwat');
+//     Route::get('/akhwat/10', 'Admin\AkhwatController@details')->name('details-akhwat');
+//     Route::get('/ikhwan', 'Admin\IkhwanController@index')->name('daftar-ikhwan');
+//     Route::get('/ikhwan/12', 'Admin\IkhwanController@details')->name('details-ikhwan');
+//     Route::get('/pasangan', 'Admin\PasanganController@index')->name('daftar-pasangan');
+//     Route::get('/pasangan/15', 'Admin\PasanganController@details')->name('details-pasangan');
+//     Route::get('/kriteria', 'Admin\KriteriaController@index')->name('daftar-kriteria');
+// });
 
 Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');
 
