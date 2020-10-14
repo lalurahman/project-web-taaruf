@@ -52,7 +52,7 @@ class LoginController extends Controller
                     return Redirect::to('admin');
                 } else if ($user->status == 'user') {
                     session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'status' => $user->status]);
-                    return Redirect::to('user');
+                    return Redirect::to('/');
                 }
             } else {
                 Session::flash('Message', 'Akun '.$request->email.' belum di verifikasi');

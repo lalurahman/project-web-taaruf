@@ -25,7 +25,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['level:admin','auth']], func
     Route::get('/kriteria', 'Admin\KriteriaController@index')->name('daftar-kriteria');
 });
 
-Route::group(['prefix' => 'user', 'middleware' => ['level:user','auth']], function () {
+Route::group(['middleware' => ['level:user','auth']], function () {
     Route::get('/', 'DashboardController@index')->name('cari-akhwat');
     Route::get('/profile', 'AccountController@index')->name('profile');
 });
