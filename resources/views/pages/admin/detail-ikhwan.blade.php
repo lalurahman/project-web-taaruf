@@ -97,7 +97,7 @@ data-aos="fade-up"
 
                 <div class="col-12 col-md-6">
                   <div class="form-group">
-                    <label for="keterangan_nikah">Surat Keterangan Nikah</label>
+                    <label for="keterangan_nikah">Surat Izin Nikah</label>
                     <div class="row">
                         <div class="col-10">
                             <input
@@ -105,7 +105,7 @@ data-aos="fade-up"
                             class="form-control"
                             name="keterangan_nikah"
                             id="keterangan_nikah"
-                            value="keterangan_nikah.pdf"
+                            value="surat_izin_nikah.pdf"
                             readonly
                             />
                         </div>
