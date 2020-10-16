@@ -86,16 +86,16 @@ data-aos="fade-up"
 
                 <div class="col-12 col-md-6">
                     <div class="form-group">
-                      <label for="keterangan_nikah">Surat Keterangan Nikah</label>
+                      <label for="keterangan_nikah">Surat Izin Nikah</label>
                       <div class="row">
                           <div class="col-10">
                               <input
                               type="file"
                               class="form-control"
-                              name="keterangan_nikah"
-                              id="keterangan_nikah"
+                              name="izin_nikah"
+                              id="izin_nikah"
                               />
-                              <small class="text-muted">keterangan-nikah.pdf</small>
+                              <small class="text-muted">izin-nikah.pdf</small>
                           </div>
                           <div class="col-2 mr-auto">
                               <a href="#" class="btn btn-secondary">Lihat</a>
