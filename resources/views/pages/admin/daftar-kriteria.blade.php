@@ -16,69 +16,93 @@ data-aos="fade-up"
   </div>
   <div class="dashboard-content">
     <div class="row">
-        <div class="col-12">
-            <button type="button" class="btn btn-success mb-3">Tambah Kriteria</button>
+        <div class="col-4">         
             <div class="card">
                 <div class="card-body">
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Jenis Kriteria</th>
-                            <th scope="col">Kriteria</th>
-                            <th scope="col">Aksi</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Keterampilan</td>
-                            <td>
-                                <ol>
-                                    <li>Memasak</li>
-                                    <li>Mencuci</li>
-                                    <li>Menjahit</li>
-                                </ol>
-                            </td>
-                            <td>
-                                <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                <button class="btn btn-danger btn-sm">Hapus</button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Asal Suku</td>
-                            <td>
-                                <ol>
-                                    <li>Bugis</li>
-                                    <li>Jawa</li>
-                                    <li>Sasak Lombok</li>
-                                    <li>Mamuju</li>
-                                </ol>
-                            </td>
-                            <td>
-                                <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                <button class="btn btn-danger btn-sm">Hapus</button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Tinggi badan (berdasarkan range)</td>
-                            <td>
-                                <ol>
-                                    <li>Pendek (140cm - 145cm)</li>
-                                    <li>Sedang (154cm -166cm)</li>
-                                    <li>Tinggi (167cm - 180cm)</li>
-                                </ol>
-                            </td>
-                            <td>
-                                <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                <button class="btn btn-danger btn-sm">Hapus</button>
-                            </td>
-                          </tr>
-                          
-                        </tbody>
-                    </table>
+                  <a href="#" class="btn btn-sm btn-secondary px-4 mb-2">Tambah Data</a>
+
+                  <h5>Keterampilan :</h5>
+                  <table class="table table-hover">
+                    <tr>
+                      <td>Memasak</td>
+                      <td>
+                        <a href="#" class="badge badge-info">edit</a>
+                        <a href="#" class="badge badge-danger">hapus</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Memasak</td>
+                      <td>
+                        <a href="#" class="badge badge-info">edit</a>
+                        <a href="#" class="badge badge-danger">hapus</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Memasak</td>
+                      <td>
+                        <a href="#" class="badge badge-info">edit</a>
+                        <a href="#" class="badge badge-danger">hapus</a>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">         
+            <div class="card">
+                <div class="card-body">
+                  
+                  <a href="#" class="btn btn-sm btn-secondary px-4 mb-2">Tambah Data</a>
+                  <h5>Asal Suku :</h5>
+                  <table class="table table-hover">
+                    <tr>
+                      <td>Bugis</td>
+                      <td>
+                        <a href="#" class="badge badge-info">edit</a>
+                        <a href="#" class="badge badge-danger">hapus</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Jawa</td>
+                      <td>
+                        <a href="#" class="badge badge-info">edit</a>
+                        <a href="#" class="badge badge-danger">hapus</a>
+                      </td>
+                    </tr>
+                    
+                  </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">         
+            <div class="card">
+                <div class="card-body">
+                  <a href="#" class="btn btn-sm btn-secondary px-4 mb-2">Tambah Data</a>
+
+                  <h5>Tinggi Badan :</h5>
+                  <table class="table table-hover">
+                    <tr>
+                      <td>Pendek</td>
+                      <td>
+                        <a href="#" class="badge badge-info">edit</a>
+                        <a href="#" class="badge badge-danger">hapus</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Sedang</td>
+                      <td>
+                        <a href="#" class="badge badge-info">edit</a>
+                        <a href="#" class="badge badge-danger">hapus</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Tinggi</td>
+                      <td>
+                        <a href="#" class="badge badge-info">edit</a>
+                        <a href="#" class="badge badge-danger">hapus</a>
+                      </td>
+                    </tr>
+                  </table>
                 </div>
             </div>
         </div>
