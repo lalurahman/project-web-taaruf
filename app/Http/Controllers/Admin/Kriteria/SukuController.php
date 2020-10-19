@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin\Kriteria;
 
 use App\Http\Controllers\Controller;
-use App\Keterampilan;
+use App\Suku;
 use Illuminate\Http\Request;
 
-class KeterampilanController extends Controller
+class SukuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,7 +38,7 @@ class KeterampilanController extends Controller
     {
         $data = $request->all();
 
-        Keterampilan::create($data);
+        Suku::create($data);
 
         return redirect()->route('daftar-kriteria');
     }

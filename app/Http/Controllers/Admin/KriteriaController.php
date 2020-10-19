@@ -2,7 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Darah;
 use App\Http\Controllers\Controller;
+use App\Keterampilan;
+use App\Kulit;
+use App\Nikah;
+use App\Organisasi;
+use App\Pekerjaan;
+use App\Pendidikan;
+use App\Rambut;
+use App\Suku;
+use App\Tinggi;
+use App\Tubuh;
+use App\Wajah;
 use Illuminate\Http\Request;
 
 class KriteriaController extends Controller
@@ -14,7 +26,33 @@ class KriteriaController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.daftar-kriteria');
+        $keterampilan   = Keterampilan::all();
+        $suku           = Suku::all();
+        $tinggi         = Tinggi::all();
+        $tubuh          = Tubuh::all();
+        $organisasi     = Organisasi::all();
+        $pendidikan     = Pendidikan::all();
+        $rambut         = Rambut::all();
+        $pekerjaan      = Pekerjaan::all();
+        $kulit          = Kulit::all();
+        $darah          = Darah::all();
+        $wajah          = Wajah::all();
+        $nikah          = Nikah::all();
+
+        return view('pages.admin.daftar-kriteria',[
+            'keterampilan'  => $keterampilan,
+            'suku'          => $suku,
+            'tinggi'        => $tinggi,
+            'tubuh'         => $tubuh,
+            'organisasi'    => $organisasi,
+            'pendidikan'    => $pendidikan,
+            'rambut'        => $rambut,
+            'pekerjaan'     => $pekerjaan,
+            'kulit'         => $kulit,
+            'darah'         => $darah,
+            'wajah'         => $wajah,
+            'nikah'         => $nikah,
+        ]);
     }
 
     /**

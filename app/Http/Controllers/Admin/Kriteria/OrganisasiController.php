@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin\Kriteria;
 
 use App\Http\Controllers\Controller;
-use App\Keterampilan;
+use App\Organisasi;
 use Illuminate\Http\Request;
 
-class KeterampilanController extends Controller
+class OrganisasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,7 +38,7 @@ class KeterampilanController extends Controller
     {
         $data = $request->all();
 
-        Keterampilan::create($data);
+        Organisasi::create($data);
 
         return redirect()->route('daftar-kriteria');
     }
@@ -46,10 +46,10 @@ class KeterampilanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Organisasi  $organisasi
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Organisasi $organisasi)
     {
         //
     }
@@ -57,10 +57,10 @@ class KeterampilanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Organisasi  $organisasi
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Organisasi $organisasi)
     {
         //
     }
@@ -69,10 +69,10 @@ class KeterampilanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Organisasi  $organisasi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Organisasi $organisasi)
     {
         //
     }
@@ -80,10 +80,10 @@ class KeterampilanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Organisasi  $organisasi
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Organisasi $organisasi)
     {
         //
     }
