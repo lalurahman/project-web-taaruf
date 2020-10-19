@@ -23,18 +23,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['level:admin','auth']], func
     Route::get('/pasangan', 'Admin\PasanganController@index')->name('daftar-pasangan');
     Route::get('/pasangan/15', 'Admin\PasanganController@details')->name('details-pasangan');
     Route::get('/kriteria', 'Admin\KriteriaController@index')->name('daftar-kriteria');
-    Route::resource('keterampilan', 'Admin\Kriteria\KeterampilanController');
-    Route::resource('suku', 'Admin\Kriteria\SukuController');
-    Route::resource('tinggi', 'Admin\Kriteria\TinggiController');
-    Route::resource('tubuh', 'Admin\Kriteria\TubuhController');
-    Route::resource('organisasi', 'Admin\Kriteria\OrganisasiController');
-    Route::resource('pendidikan', 'Admin\Kriteria\PendidikanController');
-    Route::resource('rambut', 'Admin\Kriteria\RambutController');
-    Route::resource('pekerjaan', 'Admin\Kriteria\PekerjaanController');
-    Route::resource('kulit', 'Admin\Kriteria\KulitController');
-    Route::resource('darah', 'Admin\Kriteria\DarahController');
-    Route::resource('wajah', 'Admin\Kriteria\WajahController');
-    Route::resource('nikah', 'Admin\Kriteria\NikahController');
+    
+    Route::prefix('kriteria')->group(function(){
+        Route::resource('keterampilan', 'Admin\Kriteria\KeterampilanController');
+        Route::resource('suku', 'Admin\Kriteria\SukuController');
+        Route::resource('tinggi', 'Admin\Kriteria\TinggiController');
+        Route::resource('tubuh', 'Admin\Kriteria\TubuhController');
+        Route::resource('organisasi', 'Admin\Kriteria\OrganisasiController');
+        Route::resource('pendidikan', 'Admin\Kriteria\PendidikanController');
+        Route::resource('rambut', 'Admin\Kriteria\RambutController');
+        Route::resource('pekerjaan', 'Admin\Kriteria\PekerjaanController');
+        Route::resource('kulit', 'Admin\Kriteria\KulitController');
+        Route::resource('darah', 'Admin\Kriteria\DarahController');
+        Route::resource('wajah', 'Admin\Kriteria\WajahController');
+        Route::resource('nikah', 'Admin\Kriteria\NikahController');
+    });
 });
 
 Route::group(['middleware' => ['level:user','auth']], function () {
