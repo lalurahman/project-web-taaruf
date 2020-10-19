@@ -27,8 +27,22 @@ data-aos="fade-up"
                     <tr>
                       <td>{{ $item->keterampilan }}</td>
                       <td class="text-right">
-                        <a href="#" class="badge badge-info">edit</a>
-                        <a href="#" class="badge badge-danger">hapus</a>
+                        <div class="btn-group">
+                          <button 
+                              type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                              Aksi
+                          </button>
+                          <div class="dropdown-menu">
+                              <a href="{{ route('keterampilan.edit', $item->id) }}" class="dropdown-item">
+                                  Edit
+                              </a>
+                              <form action="{{ route('keterampilan.destroy', $item->id) }}" method="POST">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                              </form>
+                          </div>
+                        </div>
                       </td>
                     </tr>
                     @endforeach
@@ -49,8 +63,22 @@ data-aos="fade-up"
                         <tr>
                           <td>{{ $item->suku }}</td>
                           <td class="text-right">
-                            <a href="#" class="badge badge-info">edit</a>
-                            <a href="#" class="badge badge-danger">hapus</a>
+                            <div class="btn-group">
+                              <button 
+                                  type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                  Aksi
+                              </button>
+                              <div class="dropdown-menu">
+                                  <a href="{{ route('suku.edit', $item->id) }}" class="dropdown-item">
+                                      Edit
+                                  </a>
+                                  <form action="{{ route('suku.destroy', $item->id) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                  </form>
+                              </div>
+                            </div>
                           </td>
                         </tr>
                       @endforeach                    
@@ -71,8 +99,22 @@ data-aos="fade-up"
                       <tr>
                         <td>{{ $item->tinggi }}</td>
                         <td class="text-right">
-                          <a href="#" class="badge badge-info">edit</a>
-                          <a href="#" class="badge badge-danger">hapus</a>
+                          <div class="btn-group">
+                            <button 
+                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="{{ route('tinggi.edit', $item->id) }}" class="dropdown-item">
+                                    Edit
+                                </a>
+                                <form action="{{ route('tinggi.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                </form>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     @endforeach                    
@@ -93,8 +135,22 @@ data-aos="fade-up"
                       <tr>
                         <td>{{ $item->tubuh }}</td>
                         <td class="text-right">
-                          <a href="#" class="badge badge-info">edit</a>
-                          <a href="#" class="badge badge-danger">hapus</a>
+                          <div class="btn-group">
+                            <button 
+                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="{{ route('tubuh.edit', $item->id) }}" class="dropdown-item">
+                                    Edit
+                                </a>
+                                <form action="{{ route('tubuh.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                </form>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     @endforeach                    
@@ -115,8 +171,22 @@ data-aos="fade-up"
                       <tr>
                         <td>{{ $item->organisasi }}</td>
                         <td class="text-right">
-                          <a href="#" class="badge badge-info">edit</a>
-                          <a href="#" class="badge badge-danger">hapus</a>
+                          <div class="btn-group">
+                            <button 
+                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="{{ route('organisasi.edit', $item->id) }}" class="dropdown-item">
+                                    Edit
+                                </a>
+                                <form action="{{ route('organisasi.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                </form>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     @endforeach                    
@@ -137,8 +207,22 @@ data-aos="fade-up"
                       <tr>
                         <td>{{ $item->pendidikan }}</td>
                         <td class="text-right">
-                          <a href="#" class="badge badge-info">edit</a>
-                          <a href="#" class="badge badge-danger">hapus</a>
+                          <div class="btn-group">
+                            <button 
+                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="{{ route('pendidikan.edit', $item->id) }}" class="dropdown-item">
+                                    Edit
+                                </a>
+                                <form action="{{ route('pendidikan.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                </form>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     @endforeach                    
@@ -159,8 +243,22 @@ data-aos="fade-up"
                       <tr>
                         <td>{{ $item->rambut }}</td>
                         <td class="text-right">
-                          <a href="#" class="badge badge-info">edit</a>
-                          <a href="#" class="badge badge-danger">hapus</a>
+                          <div class="btn-group">
+                            <button 
+                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="{{ route('rambut.edit', $item->id) }}" class="dropdown-item">
+                                    Edit
+                                </a>
+                                <form action="{{ route('rambut.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                </form>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     @endforeach                    
@@ -181,8 +279,22 @@ data-aos="fade-up"
                       <tr>
                         <td>{{ $item->pekerjaan }}</td>
                         <td class="text-right">
-                          <a href="#" class="badge badge-info">edit</a>
-                          <a href="#" class="badge badge-danger">hapus</a>
+                          <div class="btn-group">
+                            <button 
+                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="{{ route('pekerjaan.edit', $item->id) }}" class="dropdown-item">
+                                    Edit
+                                </a>
+                                <form action="{{ route('pekerjaan.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                </form>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     @endforeach                    
@@ -203,8 +315,22 @@ data-aos="fade-up"
                       <tr>
                         <td>{{ $item->kulit }}</td>
                         <td class="text-right">
-                          <a href="#" class="badge badge-info">edit</a>
-                          <a href="#" class="badge badge-danger">hapus</a>
+                          <div class="btn-group">
+                            <button 
+                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="{{ route('kulit.edit', $item->id) }}" class="dropdown-item">
+                                    Edit
+                                </a>
+                                <form action="{{ route('kulit.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                </form>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     @endforeach                    
@@ -225,8 +351,22 @@ data-aos="fade-up"
                       <tr>
                         <td>{{ $item->darah }}</td>
                         <td class="text-right">
-                          <a href="#" class="badge badge-info">edit</a>
-                          <a href="#" class="badge badge-danger">hapus</a>
+                          <div class="btn-group">
+                            <button 
+                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="{{ route('darah.edit', $item->id) }}" class="dropdown-item">
+                                    Edit
+                                </a>
+                                <form action="{{ route('darah.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                </form>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     @endforeach                    
@@ -247,8 +387,22 @@ data-aos="fade-up"
                       <tr>
                         <td>{{ $item->wajah }}</td>
                         <td class="text-right">
-                          <a href="#" class="badge badge-info">edit</a>
-                          <a href="#" class="badge badge-danger">hapus</a>
+                          <div class="btn-group">
+                            <button 
+                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="{{ route('wajah.edit', $item->id) }}" class="dropdown-item">
+                                    Edit
+                                </a>
+                                <form action="{{ route('wajah.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                </form>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     @endforeach                    
@@ -269,8 +423,22 @@ data-aos="fade-up"
                       <tr>
                         <td>{{ $item->usia }}</td>
                         <td class="text-right">
-                          <a href="#" class="badge badge-info">edit</a>
-                          <a href="#" class="badge badge-danger">hapus</a>
+                          <div class="btn-group">
+                            <button 
+                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="{{ route('nikah.edit', $item->id) }}" class="dropdown-item">
+                                    Edit
+                                </a>
+                                <form action="{{ route('nikah.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                </form>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     @endforeach                    
@@ -612,6 +780,5 @@ data-aos="fade-up"
     </div>
   </div>
 </div>
-
 
 @endpush

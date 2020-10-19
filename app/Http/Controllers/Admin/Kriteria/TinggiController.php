@@ -16,4 +16,30 @@ class TinggiController extends Controller
 
         return redirect()->route('daftar-kriteria');
     }
+
+    public function edit($id)
+    {
+        $item = Tinggi::findOrFail($id);
+
+        return view('pages.admin.tinggi.edit',['item' => $item]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+
+        $item = Tinggi::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('daftar-kriteria');
+    }
+
+    public function destroy($id)
+    {
+        $item = Tinggi::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('daftar-kriteria');
+    }
 }

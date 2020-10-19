@@ -16,4 +16,30 @@ class TubuhController extends Controller
 
         return redirect()->route('daftar-kriteria');
     }
+
+    public function edit($id)
+    {
+        $item = Tubuh::findOrFail($id);
+
+        return view('pages.admin.tubuh.edit',['item' => $item]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+
+        $item = Tubuh::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('daftar-kriteria');
+    }
+
+    public function destroy($id)
+    {
+        $item = Tubuh::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('daftar-kriteria');
+    }
 }

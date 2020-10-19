@@ -62,7 +62,9 @@ class KeterampilanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Keterampilan::findOrFail($id);
+
+        return view('pages.admin.keterampilan.edit',['item' => $item]);
     }
 
     /**
@@ -74,7 +76,13 @@ class KeterampilanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Keterampilan::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('daftar-kriteria');
     }
 
     /**
@@ -85,6 +93,9 @@ class KeterampilanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Keterampilan::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('daftar-kriteria');
     }
 }

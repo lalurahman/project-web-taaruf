@@ -16,4 +16,30 @@ class NikahController extends Controller
 
         return redirect()->route('daftar-kriteria');
     }
+
+    public function edit($id)
+    {
+        $item = Nikah::findOrFail($id);
+
+        return view('pages.admin.nikah.edit',['item' => $item]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+
+        $item = Nikah::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('daftar-kriteria');
+    }
+
+    public function destroy($id)
+    {
+        $item = Nikah::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('daftar-kriteria');
+    }
 }

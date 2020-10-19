@@ -16,4 +16,30 @@ class RambutController extends Controller
 
         return redirect()->route('daftar-kriteria');
     }
+
+    public function edit($id)
+    {
+        $item = Rambut::findOrFail($id);
+
+        return view('pages.admin.rambut.edit',['item' => $item]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+
+        $item = Rambut::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('daftar-kriteria');
+    }
+
+    public function destroy($id)
+    {
+        $item = Rambut::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('daftar-kriteria');
+    }
 }

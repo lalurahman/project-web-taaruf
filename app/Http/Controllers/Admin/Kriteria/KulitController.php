@@ -16,4 +16,30 @@ class KulitController extends Controller
 
         return redirect()->route('daftar-kriteria');
     }
+
+    public function edit($id)
+    {
+        $item = Kulit::findOrFail($id);
+
+        return view('pages.admin.kulit.edit',['item' => $item]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+
+        $item = Kulit::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('daftar-kriteria');
+    }
+
+    public function destroy($id)
+    {
+        $item = Kulit::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('daftar-kriteria');
+    }
 }
