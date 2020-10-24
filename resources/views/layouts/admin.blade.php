@@ -13,6 +13,9 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="/style/main.css" rel="stylesheet" />
+    <script>
+        $('.alert').alert()
+    </script>
   </head>
 
   <body>
@@ -34,7 +37,7 @@
         </div>
       </div>
     </div>
-    
+
     {{-- script --}}
     @stack('prepend')
     @include('includes.script')
