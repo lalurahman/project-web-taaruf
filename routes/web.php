@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function () {
     Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
     Route::get('/ikhwan', 'Admin\IkhwanController@index')->name('daftar-ikhwan');
     Route::get('/ikhwan/12', 'Admin\IkhwanController@details')->name('details-ikhwan');
@@ -47,7 +47,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     });
 });
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth','user']], function () {
     Route::get('/', 'DashboardController@index')->name('cari-akhwat');
     Route::get('/profile', 'AccountController@index')->name('profile');
 });

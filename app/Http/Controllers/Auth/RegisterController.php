@@ -129,4 +129,9 @@ class RegisterController extends Controller
     {
         return view('auth.register-success');
     }
+
+    public function check(Request $request)
+    {   
+        return User::where('email', $request->email)->count() > 0 ? 'Unavailable' : 'Available';
+    }
 }

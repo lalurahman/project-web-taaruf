@@ -23,10 +23,12 @@
                   type="text"
                   name="name"
                   id="name"
-                  class="form-control is-valid @error('name') is-invalid @enderror"
+                  class="form-control @error('name') is-invalid @enderror"
                   v-model="name"
+                  value="{{ old('name') }}" 
+                  required 
+                  autocomplete="name"
                   autofocus
-                  value="{{ old('name') }}" required autocomplete="name"
                 />
                 
                 @error('name')
@@ -41,7 +43,9 @@
                   type="email"
                   name="email"
                   id="email"
+                  @change="checkForEmailAvailability()"
                   class="form-control @error('email') is-invalid @enderror"
+                  :class="{ 'is-invalid' : this.email_unavailable }"
                   v-model="email"
                   value="{{ old('email') }}" required autocomplete="email"
                 />
@@ -120,7 +124,7 @@
               </div>
 
               <div class="form-group">
-                <label for="izin_nikah">Surat Keterangan Nikah</label>
+                <label for="izin_nikah">Surat Izin Nikah</label>
                 <input
                   type="file"
                   name="izin_nikah"
@@ -155,7 +159,7 @@
                 @enderror
               </div>
               
-              <button type="submit" class="btn btn-success btn-block mt-4">
+              <button type="submit" class="btn btn-success btn-block mt-4" :disabled="this.email_unavailable">
                 Daftar Akun
               </button>
               <a href="{{ route('login') }}" class="btn btn-signup btn-block mt-2">
@@ -169,3 +173,52 @@
 </div>
 
 @endsection
+
+@push('addon-script')
+    <script src="/vendor/vue/vue.js"></script>
+    <script src="https://unpkg.com/vue-toasted"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      Vue.use(Toasted);
+
+      var register = new Vue({
+        el: "#register",
+        mounted(){
+          AOS.init();
+        },
+        methods: {
+          checkForEmailAvailability: function(){
+            var self = this;
+            axios.get('{{ route('api-register-check') }}', {
+              params: {
+                email: this.email
+              }
+            })
+            .then(function (response) {
+              if(response.data == 'Available') {
+                  
+                  self.email_unavailable = false;
+                } else {
+                  self.$toasted.error(
+                    "Email sudah terdaftar",
+                    {
+                      position: "top-center",
+                      className: "rounded",
+                      duration: 1000,
+                    }
+                  );
+                  self.email_unavailable = true;
+                }
+            });
+          }
+        },
+        data(){
+          return {
+            name: "",
+            email: "",
+            email_unavailable: false
+          }
+        }
+      });
+    </script>
+@endpush
