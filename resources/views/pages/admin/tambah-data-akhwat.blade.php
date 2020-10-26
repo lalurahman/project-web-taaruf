@@ -96,7 +96,7 @@
                                             <label for="keterampilan" class="d-block">Keterampilan</label>
                                             @foreach ($keterampilan as $item)
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" value="{{ $item->keterampilan }}" name="keterampilan[]">
+                                                <input class="form-check-input" type="checkbox" value="{{ $item->id }}" name="keterampilan[]">
                                                 <label class="form-check-label" for="memasak" style="text-transform: capitalize;">
                                                     {{ $item->keterampilan }}
                                                 </label>
@@ -120,7 +120,7 @@
                                             <select class="custom-select" name="suku">
                                                 <option selected disabled>Pilih Asal Suku</option>
                                                 @foreach ($suku as $item)
-                                                <option value="{{ $item->suku }}" style="text-transform: capitalize;">{{ $item->suku }}</option>
+                                                <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->suku }}</option>
                                                 @endforeach
                                             </select>
                                             @error('suku')
@@ -141,13 +141,13 @@
                                                 <option selected disabled>Pilih Tinggi Badan</option>
                                                 @foreach ($tinggi as $item)
                                                     @if ($item->tinggi == 'pendek')
-                                                    <option value="{{ $item->tinggi }}" style="text-transform: capitalize;">{{ $item->tinggi }} : 140-153 cm</option>
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->tinggi }} : 140-153 cm</option>
                                                     @endif
                                                     @if ($item->tinggi == 'sedang')
-                                                    <option value="{{ $item->tinggi }}" style="text-transform: capitalize;">{{ $item->tinggi }} : 154-166 cm</option>
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->tinggi }} : 154-166 cm</option>
                                                     @endif
                                                     @if ($item->tinggi == 'tinggi')
-                                                    <option value="{{ $item->tinggi }}" style="text-transform: capitalize;">{{ $item->tinggi }} : 167-180 cm</option>
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->tinggi }} : 167-180 cm</option>
                                                     @endif
                                                 @endforeach
                                             </select>
@@ -169,13 +169,13 @@
                                                 <option selected disabled>Pilih Berat Badan</option>
                                                 @foreach ($tubuh as $item)
                                                     @if ($item->tubuh == 'kurus')
-                                                    <option value="{{ $item->tubuh }}" style="text-transform: capitalize;">{{ $item->tubuh }} : 45-54 kg</option>
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->tubuh }} : 45-54 kg</option>
                                                     @endif
                                                     @if ($item->tubuh == 'normal')
-                                                    <option value="{{ $item->tubuh }}" style="text-transform: capitalize;">{{ $item->tubuh }} : 55-64 kg</option>
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->tubuh }} : 55-64 kg</option>
                                                     @endif
                                                     @if ($item->tubuh == 'gemuk')
-                                                    <option value="{{ $item->tubuh }}" style="text-transform: capitalize;">{{ $item->tubuh }} : 65 > kg</option>
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->tubuh }} : 65 > kg</option>
                                                     @endif
                                                 @endforeach
                                             </select>
@@ -196,7 +196,7 @@
                                             <select class="custom-select" name="organisasi">
                                                 <option selected disabled>Pilih Jabatan Organisasi</option>
                                                 @foreach ($organisasi as $item)
-                                                <option value="{{ $item->organisasi }}" style="text-transform: capitalize;">{{ $item->organisasi }}</option>
+                                                <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->organisasi }}</option>
                                                 @endforeach
                                             </select>
                                             @error('organisasi')
@@ -216,7 +216,7 @@
                                             <select class="custom-select" name="rambut">
                                                 <option selected disabled>Pilih Jenis Rambut</option>
                                                 @foreach ($rambut as $item)
-                                                <option value="{{ $item->rambut }}" style="text-transform: capitalize;">{{ $item->rambut }}</option>
+                                                <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->rambut }}</option>
                                                 @endforeach
                                             </select>
                                             @error('rambut')
@@ -236,7 +236,7 @@
                                             <select class="custom-select" name="pendidikan">
                                                 <option selected disabled>Pilih Pendidikan terakhir</option>
                                                 @foreach ($pendidikan as $item)
-                                                <option value="{{ $item->pendidikan }}" style="text-transform: capitalize;">{{ $item->pendidikan }}</option>
+                                                <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->pendidikan }}</option>
                                                 @endforeach
                                             </select>
                                             @error('pendidikan')
@@ -256,7 +256,7 @@
                                             <select class="custom-select" name="pekerjaan">
                                                 <option selected disabled>Pilih Pekerjaan</option>
                                                 @foreach ($pekerjaan as $item)
-                                                <option value="{{ $item->pekerjaan }}" style="text-transform: capitalize;">{{ $item->pekerjaan }}</option>
+                                                <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->pekerjaan }}</option>
                                                 @endforeach
                                             </select>
                                             @error('pekerjaan')
@@ -276,7 +276,7 @@
                                             <select class="custom-select" name="kulit">
                                                 <option selected disabled>Pilih Warna Kulit</option>
                                                 @foreach ($kulit as $item)
-                                                <option value="{{ $item->kulit }}" style="text-transform: capitalize;">{{ $item->kulit }}</option>
+                                                <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->kulit }}</option>
                                                 @endforeach
                                             </select>
                                             @error('kulit')
@@ -296,7 +296,7 @@
                                             <select class="custom-select" name="darah">
                                                 <option selected disabled>Pilih Golongan Darah</option>
                                                 @foreach ($darah as $item)
-                                                <option value="{{ $item->darah }}" style="text-transform: capitalize;">{{ $item->darah }}</option>
+                                                <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->darah }}</option>
                                                 @endforeach
                                             </select>
                                             @error('darah')
@@ -316,7 +316,7 @@
                                             <select class="custom-select" name="wajah">
                                                 <option selected disabled>Pilih Bentuk Wajah</option>
                                                 @foreach ($wajah as $item)
-                                                <option value="{{ $item->wajah }}" style="text-transform: capitalize;">{{ $item->wajah }}</option>
+                                                <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->wajah }}</option>
                                                 @endforeach
                                             </select>
                                             @error('wajah')
@@ -337,13 +337,13 @@
                                                 <option selected disabled>Pilih Usia Nikah ideal</option>
                                                 @foreach ($nikah as $item)
                                                     @if ($item->usia == 'ideal')
-                                                    <option value="{{ $item->usia }}" style="text-transform: capitalize;">{{ $item->usia }} : 19-25 tahun</option>
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->usia }} : 19-25 tahun</option>
                                                     @endif
                                                     @if ($item->usia == 'cukup')
-                                                    <option value="{{ $item->usia }}" style="text-transform: capitalize;">{{ $item->usia }} : 26-30 tahun</option>
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->usia }} : 26-30 tahun</option>
                                                     @endif
                                                     @if ($item->usia == 'waspadah')
-                                                    <option value="{{ $item->usia }}" style="text-transform: capitalize;">{{ $item->usia }} : 31 > tahun</option>
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->usia }} : 31 > tahun</option>
                                                     @endif
                                                 @endforeach
                                             </select>

@@ -43,7 +43,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['level:admin','auth']], func
         Route::get('/', 'Admin\AkhwatController@index')->name('daftar-akhwat');
         Route::get('/create', 'Admin\AkhwatController@create')->name('tambah-akhwat');
         Route::post('/store', 'Admin\AkhwatController@store')->name('storeAkhwat');
-        Route::get('/akhwat/Azizah-Nur-Safitri', 'Admin\AkhwatController@details')->name('details-akhwat');
+        Route::get('/{nama}', 'Admin\AkhwatController@details')->name('details-akhwat');
+        Route::get('/download-cv/{cv}', 'Admin\AkhwatController@download')->name('downloadcv');
+        Route::put('/update', 'Admin\AkhwatController@update')->name('updatedAkhwat');
+        Route::delete('/delete', 'Admin\AkhwatController@delete')->name('deleteAkhwat');
     });
 });
 

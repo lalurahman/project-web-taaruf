@@ -20,7 +20,7 @@ class CreateAkhwatsTable extends Migration
             $table->string('no_hp', 15)->unique();
             $table->text('cv');
             $table->text('riwayat_penyakit');
-            $table->unsignedBigInteger('keterampilan_id');
+            $table->text('keterampilan_id');
             $table->unsignedBigInteger('suku_id');
             $table->unsignedBigInteger('rambut_id');
             $table->unsignedBigInteger('pekerjaan_id');
@@ -35,7 +35,7 @@ class CreateAkhwatsTable extends Migration
             $table->timestamps();
 
             $table->foreign('suku_id')->references('id')->on('sukus')->onDelete('cascade');
-            $table->foreign('keterampilan_id')->references('id')->on('keterampilans')->onDelete('cascade');
+            // $table->foreign('keterampilan_id')->references('id')->on('keterampilans')->onDelete('cascade');
             $table->foreign('rambut_id')->references('id')->on('rambuts')->onDelete('cascade');
             $table->foreign('pekerjaan_id')->references('id')->on('pekerjaans')->onDelete('cascade');
             $table->foreign('wajah_id')->references('id')->on('wajahs')->onDelete('cascade');

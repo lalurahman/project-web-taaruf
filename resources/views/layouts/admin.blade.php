@@ -8,11 +8,17 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <meta name="csrf-token" content="{!! csrf_token() !!}">
 
     <title>@yield('title')</title>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="/style/main.css" rel="stylesheet" />
+    @if (session('success'))
+        <script>
+            alert("{{ session('success') }}")
+        </script>
+    @endif
     <script>
         $('.alert').alert()
     </script>
@@ -41,5 +47,6 @@
     {{-- script --}}
     @stack('prepend')
     @include('includes.script')
+    @yield('script')
   </body>
 </html>
