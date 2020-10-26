@@ -10,6 +10,10 @@ class TubuhController extends Controller
 {
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'tubuh' => 'required|string|max:100'
+        ]);
+
         $data = $request->all();
 
         Tubuh::create($data);

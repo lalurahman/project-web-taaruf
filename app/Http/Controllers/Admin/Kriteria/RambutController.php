@@ -10,6 +10,10 @@ class RambutController extends Controller
 {
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'rambut' => 'required|string|max:100'
+        ]);
+
         $data = $request->all();
 
         Rambut::create($data);

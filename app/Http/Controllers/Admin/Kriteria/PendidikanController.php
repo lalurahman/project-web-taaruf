@@ -10,6 +10,10 @@ class PendidikanController extends Controller
 {
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'pendidikan' => 'required|string|max:100'
+        ]);
+
         $data = $request->all();
 
         Pendidikan::create($data);

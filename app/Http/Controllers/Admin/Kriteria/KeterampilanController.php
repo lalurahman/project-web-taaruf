@@ -36,6 +36,10 @@ class KeterampilanController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'keterampilan' => 'required|string|max:100'
+        ]);
+
         $data = $request->all();
 
         Keterampilan::create($data);

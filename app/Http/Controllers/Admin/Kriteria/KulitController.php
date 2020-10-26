@@ -10,6 +10,10 @@ class KulitController extends Controller
 {
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'kulit' => 'required|string|max:100'
+        ]);
+
         $data = $request->all();
 
         Kulit::create($data);

@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\LoginRequest;
-use Auth, Redirect, DB;
 
 class LoginController extends Controller
 {
@@ -41,30 +39,5 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function login(LoginRequest $request)
-    {
-        if ($this->attemptLogin($request)) {
-            $user = Auth::user();
-
-            if ($user->is_active == 1) {
-                if ($user->status == 'admin') {
-                    session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'status' => $user->status]);
-                    return Redirect::to('admin');
-                } else if ($user->status == 'user') {
-                    session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'status' => $user->status]);
-                    return Redirect::to('/');
-                }
-            } else {
-                Session::flash('Message', 'Akun '.$request->email.' belum di verifikasi');
-                return Redirect::to('login');
-            }
-        }
-        return $this->sendFailedLoginResponse($request);
-    }
-
-    public function logout(){
-        session()->flush();
-        Auth::logout();
-        return Redirect::to('login');
-    }
+    
 }

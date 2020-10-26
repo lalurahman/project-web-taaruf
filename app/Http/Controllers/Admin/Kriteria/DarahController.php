@@ -10,6 +10,10 @@ class DarahController extends Controller
 {
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'darah' => 'required|string|max:100'
+        ]);
+        
         $data = $request->all();
 
         Darah::create($data);

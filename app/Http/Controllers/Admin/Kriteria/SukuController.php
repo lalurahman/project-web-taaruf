@@ -10,6 +10,10 @@ class SukuController extends Controller
 {
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'suku' => 'required|string|max:100'
+        ]);
+
         $data = $request->all();
 
         Suku::create($data);

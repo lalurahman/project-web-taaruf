@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\UserDetail;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -62,13 +65,64 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    // protected function create(array $data)
+    // {
+    //     $user =  User::create([
+    //         'name' => $data['name'],
+    //         'email' => $data['email'],
+    //         'password' => Hash::make($data['password']),
+    //     ]);
+
+    //     $detail = new UserDetail();
+    //     $detail->biodata                = $data['biodata'];
+    //     $detail->rekomendasi_murobbi    = $data['rekomendasi_murobbi'];
+    //     $detail->izin_nikah             = $data['izin_nikah'];
+    //     $detail->keterangan_sehat       = $data['keterangan_sehat'];
+
+    //     return User::find($user->id)->details()->save($detail);
+
+    // }
+
+    public function register(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $user =  User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);  
+        
+        $detail = new UserDetail();
+        
+        $file = $request->file('biodata');
+        $file_name = time() . "_" . $file->getClientOriginalName();
+        $storage = 'assets/upload/ikhwan';
+        $file->move($storage, $file_name);
+        $detail->biodata = $file_name;
+        
+        $file = $request->file('rekomendasi_murobbi');
+        $file_name = time() . "_" . $file->getClientOriginalName();
+        $storage = 'assets/upload/ikhwan';
+        $file->move($storage, $file_name);
+        $detail->rekomendasi_murobbi = $file_name;
+        
+        $file = $request->file('izin_nikah');
+        $file_name = time() . "_" . $file->getClientOriginalName();
+        $storage = 'assets/upload/ikhwan';
+        $file->move($storage, $file_name);
+        $detail->izin_nikah = $file_name;
+        
+        $file = $request->file('keterangan_sehat');
+        $file_name = time() . "_" . $file->getClientOriginalName();
+        $storage = 'assets/upload/ikhwan';
+        $file->move($storage, $file_name);
+        $detail->keterangan_sehat = $file_name;
+
+        User::find($user->id)->details()->save($detail);
+
+        return $request->wantsJson()
+                    ? new JsonResponse([], 201)
+                    : redirect()->route('register-success');
+
     }
 
     public function success()

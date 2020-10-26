@@ -66,6 +66,21 @@
                     </span>
                 @enderror
               </div>
+              <div class="form-group">
+                <label for="password_confirmation">Konfirmasi Password</label>
+                <input
+                  type="password"
+                  name="password_confirmation"
+                  id="password_confirmation"
+                  class="form-control @error('password_confirmation') is-invalid @enderror"
+                  required 
+                />
+                @error('password_confirmation')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+              </div>
 
               <div class="form-group">
                 <label for="biodata">Biodata Ikhwa</label>
@@ -105,17 +120,17 @@
               </div>
 
               <div class="form-group">
-                <label for="keterangan_nikah">Surat Keterangan Nikah</label>
+                <label for="izin_nikah">Surat Keterangan Nikah</label>
                 <input
                   type="file"
-                  name="keterangan_nikah"
-                  id="keterangan_nikah"
-                  class="form-control @error('keterangan_nikah') is-invalid @enderror"
+                  name="izin_nikah"
+                  id="izin_nikah"
+                  class="form-control @error('izin_nikah') is-invalid @enderror"
                   required 
                 />
                 <small class="text-muted">surat keterangan persetujuan nikah dari wali
                 </small>
-                @error('keterangan_nikah')
+                @error('izin_nikah')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

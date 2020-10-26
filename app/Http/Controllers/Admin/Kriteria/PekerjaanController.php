@@ -10,6 +10,10 @@ class PekerjaanController extends Controller
 {
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'pekerjaan' => 'required|string|max:100'
+        ]);
+
         $data = $request->all();
 
         Pekerjaan::create($data);

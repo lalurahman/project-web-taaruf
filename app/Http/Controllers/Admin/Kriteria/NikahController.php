@@ -10,6 +10,10 @@ class NikahController extends Controller
 {
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'usia' => 'required|string|max:100'
+        ]);
+
         $data = $request->all();
 
         Nikah::create($data);

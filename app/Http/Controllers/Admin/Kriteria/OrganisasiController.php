@@ -10,6 +10,10 @@ class OrganisasiController extends Controller
 {
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'organisasi' => 'required|string|max:100'
+        ]);
+
         $data = $request->all();
 
         Organisasi::create($data);

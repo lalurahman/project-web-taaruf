@@ -10,6 +10,10 @@ class WajahController extends Controller
 {
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'wajah' => 'required|string|max:100'
+        ]);
+
         $data = $request->all();
 
         Wajah::create($data);

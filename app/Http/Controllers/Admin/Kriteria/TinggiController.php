@@ -10,6 +10,10 @@ class TinggiController extends Controller
 {
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'tinggi' => 'required|string|max:100'
+        ]);
+
         $data = $request->all();
 
         Tinggi::create($data);

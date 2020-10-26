@@ -18,42 +18,44 @@ data-aos="fade-down"
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <!-- desktop -->
-    <ul class="navbar-nav d-none d-lg-flex ml-auto">
-        <li class="nav-item dropdown">
-        <a
-            href="#"
-            class="nav-link"
-            role="button"
-            id="navbarDropdown"
-            data-toggle="dropdown"
-        >
-            <img
-            src="/images/icon-user.png"
-            alt="profile"
-            class="rounded-circle mr-2 profile-picture"
-            />
-            Lalu Abdurrahman
-        </a>
-        <div class="dropdown-menu">
-            <a href="{{ route('logout') }}" 
-            onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();" 
-            class="dropdown-item">Logout</a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-            </form>
-        </div>
-        </li>
-        
-    </ul>
-    <!-- mobile -->
-    <ul class="navbar-nav d-block d-lg-none">
-        <li class="nav-item">
-        <a href="#" class="nav-link">Hi, Lalu Abdurrahman</a>
-        </li>
-        
-    </ul>
+    @auth
+        <!-- desktop -->
+        <ul class="navbar-nav d-none d-lg-flex ml-auto">
+            <li class="nav-item dropdown">
+            <a
+                href="#"
+                class="nav-link"
+                role="button"
+                id="navbarDropdown"
+                data-toggle="dropdown"
+            >
+                <img
+                src="/images/icon-user.png"
+                alt="profile"
+                class="rounded-circle mr-2 profile-picture"
+                />
+                {{ Auth::user()->name }}
+            </a>
+            <div class="dropdown-menu">
+                <a href="{{ route('logout') }}" 
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();" 
+                class="dropdown-item">Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+                </form>
+            </div>
+            </li>
+            
+        </ul>
+        <!-- mobile -->
+        <ul class="navbar-nav d-block d-lg-none">
+            <li class="nav-item">
+            <a href="#" class="nav-link">Hi, {{ Auth::user()->name }}</a>
+            </li>
+            
+        </ul>        
+    @endauth
     </div>
 </div>
 </nav>
