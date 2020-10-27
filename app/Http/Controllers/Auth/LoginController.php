@@ -43,26 +43,26 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    // public function login(LoginRequest $request)
-    // {
-    //     if ($this->attemptLogin($request)) {
-    //         $user = Auth::user();
+    public function login(LoginRequest $request)
+    {
+        if ($this->attemptLogin($request)) {
+            $user = Auth::user();
 
-    //         if ($user->is_active == 1) {
-    //             if ($user->status == 'admin') {
-    //                 session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'status' => $user->status]);
-    //                 return Redirect::to('admin');
-    //             } else if ($user->status == 'user') {
-    //                 session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'status' => $user->status]);
-    //                 return Redirect::to('/');
-    //             }
-    //         } else {
-    //             Session::flash('Message', 'Akun '.$request->email.' belum di verifikasi');
-    //             return Redirect::to('login');
-    //         }
-    //     }
-    //     return $this->sendFailedLoginResponse($request);
-    // }
+            if ($user->is_active == 1) {
+                if ($user->status == 'admin') {
+                    session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'status' => $user->status]);
+                    return Redirect::to('admin');
+                } else if ($user->status == 'user') {
+                    session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'status' => $user->status]);
+                    return Redirect::to('/');
+                }
+            } else {
+                Session::flash('Message', 'Akun '.$request->email.' belum di verifikasi');
+                return Redirect::to('login');
+            }
+        }
+        return $this->sendFailedLoginResponse($request);
+    }
 
     public function logout(){
         session()->flush();

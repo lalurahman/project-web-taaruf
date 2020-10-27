@@ -47,7 +47,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
     });
 });
 
-Route::group(['middleware' => ['auth','user']], function () {
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/', 'DashboardController@index')->name('cari-akhwat');
     Route::get('/profile', 'AccountController@index')->name('profile');
 });
