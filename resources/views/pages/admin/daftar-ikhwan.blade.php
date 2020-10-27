@@ -25,11 +25,11 @@ data-aos="fade-up"
           <li class="nav-item" role="presentation">
             <a
               class="nav-link active"
-              id="pills-home-tab"
+              id="pills-ikhwan-active-tab"
               data-toggle="pill"
-              href="#pills-home"
+              href="#pills-ikhwan-active"
               role="tab"
-              aria-controls="pills-home"
+              aria-controls="pills-ikhwan-active"
               aria-selected="true"
               >Sudah Terverifikasi</a
             >
@@ -37,11 +37,11 @@ data-aos="fade-up"
           <li class="nav-item" role="presentation">
             <a
               class="nav-link"
-              id="pills-profile-tab"
+              id="pills-ikhwan-tab"
               data-toggle="pill"
-              href="#pills-profile"
+              href="#pills-ikhwan"
               role="tab"
-              aria-controls="pills-profile"
+              aria-controls="pills-ikhwan"
               aria-selected="false"
               >Belum Terverifikasi</a
             >
@@ -50,9 +50,9 @@ data-aos="fade-up"
         <div class="tab-content" id="pills-tabContent">
           <div
             class="tab-pane fade show active"
-            id="pills-home"
+            id="pills-ikhwan-active"
             role="tabpanel"
-            aria-labelledby="pills-home-tab"
+            aria-labelledby="pills-ikhwan-active-tab"
           >
             <table class="table">
                 <thead>
@@ -64,24 +64,27 @@ data-aos="fade-up"
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                  @foreach ($ikhwan_active as $item)
+                  <tr>
                     <th scope="row">1</th>
-                    <td>Lalu Abdurrahman</td>
-                    <td>lalurahmanms@gmail.com</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->email }}</td>
                     <td>
-                      <a href="{{ route('details-ikhwan') }}" class="btn btn-primary btn-sm">Lihat Detail</a>
+                      <a href="{{ route('details-ikhwan', $item->id) }}" class="btn btn-primary btn-sm">Lihat Detail</a>
                       <button class="btn btn-danger btn-sm">Hapus</button>
                     </td>
-                </tr>
+                  </tr>
+                  @endforeach
+                
                 
                 </tbody>
             </table>
           </div>
           <div
             class="tab-pane fade"
-            id="pills-profile"
+            id="pills-ikhwan"
             role="tabpanel"
-            aria-labelledby="pills-profile-tab"
+            aria-labelledby="pills-ikhwan-tab"
           >
           <table class="table">
             <thead>
@@ -93,24 +96,26 @@ data-aos="fade-up"
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Harry Helvizar</td>
-                <td>helvizar@gmail.com</td>
-                <td>
-                    <div class="btn-group">
-                        <a href="{{ route('details-ikhwan') }}" class="btn btn-primary text-white">Lihat Detail</a>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Verifikasi</a>
-                          <a class="dropdown-item text-danger" href="#">Hapus</a>
-                          
-                        </div>
-                    </div>
-                </td>
-            </tr>
+              @foreach ($ikhwan as $item)
+              <tr>
+                  <th scope="row">1</th>
+                  <td>{{ $item->name }}</td>
+                  <td>{{ $item->email }}</td>
+                  <td>
+                      <div class="btn-group">
+                          <a href="{{ route('details-ikhwan') }}" class="btn btn-primary text-white">Lihat Detail</a>
+                          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Verifikasi</a>
+                            <a class="dropdown-item text-danger" href="#">Hapus</a>
+                            
+                          </div>
+                      </div>
+                  </td>
+              </tr>
+              @endforeach
             
             </tbody>
           </table>
