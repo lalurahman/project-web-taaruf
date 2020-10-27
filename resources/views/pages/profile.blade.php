@@ -17,7 +17,15 @@ data-aos="fade-up"
   <div class="dashboard-content">
     <div class="row">
       <div class="col-12">
-        <form action="">
+        <form action="{{ route('profile-update', $user->id) }}" method="POST" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+          @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+              <button type="button" class="close" data-dismiss="alert">×</button> 
+                <span>{{ $message }}</span>
+            </div>
+          @endif
           <div class="card">
             <div class="card-body">
               <div class="row">
@@ -29,7 +37,7 @@ data-aos="fade-up"
                       class="form-control"
                       name="name"
                       id="name"
-                      value="Lalu Abdurrahman"
+                      value="{{ $user->name }}"
                     />
                   </div>
                 </div>
@@ -41,7 +49,7 @@ data-aos="fade-up"
                       class="form-control"
                       name="email"
                       id="email"
-                      value="lalurahmanms@gmail.com"
+                      value="{{ $user->email }}"
                     />
                   </div>
                 </div>
@@ -56,10 +64,10 @@ data-aos="fade-up"
                             name="biodata"
                             id="biodata"
                             />
-                            <small class="text-muted">biodata.pdf</small>
+                            <small class="text-muted">{{ $user->details->biodata }}</small>
                         </div>
                         <div class="col-2 mr-auto">
-                            <a href="#" class="btn btn-secondary">Lihat</a>
+                            <a href="{{ url('assets/upload/ikhwan/'. $user->details->biodata) }}" target="_blank" class="btn btn-secondary">Lihat</a>
                         </div>
                     </div>
                   </div>
@@ -75,10 +83,10 @@ data-aos="fade-up"
                             name="rekomendasi_murobbi"
                             id="rekomendasi_murobbi"
                             />
-                            <small class="text-muted">rekomendasi-murobbi.pdf</small>
+                            <small class="text-muted">{{ $user->details->rekomendasi_murobbi }}</small>
                         </div>
                         <div class="col-2 mr-auto">
-                            <a href="#" class="btn btn-secondary">Lihat</a>
+                            <a href="{{ url('assets/upload/ikhwan/'. $user->details->rekomendasi_murobbi) }}" target="_blank" class="btn btn-secondary">Lihat</a>
                         </div>
                     </div>
                   </div>
@@ -95,10 +103,10 @@ data-aos="fade-up"
                               name="izin_nikah"
                               id="izin_nikah"
                               />
-                              <small class="text-muted">izin-nikah.pdf</small>
+                              <small class="text-muted">{{ $user->details->izin_nikah }}</small>
                           </div>
                           <div class="col-2 mr-auto">
-                              <a href="#" class="btn btn-secondary">Lihat</a>
+                              <a href="{{ url('assets/upload/ikhwan/'. $user->details->izin_nikah) }}" target="_blank" class="btn btn-secondary">Lihat</a>
                           </div>
                       </div>
                     </div>
@@ -115,10 +123,10 @@ data-aos="fade-up"
                               name="keterangan_sehat"
                               id="keterangan_sehat"
                               />
-                              <small class="text-muted">keterangan-sehat.pdf</small>
+                              <small class="text-muted">{{ $user->details->keterangan_sehat }}</small>
                           </div>
                           <div class="col-2 mr-auto">
-                              <a href="#" class="btn btn-secondary">Lihat</a>
+                              <a href="{{ url('assets/upload/ikhwan/'. $user->details->keterangan_sehat) }}" target="_blank" class="btn btn-secondary">Lihat</a>
                           </div>
                       </div>
                     </div>

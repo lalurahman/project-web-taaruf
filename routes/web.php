@@ -50,6 +50,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', 'DashboardController@index')->name('cari-akhwat');
     Route::get('/profile', 'AccountController@index')->name('profile');
+    Route::put('/profile/{id}', 'AccountController@update')->name('profile-update');
 });
 
 Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');

@@ -9,6 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        
         if(Auth::user()->roles == 'ADMIN'){
             return redirect()->route('dashboard');
         }

@@ -6,6 +6,8 @@
         class="my-4"
         width="100"
       />
+      <h6>LP2KS</h6>
+
     </div>
     <div class="list-group list-group-flush">
       <a
