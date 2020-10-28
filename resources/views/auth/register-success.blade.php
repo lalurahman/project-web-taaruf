@@ -17,9 +17,19 @@
               Silahkan tunggu beberapa saat untuk dapat memilih calon pasangan anda.
             </p>
             <div>
-              <a href="{{ route('profile') }}" class="btn btn-success w-50 mt-4"
+              {{-- <a href="{{ route('profile') }}" class="btn btn-success w-50 mt-4"
                 >Lihat Profil Saya</a
               >
+              <a href="{{ route('login') }}" class="btn btn-secondary w-50 mt-4"
+                >Masuk Akun</a
+              > --}}
+              <a href="{{ route('logout') }}" 
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();" 
+                class="btn btn-success w-50 mt-4">Keluar</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+                </form>
               
             </div>
           </div>

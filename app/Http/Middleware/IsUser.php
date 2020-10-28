@@ -32,14 +32,14 @@ class IsUser
         //     return redirect()->route('dashboard');
         // }
         
-        if(Auth::user() && Auth::user()->roles == 'USER'){
-            if(Auth::user()->is_active == 1){
-                return $next($request);
-            } else {
-                return redirect()->route('register-success');
-            }
+        // if(Auth::user() && Auth::user()->roles == 'USER'){
+        //     if(Auth::user()->is_active == 1){
+        //         return $next($request);
+        //     } else {
+        //         return redirect()->route('register-success');
+        //     }
 
-        }
+        // }
         return redirect('login');
     }
 }

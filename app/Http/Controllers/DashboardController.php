@@ -14,10 +14,12 @@ class DashboardController extends Controller
             return redirect()->route('dashboard');
         }
 
-        // if(Auth::user()->is_active == 0){
-        //     return redirect()->route('register-success');
+        // if(Auth::user()->is_active == 1){
+        //     // return redirect()->route('register-success');
+        //     return view('pages.cari-akhwat');
         // }
 
         return view('pages.cari-akhwat');
+
     }
 }
