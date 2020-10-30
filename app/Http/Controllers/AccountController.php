@@ -11,7 +11,8 @@ class AccountController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
+        $user = User::with('details')->where('id', Auth::id())->first();
+        dd($user);
         return view('pages.profile',[
             'user' => $user
         ]);

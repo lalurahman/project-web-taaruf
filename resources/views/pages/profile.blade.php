@@ -64,7 +64,7 @@ data-aos="fade-up"
                             name="biodata"
                             id="biodata"
                             />
-                            <small class="text-muted">{{ $user->details->biodata }}</small>
+                            <small class="text-muted">{{ $user->details($user->id)->biodata }}</small>
                         </div>
                         <div class="col-2 mr-auto">
                             <a href="{{ url('assets/upload/ikhwan/'. $user->details->biodata) }}" target="_blank" class="btn btn-secondary">Lihat</a>

@@ -17,6 +17,7 @@ Route::post('login', 'AuthUserController@getlogin');
 Route::get('logout', 'AuthUserController@logout')->name('logout');
 
 Route::get('register', 'AuthUserController@register')->name('register');
+Route::post('register', 'AuthUserController@registerProcess')->name('register-process');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], function () {
     Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
@@ -58,7 +59,7 @@ Route::group(['middleware' => ['auth', 'admin:USER']], function () {
     Route::put('/profile/{id}', 'AccountController@update')->name('profile-update');
 });
 
-Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');
+// Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');
 
 // Auth::routes();
 

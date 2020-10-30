@@ -15,7 +15,7 @@
               Masukkan data diri anda secara lengkap !
               
             </h2>
-            <form action="{{ route('register') }}" method="post" class="mt-3" enctype="multipart/form-data">
+            <form action="{{ route('register-process') }}" method="post" class="mt-3" enctype="multipart/form-data">
                 @csrf
               <div class="form-group">
                 <label for="name">Nama Lengkap</label>
