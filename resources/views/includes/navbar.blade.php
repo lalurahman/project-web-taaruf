@@ -37,24 +37,25 @@ data-aos="fade-down"
                 {{ Auth::user()->name }}
             </a>
             <div class="dropdown-menu">
-                <a href="{{ route('logout') }}" 
+                {{-- <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();" 
-                class="dropdown-item">Logout</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                document.getElementById('logout-form').submit();"
+                class="dropdown-item">Logout</a> --}}
+                {{-- <form id="logout-form" action="{{ route('logout') }}" method="GET" style="display: none;">
                 @csrf
-                </form>
+                </form> --}}
+                <a href="{{ route('logout') }}" class="dropdown-item">logout</a>
             </div>
             </li>
-            
+
         </ul>
         <!-- mobile -->
         <ul class="navbar-nav d-block d-lg-none">
             <li class="nav-item">
             <a href="#" class="nav-link">Hi, {{ Auth::user()->name }}</a>
             </li>
-            
-        </ul>        
+
+        </ul>
     @endauth
     </div>
 </div>

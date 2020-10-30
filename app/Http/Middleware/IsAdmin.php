@@ -15,30 +15,12 @@ class IsAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $roles)
     {
-        // if(in_array($request->user()->level, $levels)){
-        //     return $next($request);
-        // }
-        // dd($levels);
-        // if(Auth::user() ){
-        //     return $next($request);
-        // } 
-        // dd(Auth::user()->roles);
-        // foreach ($levels as $level) {
-        //     if(Auth::user()->roles == $level){
-        //         return $next($request);
-        //     }
-        // }
-        // if(Auth::user()->roles == 'ADMIN'){
-        //     return $next($request);
-        // }
-        // if (Auth::user()->roles == 'ADMIN' || Auth::user()->roles == 'USER') {
-        //     return $next($request);
-        // } 
-        if(Auth::user() && Auth::user()->roles == 'ADMIN'){
+        if (Auth::user()->roles == $roles)  {
             return $next($request);
+        } else {
+            return redirect()->back();
         }
-        return redirect('login');
     }
 }

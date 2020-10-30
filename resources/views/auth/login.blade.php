@@ -5,7 +5,11 @@
 @endsection
 
 @section('content')
-
+@if (session('Message'))
+    <script>
+        alert("{{ session('Message') }}")
+    </script>
+@endif
 <div class="page-content page-auth">
     <div class="section-store-auth" data-aos="fade-up">
       <div class="container">
@@ -30,9 +34,9 @@
                   name="email"
                   id="email"
                   class="form-control w-75 @error('email') is-invalid @enderror"
-                  value="{{ old('email') }}" 
-                  required 
-                  autocomplete="email" 
+                  value="{{ old('email') }}"
+                  required
+                  autocomplete="email"
                   autofocus
                 />
                 @error('email')

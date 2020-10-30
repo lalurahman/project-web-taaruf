@@ -12,8 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('login', 'AuthUserController@login')->name('login');
+Route::post('login', 'AuthUserController@getlogin');
+Route::get('logout', 'AuthUserController@logout')->name('logout');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function () {
+Route::get('register', 'AuthUserController@register')->name('register');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], function () {
     Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
     Route::get('/ikhwan', 'Admin\IkhwanController@index')->name('daftar-ikhwan');
     Route::get('/ikhwan/12', 'Admin\IkhwanController@details')->name('details-ikhwan');
@@ -47,7 +52,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
     });
 });
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'admin:USER']], function () {
     Route::get('/', 'DashboardController@index')->name('cari-akhwat');
     Route::get('/profile', 'AccountController@index')->name('profile');
     Route::put('/profile/{id}', 'AccountController@update')->name('profile-update');
@@ -55,5 +60,5 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');
 
-Auth::routes();
+// Auth::routes();
 
