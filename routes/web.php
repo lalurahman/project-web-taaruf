@@ -22,7 +22,9 @@ Route::post('register', 'AuthUserController@registerProcess')->name('register-pr
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], function () {
     Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
     Route::get('/ikhwan', 'Admin\IkhwanController@index')->name('daftar-ikhwan');
-    Route::get('/ikhwan/12', 'Admin\IkhwanController@details')->name('details-ikhwan');
+    Route::get('/ikhwan/{id}', 'Admin\IkhwanController@details')->name('details-ikhwan');
+    Route::put('/ikhwan/update', 'Admin\IkhwanController@update')->name('updated-ikhwan');
+
     Route::get('/pasangan', 'Admin\PasanganController@index')->name('daftar-pasangan');
     Route::get('/pasangan/15', 'Admin\PasanganController@details')->name('details-pasangan');
     Route::get('/kriteria', 'Admin\KriteriaController@index')->name('daftar-kriteria');

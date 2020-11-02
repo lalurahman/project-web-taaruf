@@ -7,7 +7,14 @@
 @section('content')
 @if (session('Message'))
     <script>
-        alert("{{ session('Message') }}")
+         Swal.fire({
+          title: 'Afwan!',
+          text: 'Akun anda belum diaktifkan.',
+          imageUrl: '{{ url('images/success.jpg') }}',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Custom image',
+        })
     </script>
 @endif
 <div class="page-content page-auth">
@@ -74,3 +81,4 @@
 </div>
 
 @endsection
+

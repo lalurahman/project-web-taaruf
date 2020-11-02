@@ -22,7 +22,9 @@ data-aos="fade-up"
         >
           Kembali
         </a>
-        <form action="">
+        <form action="{{ route('updated-ikhwan') }}" method="POST" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
           <div class="card">
             <div class="card-body">
               <div class="row">
@@ -34,7 +36,7 @@ data-aos="fade-up"
                       class="form-control"
                       name="name"
                       id="name"
-                      value="Lalu Abdurrahman"
+                      value="{{ $ikhwan->name }}"
                       readonly
                     />
                   </div>
@@ -47,7 +49,7 @@ data-aos="fade-up"
                       class="form-control"
                       name="email"
                       id="email"
-                      value="lalurahmanms@gmail.com"
+                      value="{{ $ikhwan->email }}"
                       readonly
                     />
                   </div>
@@ -63,12 +65,12 @@ data-aos="fade-up"
                             class="form-control"
                             name="biodata"
                             id="biodata"
-                            value="biodata.pdf"
+                            value="{{ $ikhwan->details->biodata }}"
                             readonly
                             />
                         </div>
                         <div class="col-2 mr-auto">
-                            <a href="#" class="btn btn-secondary">Lihat</a>
+                            <a href="{{ url('assets/upload/ikhwan/'. $ikhwan->details->biodata) }}" target="_blank" class="btn btn-secondary">Lihat</a>
                         </div>
                     </div>
                   </div>
@@ -84,12 +86,12 @@ data-aos="fade-up"
                             class="form-control"
                             name="rekomendasi_murobbi"
                             id="rekomendasi_murobbi"
-                            value="rekomendasi_murobbi.pdf"
+                            value="{{ $ikhwan->details->rekomendasi_murobbi }}"
                             readonly
                             />
                         </div>
                         <div class="col-2 mr-auto">
-                            <a href="#" class="btn btn-secondary">Lihat</a>
+                            <a href="{{ url('assets/upload/ikhwan/'. $ikhwan->details->rekomendasi_murobbi) }}" target="_blank" class="btn btn-secondary">Lihat</a>
                         </div>
                     </div>
                   </div>
@@ -105,12 +107,12 @@ data-aos="fade-up"
                             class="form-control"
                             name="keterangan_nikah"
                             id="keterangan_nikah"
-                            value="surat_izin_nikah.pdf"
+                            value="{{ $ikhwan->details->izin_nikah }}"
                             readonly
                             />
                         </div>
                         <div class="col-2 mr-auto">
-                            <a href="#" class="btn btn-secondary">Lihat</a>
+                            <a href="{{ url('assets/upload/ikhwan/'. $ikhwan->details->izin_nikah) }}" target="_blank" class="btn btn-secondary">Lihat</a>
                         </div>
                     </div>
                   </div>
@@ -126,18 +128,16 @@ data-aos="fade-up"
                             class="form-control"
                             name="keterangan_sehat"
                             id="keterangan_sehat"
-                            value="keterangan_sehat.pdf"
+                            value="{{ $ikhwan->details->keterangan_sehat }}"
                             readonly
                             />
                         </div>
                         <div class="col-2 mr-auto">
-                            <a href="#" class="btn btn-secondary">Lihat</a>
+                            <a href="{{ url('assets/upload/ikhwan/'. $ikhwan->details->keterangan_sehat) }}" target="_blank" class="btn btn-secondary">Lihat</a>
                         </div>
                     </div>
                   </div>
-                </div>
-
-                                  
+                </div>       
                 
               </div>
               <div class="row">

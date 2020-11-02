@@ -19,8 +19,26 @@ class IkhwanController extends Controller
         ]);
     }
 
-    public function details()
+    public function details($id)
     {
-        return view('pages.admin.detail-ikhwan');
+        $ikhwan = User::with('details')->findOrFail($id);
+        
+        return view('pages.admin.detail-ikhwan',[
+            'ikhwan' => $ikhwan
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+
+        $item = User::with('details')->findOrFail($id);
+        $data['is_active'] = 1;
+
+        $item->update($data);
+
+        dd($item);
+
+        return redirect()->route('daftar-ikhwan');
     }
 }

@@ -103,7 +103,7 @@ data-aos="fade-up"
                   <td>{{ $item->email }}</td>
                   <td>
                       <div class="btn-group">
-                          <a href="{{ route('details-ikhwan') }}" class="btn btn-primary text-white">Lihat Detail</a>
+                          <a href="{{ route('details-ikhwan', $item->id) }}" class="btn btn-primary text-white">Lihat Detail</a>
                           <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
                           </button>
