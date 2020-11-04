@@ -28,17 +28,12 @@ class IkhwanController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $data = $request->all();
-
-        $item = User::with('details')->findOrFail($id);
-        $data['is_active'] = 1;
-
-        $item->update($data);
-
-        dd($item);
-
+        $data = $request->id;
+        $item = User::find($data);
+        $item->is_active = 1;
+        $item->save();
         return redirect()->route('daftar-ikhwan');
     }
 }

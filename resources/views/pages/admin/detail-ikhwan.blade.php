@@ -25,6 +25,7 @@ data-aos="fade-up"
         <form action="{{ route('updated-ikhwan') }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PUT')
+          <input type="hidden" name="id" value="{{ $ikhwan->id }}">
           <div class="card">
             <div class="card-body">
               <div class="row">
@@ -59,7 +60,22 @@ data-aos="fade-up"
                   <div class="form-group">
                     <label for="biodata">Biodata Ikhwa</label>
                     <div class="row">
-                        <div class="col-10">
+                        @if ($ikhwan->details == null)
+                          <div class="col-10">
+                              <input
+                              type="text"
+                              class="form-control"
+                              name="biodata"
+                              id="biodata"
+                              value=""
+                              readonly
+                              />
+                          </div>
+                          <div class="col-2 mr-auto">
+                            <a href="" target="_blank" class="btn btn-secondary">Lihat</a>
+                          </div>
+                        @else
+                          <div class="col-10">
                             <input
                             type="text"
                             class="form-control"
@@ -68,10 +84,11 @@ data-aos="fade-up"
                             value="{{ $ikhwan->details->biodata }}"
                             readonly
                             />
-                        </div>
-                        <div class="col-2 mr-auto">
+                          </div>
+                          <div class="col-2 mr-auto">
                             <a href="{{ url('assets/upload/ikhwan/'. $ikhwan->details->biodata) }}" target="_blank" class="btn btn-secondary">Lihat</a>
-                        </div>
+                          </div>
+                        @endif
                     </div>
                   </div>
                 </div>
