@@ -54,7 +54,7 @@ data-aos="fade-up"
             role="tabpanel"
             aria-labelledby="pills-ikhwan-active-tab"
           >
-            <table class="table">
+            <table class="table table-hover scroll-horizontal-vertical w-100">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -64,14 +64,26 @@ data-aos="fade-up"
                 </tr>
                 </thead>
                 <tbody>
+                  @php
+                      $no = 1;
+                  @endphp
                   @foreach ($ikhwan_active as $item)
                   <tr>
-                    <th scope="row">1</th>
+                    <th scope="row">{{ $no++ }}</th>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->email }}</td>
                     <td>
-                      <a href="{{ route('details-ikhwan', $item->id) }}" class="btn btn-primary btn-sm">Lihat Detail</a>
-                      <button class="btn btn-danger btn-sm">Hapus</button>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Aksi</button>
+                        <div class="dropdown-menu">
+                            <a href="{{ route('details-ikhwan', $item->id) }}" class="dropdown-item">Lihat Detail</a>
+                            <form action="{{ route('delete-ikhwan', $item->id) }}" method="post">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                            </form>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   @endforeach
@@ -86,7 +98,7 @@ data-aos="fade-up"
             role="tabpanel"
             aria-labelledby="pills-ikhwan-tab"
           >
-          <table class="table">
+          <table class="table table-hover scroll-horizontal-vertical w-100">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -96,9 +108,12 @@ data-aos="fade-up"
             </tr>
             </thead>
             <tbody>
+              @php
+                  $no = 1;
+              @endphp
               @foreach ($ikhwan as $item)
               <tr>
-                  <th scope="row">1</th>
+                  <th scope="row">{{ $no++ }}</th>
                   <td>{{ $item->name }}</td>
                   <td>{{ $item->email }}</td>
                   <td>
@@ -108,8 +123,17 @@ data-aos="fade-up"
                             <span class="sr-only">Toggle Dropdown</span>
                           </button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Verifikasi</a>
-                            <a class="dropdown-item text-danger" href="#">Hapus</a>
+                            <form action="{{ route('updated-ikhwan') }}" method="post" enctype="multipart/form-data">
+                              @csrf
+                              @method('PUT')
+                              <input type="hidden" name="id" value="{{ $item->id }}">
+                              <button type="submit" class="dropdown-item">Verifikasi</button>
+                            </form>
+                            <form action="{{ route('delete-ikhwan', $item->id) }}" method="post">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                            </form>
                             
                           </div>
                       </div>

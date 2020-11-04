@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
     Route::get('/ikhwan', 'Admin\IkhwanController@index')->name('daftar-ikhwan');
     Route::get('/ikhwan/{id}', 'Admin\IkhwanController@details')->name('details-ikhwan');
     Route::put('/ikhwan/update', 'Admin\IkhwanController@update')->name('updated-ikhwan');
+    Route::delete('/ikhwan/{id}', 'Admin\IkhwanController@destroy')->name('delete-ikhwan');
 
     Route::get('/pasangan', 'Admin\PasanganController@index')->name('daftar-pasangan');
     Route::get('/pasangan/15', 'Admin\PasanganController@details')->name('details-pasangan');
@@ -58,7 +59,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
 Route::group(['middleware' => ['auth', 'admin:USER']], function () {
     Route::get('/', 'DashboardController@index')->name('cari-akhwat');
     Route::get('/profile', 'AccountController@index')->name('profile');
-    Route::put('/profile/{id}', 'AccountController@update')->name('profile-update');
+    Route::put('/profile', 'AccountController@update')->name('profile-update');
 });
 
 // Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');

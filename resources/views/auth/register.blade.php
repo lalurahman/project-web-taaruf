@@ -13,8 +13,13 @@
           <div class="col-lg-4">
             <h2>
               Masukkan data diri anda secara lengkap !
-              
             </h2>
+            @if($errors->any())
+              <div class="alert alert-danger alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button> 
+                <span>{{ $errors->first() }}</span>
+              </div>
+            @endif
             <form action="{{ route('register-process') }}" method="post" class="mt-3" enctype="multipart/form-data">
                 @csrf
               <div class="form-group">
@@ -95,7 +100,7 @@
                   class="form-control @error('biodata') is-invalid @enderror"
                   required 
                 />
-                <small class="text-muted">dokumen biodata lengkap anda
+                <small class="text-muted">dokumen biodata lengkap anda (pdf)
                 </small>
                 @error('biodata')
                     <span class="invalid-feedback" role="alert">
@@ -114,7 +119,7 @@
                   required 
                 />
                 <small class="text-muted">surat keterangan dari murobbi, bahwa aktif
-                    tarbiyah minimal 3 bulan</small>
+                    tarbiyah minimal 3 bulan (pdf)</small>
 
                 @error('rekomendasi_murobbi')
                     <span class="invalid-feedback" role="alert">
@@ -132,7 +137,7 @@
                   class="form-control @error('izin_nikah') is-invalid @enderror"
                   required 
                 />
-                <small class="text-muted">surat keterangan persetujuan nikah dari wali
+                <small class="text-muted">surat keterangan persetujuan nikah dari wali (pdf)
                 </small>
                 @error('izin_nikah')
                     <span class="invalid-feedback" role="alert">
@@ -150,7 +155,7 @@
                   class="form-control @error('keterangan_sehat') is-invalid @enderror"
                   required 
                 />
-                <small class="text-muted">surat keterangan sehat dari dokter
+                <small class="text-muted">surat keterangan sehat dari dokter (pdf)
                 </small>
                 @error('keterangan_sehat')
                     <span class="invalid-feedback" role="alert">

@@ -59,17 +59,42 @@ class AuthUserController extends Controller
         return view('auth.register');
     }
 
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
+    // protected function validator(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'name' => ['required', 'string', 'max:255'],
+    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+    //         'password' => ['required', 'string', 'min:8', 'confirmed'],
+    //         'biodata' => 'file|mimes:pdf|max:5048',
+    //         'rekomendasi_murobbi' => 'file|mimes:pdf|max:5048',
+    //         'izin_nikah' => 'file|mimes:pdf|max:5048',
+    //         'keterangan_sehat' => 'file|mimes:pdf|max:5048'
+    //     ], [
+    //         'email.unique' => 'Email sudah ada di database',
+    //         'biodata.mimes' => 'Format file harus PDF',
+    //         'rekomendasi_murobbi.mimes' => 'Format file harus PDF',
+    //         'izin_nikah.mimes' => 'Format file harus PDF',
+    //         'keterangan_nikah.mimes' => 'Format file harus PDF'
+    //     ]);
+    // }
 
     public function registerProcess(Request $request)
     {
+        $this->validate($request,[
+            'name' => 'required|max:50|string',
+            'email' => 'string|unique:users,email,'.Auth::id(),
+            'biodata' => 'file|mimes:pdf|max:5048',
+            'rekomendasi_murobbi' => 'file|mimes:pdf|max:5048',
+            'izin_nikah' => 'file|mimes:pdf|max:5048',
+            'keterangan_sehat' => 'file|mimes:pdf|max:5048'
+        ], [
+            'email.unique' => 'Email sudah ada di database',
+            'biodata.mimes' => 'Format file harus PDF',
+            'rekomendasi_murobbi.mimes' => 'Format file harus PDF',
+            'izin_nikah.mimes' => 'Format file harus PDF',
+            'keterangan_sehat.mimes' => 'Format file harus PDF'
+        ]);
+
         $user =  User::create([
             'name' => $request->name,
             'email' => $request->email,

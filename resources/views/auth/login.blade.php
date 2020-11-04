@@ -8,12 +8,9 @@
 @if (session('Message'))
     <script>
          Swal.fire({
+          icon: 'error',
           title: 'Afwan!',
-          text: 'Akun anda belum diaktifkan.',
-          imageUrl: '{{ url('images/success.jpg') }}',
-          imageWidth: 400,
-          imageHeight: 200,
-          imageAlt: 'Custom image',
+          text: 'Akun anda belum diaktifkan!',
         })
     </script>
 @endif

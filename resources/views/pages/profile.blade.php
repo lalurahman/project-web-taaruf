@@ -17,13 +17,19 @@ data-aos="fade-up"
   <div class="dashboard-content">
     <div class="row">
       <div class="col-12">
-        <form action="{{ route('profile-update', $user->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('profile-update') }}" method="POST" enctype="multipart/form-data">
           @csrf
-          @method('PUT')
+          @method('put')
           @if ($message = Session::get('success'))
             <div class="alert alert-success alert-block">
               <button type="button" class="close" data-dismiss="alert">×</button> 
                 <span>{{ $message }}</span>
+            </div>
+          @endif
+          @if($errors->any())
+            <div class="alert alert-danger alert-block">
+              <button type="button" class="close" data-dismiss="alert">×</button> 
+              <span>{{ $errors->first() }}</span>
             </div>
           @endif
           <div class="card">
@@ -51,6 +57,20 @@ data-aos="fade-up"
                       id="email"
                       value="{{ $user->email }}"
                     />
+                    
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="email">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      name="password"
+                      id="password"
+                      value=""
+                    />
+                    <small class="text-muted">kosongkan jika tidak diganti</small>
                   </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -64,7 +84,7 @@ data-aos="fade-up"
                             name="biodata"
                             id="biodata"
                             />
-                            <small class="text-muted">{{ $user->details($user->id)->biodata }}</small>
+                            <small class="text-muted">{{ $user->details->biodata }}</small>
                         </div>
                         <div class="col-2 mr-auto">
                             <a href="{{ url('assets/upload/ikhwan/'. $user->details->biodata) }}" target="_blank" class="btn btn-secondary">Lihat</a>

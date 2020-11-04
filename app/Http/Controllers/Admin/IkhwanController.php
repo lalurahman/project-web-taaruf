@@ -36,4 +36,12 @@ class IkhwanController extends Controller
         $item->save();
         return redirect()->route('daftar-ikhwan');
     }
+
+    public function destroy($id)
+    {
+        $item = User::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('daftar-ikhwan');
+    }
 }

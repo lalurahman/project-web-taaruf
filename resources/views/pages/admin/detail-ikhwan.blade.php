@@ -157,17 +157,19 @@ data-aos="fade-up"
                 </div>       
                 
               </div>
-              <div class="row">
-                <div class="col text-right">
-                  
-                  <button
-                    type="submit"
-                    class="btn btn-success px-5"
-                  >
-                    Verifikasi
-                  </button>
+              @if ($ikhwan->is_active == 0)
+                <div class="row">
+                  <div class="col text-right"> 
+                    <button
+                      type="submit"
+                      class="btn btn-success px-5"
+                    >
+                      Verifikasi
+                    </button>
+                  </div>
                 </div>
-              </div>
+              @endif
+
             </div>
           </div>
         </form>

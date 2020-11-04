@@ -28,7 +28,7 @@ data-aos="fade-up"
                   Ikhwan
                 </div>
                 <div class="dashboard-card-subtitle">
-                  120 <small>orang</small>
+                  {{ $ikhwan_active }} <small>orang</small>
                 </div>
               </div>
               
@@ -48,7 +48,7 @@ data-aos="fade-up"
                   Akhwat
                 </div>
                 <div class="dashboard-card-subtitle">
-                  150 <small>orang</small>
+                  {{ $akhwat }} <small>orang</small>
                 </div>
               </div>
             </div>
@@ -83,7 +83,7 @@ data-aos="fade-up"
               Ikhwan belum diverifikasi
             </div>
             <div class="dashboard-card-subtitle text-white">
-              2560 <small>orang</small>
+              {{ $ikhwan }} <small>orang</small>
             </div>
           </div>
         </div>
