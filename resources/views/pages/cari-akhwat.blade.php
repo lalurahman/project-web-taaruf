@@ -22,66 +22,39 @@ data-aos="fade-up"
     </svg> Cari Calon</button>
     
     <div class="row mt-2">
-      <div class="col-12 col-md-10">
+      <div class="col-12 col-md-12">
         <p class="text-muted ml-1">Daftar calon pasangan sesuai dengan kriteria yang anda harapkan</p>
+        
         <div class="card card-list">
           <div class="card-body">
             <div class="row">
               
-              <div class="col-6">
+              <div class="col-4">
                 Zahra Fitriani Firdaus
               </div>
               <div class="col-3">
                 22 Tahun
               </div>
+              <div class="col-2">
+                80 %
+              </div>
               <div class="col-3">
                 <a href="#" class="btn btn-secondary">Lihat Detail</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-12 col-md-10">
-        <div class="card card-list">
+        
+        <div class="card card-list d-none">
           <div class="card-body">
-            <div class="row">
-              
-              <div class="col-6">
-                Siti Mutmainnah
-              </div>
-              <div class="col-3">
-                23 Tahun
-              </div>
-              <div class="col-3">
-                <a href="#" class="btn btn-secondary">Lihat Detail</a>
-              </div>
-            </div>
+              <h6 class="text-muted text-center">Belum ada daftar calon pasangan</h6>
           </div>
         </div>
+        
+
       </div>
     </div>
-    <div class="row mt-2">
-      <div class="col-12 col-md-10">
-        <div class="card card-list">
-          <div class="card-body">
-            <div class="row">
-              
-              <div class="col-6">
-                Wahyuni 
-              </div>
-              <div class="col-3">
-                21 Tahun
-              </div>
-              <div class="col-3">
-                <a href="#" class="btn btn-secondary">Lihat Detail</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </div>
 </div>
 </div>
@@ -102,77 +75,151 @@ data-aos="fade-up"
       <div class="modal-body">
         <form action="#" method="post">
           <div class="row">
+            @php
+                $no = 1;
+            @endphp
               <div class="col-10 mb-3">
-                  <h6>1. Keterampilan</h6>
+                  <h6>{{ $no++ }}. Keterampilan</h6>
+                  @foreach ($keterampilan as $item)
                   <div class="form-check mb-2 ml-3">
-                      <input class="form-check-input" type="checkbox" value="" id="memasak">
-                      <label class="form-check-label" for="memasak">
-                        Memasak
-                      </label>
+                    <input class="form-check-input" type="checkbox" value="" id="{{ $item->keterampilan }}">
+                    <label class="form-check-label" for="{{ $item->keterampilan }}">
+                      {{ $item->keterampilan }}
+                    </label>
                   </div>
-                  <div class="form-check mb-2 ml-3">
-                      <input class="form-check-input" type="checkbox" value="" id="mencuci">
-                      <label class="form-check-label" for="mencuci">
-                        Mencuci
-                      </label>
-                  </div>
-                  <div class="form-check mb-2 ml-3">
-                      <input class="form-check-input" type="checkbox" value="" id="menjahit">
-                      <label class="form-check-label" for="menjahit">
-                        Menjahit
-                      </label>
-                  </div>
-                  
+                  @endforeach                  
               </div>
               
               <div class="col-10 mb-3">
-                  <h6>2. Asal Suku</h6>
-                  <div class="form-check mb-2 ml-3">
-                      <input class="form-check-input" type="checkbox" value="" id="bugis">
-                      <label class="form-check-label" for="bugis">
-                        Bugis
+                  <h6>{{ $no++ }}. Asal Suku</h6>
+                  @foreach ($suku as $item)
+                    <div class="form-check mb-2 ml-3">
+                      <input class="form-check-input" type="radio" name="suku" value="{{ $item->suku }}" id="{{ $item->suku }}">
+                      <label class="form-check-label" for="{{ $item->suku }}">
+                        {{ $item->suku }}
                       </label>
-                  </div>
-                  <div class="form-check mb-2 ml-3">
-                      <input class="form-check-input" type="checkbox" value="" id="jawa">
-                      <label class="form-check-label" for="jawa">
-                        Jawa
-                      </label>
-                  </div>
-                  <div class="form-check mb-2 ml-3">
-                      <input class="form-check-input" type="checkbox" value="" id="sasakLombok">
-                      <label class="form-check-label" for="sasakLombok">
-                        Sasak Lombok
-                      </label>
-                  </div>
-                  <div class="form-check mb-2 ml-3">
-                      <input class="form-check-input" type="checkbox" value="" id="mamuju">
-                      <label class="form-check-label" for="mamuju">
-                        Mamuju
-                      </label>
-                  </div>
+                    </div>  
+                  @endforeach
               </div>
+              
               <div class="col-10 mb-3">
-                  <h6>3. Tinggi badan (berdasarkan range)</h6>
+                  <h6>{{ $no++ }}. Tinggi badan (berdasarkan range)</h6>
+                  @foreach ($tinggi as $item)
                   <div class="form-check mb-2 ml-3">
-                      <input class="form-check-input" type="checkbox" value="" id="pendek">
-                      <label class="form-check-label" for="pendek">
-                        Pendek (140cm - 145cm)
+                    <input class="form-check-input" type="radio" name="tinggi" id="{{ $item->tinggi }}" value="{{ $item->tinggi }}" >
+                      <label class="form-check-label" for="{{ $item->tinggi }}">
+                        {{ $item->tinggi }}
                       </label>
                   </div>
+                  @endforeach
+              </div>
+              
+              <div class="col-10 mb-3">
+                  <h6>{{ $no++ }}. Berat badan (berdasarkan range)</h6>
+                  @foreach ($tubuh as $item)
                   <div class="form-check mb-2 ml-3">
-                      <input class="form-check-input" type="checkbox" value="" id="sedang">
-                      <label class="form-check-label" for="sedang">
-                        Sedang (154cm -166cm)
+                    <input class="form-check-input" type="radio" name="tubuh" id="{{ $item->tubuh }}" value="{{ $item->tubuh }}" >
+                      <label class="form-check-label" for="{{ $item->tubuh }}">
+                        {{ $item->tubuh }}
                       </label>
                   </div>
+                  @endforeach
+              </div>
+              
+              <div class="col-10 mb-3">
+                  <h6>{{ $no++ }}. Organisasi</h6>
+                  @foreach ($organisasi as $item)
                   <div class="form-check mb-2 ml-3">
-                      <input class="form-check-input" type="checkbox" value="" id="tinggi">
-                      <label class="form-check-label" for="tinggi">
-                        Tinggi (167cm - 180cm)
+                    <input class="form-check-input" type="radio" name="organisasi" id="{{ $item->organisasi }}" value="{{ $item->organisasi }}" >
+                      <label class="form-check-label" for="{{ $item->organisasi }}">
+                        {{ $item->organisasi }}
                       </label>
                   </div>
-                  
+                  @endforeach
+              </div>
+              
+              <div class="col-10 mb-3">
+                  <h6>{{ $no++ }}. Pendidikan</h6>
+                  @foreach ($pendidikan as $item)
+                  <div class="form-check mb-2 ml-3">
+                    <input class="form-check-input" type="radio" name="pendidikan" id="{{ $item->pendidikan }}" value="{{ $item->pendidikan }}" >
+                      <label class="form-check-label" for="{{ $item->pendidikan }}">
+                        {{ $item->pendidikan }}
+                      </label>
+                  </div>
+                  @endforeach
+              </div>
+              
+              <div class="col-10 mb-3">
+                  <h6>{{ $no++ }}. Jenis Rambut</h6>
+                  @foreach ($rambut as $item)
+                  <div class="form-check mb-2 ml-3">
+                    <input class="form-check-input" type="radio" name="rambut" id="{{ $item->rambut }}" value="{{ $item->rambut }}" >
+                      <label class="form-check-label" for="{{ $item->rambut }}">
+                        {{ $item->rambut }}
+                      </label>
+                  </div>
+                  @endforeach
+              </div>
+
+              <div class="col-10 mb-3">
+                  <h6>{{ $no++ }}. Warna Kulit</h6>
+                  @foreach ($kulit as $item)
+                  <div class="form-check mb-2 ml-3">
+                    <input class="form-check-input" type="radio" name="kulit" id="{{ $item->kulit }}" value="{{ $item->kulit }}" >
+                      <label class="form-check-label" for="{{ $item->kulit }}">
+                        {{ $item->kulit }}
+                      </label>
+                  </div>
+                  @endforeach
+              </div>
+              
+              <div class="col-10 mb-3">
+                  <h6>{{ $no++ }}. Pekerjaan</h6>
+                  @foreach ($pekerjaan as $item)
+                  <div class="form-check mb-2 ml-3">
+                    <input class="form-check-input" type="radio" name="pekerjaan" id="{{ $item->pekerjaan }}" value="{{ $item->pekerjaan }}" >
+                      <label class="form-check-label" for="{{ $item->pekerjaan }}">
+                        {{ $item->pekerjaan }}
+                      </label>
+                  </div>
+                  @endforeach
+              </div>
+              
+              <div class="col-10 mb-3">
+                  <h6>{{ $no++ }}. Golongan Darah</h6>
+                  @foreach ($darah as $item)
+                  <div class="form-check mb-2 ml-3">
+                    <input class="form-check-input" type="radio" name="darah" id="{{ $item->darah }}" value="{{ $item->darah }}" >
+                      <label class="form-check-label" for="{{ $item->darah }}">
+                        {{ $item->darah }}
+                      </label>
+                  </div>
+                  @endforeach
+              </div>
+
+              <div class="col-10 mb-3">
+                  <h6>{{ $no++ }}. Bentuk Wajah</h6>
+                  @foreach ($wajah as $item)
+                  <div class="form-check mb-2 ml-3">
+                    <input class="form-check-input" type="radio" name="wajah" id="{{ $item->wajah }}" value="{{ $item->wajah }}" >
+                      <label class="form-check-label" for="{{ $item->wajah }}">
+                        {{ $item->wajah }}
+                      </label>
+                  </div>
+                  @endforeach
+              </div>
+              
+              <div class="col-10 mb-3">
+                  <h6>{{ $no++ }}. Usia Nikah Ideal</h6>
+                  @foreach ($nikah as $item)
+                  <div class="form-check mb-2 ml-3">
+                    <input class="form-check-input" type="radio" name="usia" id="{{ $item->usia }}" value="{{ $item->usia }}" >
+                      <label class="form-check-label" for="{{ $item->usia }}">
+                        {{ $item->usia }}
+                      </label>
+                  </div>
+                  @endforeach
               </div>
               
           </div>
