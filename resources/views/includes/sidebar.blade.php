@@ -12,7 +12,7 @@
     <div class="list-group list-group-flush">
       <a
         href="{{ route('cari-akhwat') }}"
-        class="list-group-item list-group-item-action {{ (request()->is('/') || request()->is('pilih-kriteria')) ? 'active' : '' }}"
+        class="list-group-item list-group-item-action {{ (request()->is('/') || request()->is('akhwat*')) ? 'active' : '' }}"
         >Daftar Calon</a
       >
       <a

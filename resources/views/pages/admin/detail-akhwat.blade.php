@@ -55,15 +55,15 @@
                                                             <input type="file" class="custom-file-input" id="biodata"
                                                                 aria-describedby="inputGroupFileAddon01"
                                                                 value="" name="biodata">
-                                                            <label class="custom-file-label" for="biodata">{{ $akhwat->cv }}</label>
+                                                            <label class="custom-file-label" for="biodata">Masukkan biodata</label>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-2">
-                                                    <a href="{{ route('downloadcv', $akhwat->cv) }}" class="btn btn-secondary">Lihat</a>
+                                                <a href="{{ url('assets/upload/biodata/akhwat/'. $akhwat->cv) }}" target="_blank" class="btn btn-secondary">Lihat</a>
                                                 </div>
                                             </div>
-                                            <small class="text-muted">doc,pdf,docx,jpeg,png,jpg</small>
+                                            <small class="text-muted">{{ $akhwat->cv }}</small>
                                         </div>
                                     </div>
 
@@ -77,7 +77,7 @@
                                                 @empty
                                                 <input class="form-check-input" type="checkbox" value="{{ $item->id }}" name="keterampilan[]">
                                                 @endforelse
-                                                <label class="form-check-label" for="memasak" style="text-transform: capitalize;">
+                                                <label class="form-check-label" for="{{ $item->keterampilan }}" style="text-transform: capitalize;">
                                                     {{ $item->keterampilan }}
                                                 </label>
                                             </div>

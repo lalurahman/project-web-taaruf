@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Darah;
 use App\Keterampilan;
 use App\Kulit;
+use App\Models\Admin\Akhwat;
 use App\Nikah;
 use App\Organisasi;
 use App\Pekerjaan;
@@ -16,6 +17,7 @@ use App\Tubuh;
 use App\Wajah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class DashboardController extends Controller
 {
@@ -37,7 +39,29 @@ class DashboardController extends Controller
         $data['tinggi'] = Tinggi::all();
         $data['tubuh'] = Tubuh::all();
         $data['wajah'] = Wajah::all();
-        
+        $data['akhwat'] = Akhwat::all();
+
         return view('pages.cari-akhwat', $data);
+    }
+
+    public function details($nama)
+    {
+        $slug_nama = Str::slug($nama, ' ');
+        $data['akhwat'] = Akhwat::where('nama', $slug_nama)->first();
+        $data['keterampilan'] = Keterampilan::with('akhwats')->get();
+        $data['kulit'] = Kulit::all();
+        $data['nikah'] = Nikah::all();
+        $data['organisasi'] = Organisasi::all();
+        $data['pekerjaan'] = Pekerjaan::all();
+        $data['pendidikan'] = Pendidikan::all();
+        $data['rambut'] = Rambut::all();
+        $data['suku'] = Suku::all();
+        $data['tinggi'] = Tinggi::all();
+        $data['tubuh'] = Tubuh::all();
+        $data['wajah'] = Wajah::all();
+        $data['darah'] = Darah::all();
+        
+
+        return view('pages.detail-akhwat', $data);
     }
 }

@@ -84,7 +84,6 @@ class AkhwatController extends Controller
             'darah' => 'required',
             'wajah' => 'required',
             'nikah' => 'required',
-            'riwayat_penyakit' => 'required',
         ]);
 
         if ($validasi->fails()) {
