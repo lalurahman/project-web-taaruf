@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth', 'admin:USER']], function () {
     Route::get('/', 'DashboardController@index')->name('cari-akhwat');
     Route::get('/profile', 'AccountController@index')->name('profile');
     Route::put('/profile', 'AccountController@update')->name('profile-update');
+    Route::get('/akhwat/{nama}', 'DashboardController@details')->name('details-calon');
 });
 
 // Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');

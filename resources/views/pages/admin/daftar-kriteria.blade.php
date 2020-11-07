@@ -96,27 +96,75 @@ data-aos="fade-up"
                   <h5>Tinggi Badan :</h5>
                   <table class="table table-hover">
                     @foreach ($tinggi as $item)
-                      <tr>
-                        <td>{{ $item->tinggi }}</td>
-                        <td class="text-right">
-                          <div class="btn-group">
-                            <button 
-                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
-                                Aksi
-                            </button>
-                            <div class="dropdown-menu">
-                                <a href="{{ route('tinggi.edit', $item->id) }}" class="dropdown-item">
-                                    Edit
-                                </a>
-                                <form action="{{ route('tinggi.destroy', $item->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
-                                </form>
+                      @if ($item->tinggi == "pendek")
+                        <tr>
+                          <td>Pendek : 140 - 153 cm</td>
+                          <td class="text-right">
+                            <div class="btn-group">
+                              <button 
+                                  type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                  Aksi
+                              </button>
+                              <div class="dropdown-menu">
+                                  <a href="{{ route('tinggi.edit', $item->id) }}" class="dropdown-item">
+                                      Edit
+                                  </a>
+                                  <form action="{{ route('tinggi.destroy', $item->id) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                  </form>
+                              </div>
                             </div>
-                          </div>
-                        </td>
-                      </tr>
+                          </td>
+                        </tr>                          
+                      @endif
+                      @if ($item->tinggi == "sedang")
+                        <tr>
+                          <td>Sedang : 154 - 166 cm</td>
+                          <td class="text-right">
+                            <div class="btn-group">
+                              <button 
+                                  type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                  Aksi
+                              </button>
+                              <div class="dropdown-menu">
+                                  <a href="{{ route('tinggi.edit', $item->id) }}" class="dropdown-item">
+                                      Edit
+                                  </a>
+                                  <form action="{{ route('tinggi.destroy', $item->id) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                  </form>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>                          
+                      @endif
+                      @if ($item->tinggi == "tinggi")
+                        <tr>
+                          <td>Tinggi : 167 - 180 cm</td>
+                          <td class="text-right">
+                            <div class="btn-group">
+                              <button 
+                                  type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                  Aksi
+                              </button>
+                              <div class="dropdown-menu">
+                                  <a href="{{ route('tinggi.edit', $item->id) }}" class="dropdown-item">
+                                      Edit
+                                  </a>
+                                  <form action="{{ route('tinggi.destroy', $item->id) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                  </form>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>                          
+                      @endif
                     @endforeach                    
                   </table>
                 </div>
@@ -132,27 +180,75 @@ data-aos="fade-up"
                   <h5>Berat Badan (dalam range) :</h5>
                   <table class="table table-hover">
                     @foreach ($tubuh as $item)
-                      <tr>
-                        <td>{{ $item->tubuh }}</td>
-                        <td class="text-right">
-                          <div class="btn-group">
-                            <button 
-                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
-                                Aksi
-                            </button>
-                            <div class="dropdown-menu">
-                                <a href="{{ route('tubuh.edit', $item->id) }}" class="dropdown-item">
-                                    Edit
-                                </a>
-                                <form action="{{ route('tubuh.destroy', $item->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
-                                </form>
+                      @if ($item->tubuh == "kurus")
+                        <tr>
+                          <td>Kurus : 45 - 54 kg</td>
+                          <td class="text-right">
+                            <div class="btn-group">
+                              <button 
+                                  type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                  Aksi
+                              </button>
+                              <div class="dropdown-menu">
+                                  <a href="{{ route('tubuh.edit', $item->id) }}" class="dropdown-item">
+                                      Edit
+                                  </a>
+                                  <form action="{{ route('tubuh.destroy', $item->id) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                  </form>
+                              </div>
                             </div>
-                          </div>
-                        </td>
-                      </tr>
+                          </td>
+                        </tr>
+                      @endif
+                      @if ($item->tubuh == "normal")
+                        <tr>
+                          <td>Normal : 55 - 64 kg</td>
+                          <td class="text-right">
+                            <div class="btn-group">
+                              <button 
+                                  type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                  Aksi
+                              </button>
+                              <div class="dropdown-menu">
+                                  <a href="{{ route('tubuh.edit', $item->id) }}" class="dropdown-item">
+                                      Edit
+                                  </a>
+                                  <form action="{{ route('tubuh.destroy', $item->id) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                  </form>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      @endif
+                      @if ($item->tubuh == "gemuk")
+                        <tr>
+                          <td>Gemuk : 65 - 75 kg</td>
+                          <td class="text-right">
+                            <div class="btn-group">
+                              <button 
+                                  type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                  Aksi
+                              </button>
+                              <div class="dropdown-menu">
+                                  <a href="{{ route('tubuh.edit', $item->id) }}" class="dropdown-item">
+                                      Edit
+                                  </a>
+                                  <form action="{{ route('tubuh.destroy', $item->id) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                  </form>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      @endif
                     @endforeach                    
                   </table>
                 </div>
@@ -420,27 +516,75 @@ data-aos="fade-up"
                   <h5>Usia Nikah Ideal :</h5>
                   <table class="table table-hover">
                     @foreach ($nikah as $item)
-                      <tr>
-                        <td>{{ $item->usia }}</td>
-                        <td class="text-right">
-                          <div class="btn-group">
-                            <button 
-                                type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
-                                Aksi
-                            </button>
-                            <div class="dropdown-menu">
-                                <a href="{{ route('nikah.edit', $item->id) }}" class="dropdown-item">
-                                    Edit
-                                </a>
-                                <form action="{{ route('nikah.destroy', $item->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="dropdown-item text-danger">Hapus</button>
-                                </form>
+                      @if ($item->usia == "ideal")
+                        <tr>
+                          <td>Ideal : 19 - 25 Tahun</td>
+                          <td class="text-right">
+                            <div class="btn-group">
+                              <button 
+                                  type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                  Aksi
+                              </button>
+                              <div class="dropdown-menu">
+                                  <a href="{{ route('nikah.edit', $item->id) }}" class="dropdown-item">
+                                      Edit
+                                  </a>
+                                  <form action="{{ route('nikah.destroy', $item->id) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                  </form>
+                              </div>
                             </div>
-                          </div>
-                        </td>
-                      </tr>
+                          </td>
+                        </tr>
+                      @endif
+                      @if ($item->usia == "cukup")
+                        <tr>
+                          <td>Cukup : 26 - 30 Tahun</td>
+                          <td class="text-right">
+                            <div class="btn-group">
+                              <button 
+                                  type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                  Aksi
+                              </button>
+                              <div class="dropdown-menu">
+                                  <a href="{{ route('nikah.edit', $item->id) }}" class="dropdown-item">
+                                      Edit
+                                  </a>
+                                  <form action="{{ route('nikah.destroy', $item->id) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                  </form>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      @endif
+                      @if ($item->usia == "waspada")
+                        <tr>
+                          <td>Waspada : 31 - Tak terhingga tahun</td>
+                          <td class="text-right">
+                            <div class="btn-group">
+                              <button 
+                                  type="button" class="btn btn-sm btn-outline-info dropdown-toggle mb-1 mr-1" data-toggle="dropdown">
+                                  Aksi
+                              </button>
+                              <div class="dropdown-menu">
+                                  <a href="{{ route('nikah.edit', $item->id) }}" class="dropdown-item">
+                                      Edit
+                                  </a>
+                                  <form action="{{ route('nikah.destroy', $item->id) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="submit" class="dropdown-item text-danger">Hapus</button>
+                                  </form>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      @endif
                     @endforeach                    
                   </table>
                 </div>

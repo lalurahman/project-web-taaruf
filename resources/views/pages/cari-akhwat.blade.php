@@ -24,26 +24,27 @@ data-aos="fade-up"
     <div class="row mt-2">
       <div class="col-12 col-md-12">
         <p class="text-muted ml-1">Daftar calon pasangan sesuai dengan kriteria yang anda harapkan</p>
-        
-        <div class="card card-list">
-          <div class="card-body">
-            <div class="row">
-              
-              <div class="col-4">
-                Zahra Fitriani Firdaus
-              </div>
-              <div class="col-3">
-                22 Tahun
-              </div>
-              <div class="col-2">
-                80 %
-              </div>
-              <div class="col-3">
-                <a href="#" class="btn btn-secondary">Lihat Detail</a>
+        @foreach ($akhwat as $item)
+          <div class="card card-list">
+            <div class="card-body">
+              <div class="row">
+                
+                <div class="col-4">
+                  Zahra Fitriani Firdaus
+                </div>
+                <div class="col-3">
+                  22 Tahun
+                </div>
+                <div class="col-2">
+                  80 %
+                </div>
+                <div class="col-3">
+                  <a href="{{ route('details-calon' , $item->nama) }}" class="btn btn-secondary">Lihat Detail</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        @endforeach
         
         <div class="card card-list d-none">
           <div class="card-body">
@@ -107,9 +108,21 @@ data-aos="fade-up"
                   @foreach ($tinggi as $item)
                   <div class="form-check mb-2 ml-3">
                     <input class="form-check-input" type="radio" name="tinggi" id="{{ $item->tinggi }}" value="{{ $item->tinggi }}" >
+                    @if ($item->tinggi == "pendek")
                       <label class="form-check-label" for="{{ $item->tinggi }}">
-                        {{ $item->tinggi }}
+                        Pendek : 140 - 153 cm
                       </label>
+                    @endif
+                    @if ($item->tinggi == "sedang")
+                      <label class="form-check-label" for="{{ $item->tinggi }}">
+                        Sedang : 154 - 166 cm
+                      </label>
+                    @endif
+                    @if ($item->tinggi == "tinggi")
+                      <label class="form-check-label" for="{{ $item->tinggi }}">
+                        Tinggi : 167 - 180 cm
+                      </label>
+                    @endif
                   </div>
                   @endforeach
               </div>
@@ -119,10 +132,22 @@ data-aos="fade-up"
                   @foreach ($tubuh as $item)
                   <div class="form-check mb-2 ml-3">
                     <input class="form-check-input" type="radio" name="tubuh" id="{{ $item->tubuh }}" value="{{ $item->tubuh }}" >
+                    @if ($item->tubuh == "kurus")
+                    <label class="form-check-label" for="{{ $item->tubuh }}">
+                      Kurus : 45 - 54 kg
+                    </label>
+                    @endif
+                    @if ($item->tubuh == "normal")
                       <label class="form-check-label" for="{{ $item->tubuh }}">
-                        {{ $item->tubuh }}
+                        Normal : 55 - 64 kg
                       </label>
-                  </div>
+                    @endif
+                    @if ($item->tubuh == "gemuk")
+                      <label class="form-check-label" for="{{ $item->tubuh }}">
+                        Gemuk : 65 - 75 kg
+                      </label>
+                    @endif
+                    </div>
                   @endforeach
               </div>
               
@@ -215,9 +240,21 @@ data-aos="fade-up"
                   @foreach ($nikah as $item)
                   <div class="form-check mb-2 ml-3">
                     <input class="form-check-input" type="radio" name="usia" id="{{ $item->usia }}" value="{{ $item->usia }}" >
+                    @if ($item->usia == "ideal")
                       <label class="form-check-label" for="{{ $item->usia }}">
-                        {{ $item->usia }}
+                        Ideal : 19 - 25 Tahun
                       </label>
+                    @endif
+                    @if ($item->usia == "cukup")
+                      <label class="form-check-label" for="{{ $item->usia }}">
+                        Cukup : 26 - 30 Tahun
+                      </label>
+                    @endif
+                    @if ($item->usia == "waspada")
+                      <label class="form-check-label" for="{{ $item->usia }}">
+                        Waspada : 31 - Tak terhingga tahun
+                      </label>
+                    @endif
                   </div>
                   @endforeach
               </div>

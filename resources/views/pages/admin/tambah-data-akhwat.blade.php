@@ -96,8 +96,8 @@
                                             <label for="keterampilan" class="d-block">Keterampilan</label>
                                             @foreach ($keterampilan as $item)
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" value="{{ $item->id }}" name="keterampilan[]">
-                                                <label class="form-check-label" for="memasak" style="text-transform: capitalize;">
+                                                <input class="form-check-input" type="checkbox" value="{{ $item->id }}" name="keterampilan[]" id="{{ $item->keterampilan }}">
+                                                <label class="form-check-label" for="{{ $item->keterampilan }}" style="text-transform: capitalize;">
                                                     {{ $item->keterampilan }}
                                                 </label>
                                             </div>
@@ -342,7 +342,7 @@
                                                     @if ($item->usia == 'cukup')
                                                     <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->usia }} : 26-30 tahun</option>
                                                     @endif
-                                                    @if ($item->usia == 'waspadah')
+                                                    @if ($item->usia == 'waspada')
                                                     <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->usia }} : 31 > tahun</option>
                                                     @endif
                                                 @endforeach
