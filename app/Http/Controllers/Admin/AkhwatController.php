@@ -19,13 +19,41 @@ use App\Wajah;
 use Illuminate\Http\Request;
 use Validator, DB, Str, File;
 use Carbon\Carbon;
+use Yajra\DataTables\Facades\DataTables;
+
 
 class AkhwatController extends Controller
 {
     public function index()
     {
-        $akhwats = Akhwat::orderBy('created_at', 'desc')->paginate(10);
-        return view('pages.admin.daftar-akhwat', compact('akhwats'));
+        if(request()->ajax()){
+            $akhwats = Akhwat::orderBy('created_at', 'desc');
+        
+            return DataTables::of($akhwats)
+                ->addColumn('action', function($item){
+                    return '
+                        <div class="btn-group">
+                            <button 
+                                type="button" class="btn btn-primary dropdown-toggle mb-1 mr-1 px-2" data-toggle="dropdown">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href=" '. route('details-akhwat', $item->nama) .' " class="dropdown-item">
+                                    Lihat Detail
+                                </a>
+                                <button class="text-danger dropdown-item" onclick="hapus('. $item->id .')">Hapus</button>
+                            </div>
+                        </div>
+                    ';
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        // $akhwats = Akhwat::orderBy('created_at', 'desc');
+        
+        // return DataTables::of($akhwats)->make(true);
+        
+        return view('pages.admin.daftar-akhwat');
     }
 
     public function details($nama)

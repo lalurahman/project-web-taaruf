@@ -17,10 +17,9 @@
                     <div class="card">
                         <div class="card-body">
                             <a href="{{ route('tambah-akhwat') }}" class="btn btn-success mb-3">Tambah Data Akhwat</a>
-                            <table class="table">
+                            <table class="table" id="crudTable">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">Nama</th>
                                         <th scope="col">Nomor HP</th>
                                         <th scope="col">Alamat</th>
@@ -28,7 +27,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($akhwats as $key => $item)
+                                    {{-- @foreach ($akhwats as $key => $item)
                                     <tr>
                                         <th scope="row">{{ $akhwats->firstItem() + $key }}</th>
                                         <td>{{ $item->nama }}</td>
@@ -40,7 +39,7 @@
                                             <button class="btn btn-danger btn-sm" onclick="hapus({{ $item->id }})">Hapus</button>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                    @endforeach --}}
                                 </tbody>
                             </table>
                         </div>
@@ -80,3 +79,29 @@
     }
 </script>
 @endsection
+
+@push('addon-script')
+    <script>
+        $('#crudTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ordering: true,
+            ajax: {
+                url: '{!! url()->current() !!}'
+            },
+            columns: [
+                { data: 'nama', name: 'nama' },
+                { data: 'no_hp', name: 'no_hp' },
+                { data: 'alamat', name: 'alamat' },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false,
+                    width: '15%'
+                }
+            ]
+        });
+        
+    </script>
+@endpush
