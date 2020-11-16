@@ -34,7 +34,7 @@ class AuthUserController extends Controller
                     return Redirect::to('admin');
                 } else if ($user->roles == 'USER') {
                     session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'roles' => $user->roles]);
-                    return Redirect::to('/');
+                    return Redirect::to('/user');
                 }
             } else {
                 Session::flash('Message', 'Akun '.$request->email.' belum di verifikasi');
@@ -99,28 +99,28 @@ class AuthUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]);  
-        
+        ]);
+
         $detail = new UserDetail();
-        
+
         $file = $request->file('biodata');
         $file_name = time() . "_" . $file->getClientOriginalName();
         $storage = 'assets/upload/ikhwan';
         $file->move($storage, $file_name);
         $detail->biodata = $file_name;
-        
+
         $file = $request->file('rekomendasi_murobbi');
         $file_name = time() . "_" . $file->getClientOriginalName();
         $storage = 'assets/upload/ikhwan';
         $file->move($storage, $file_name);
         $detail->rekomendasi_murobbi = $file_name;
-        
+
         $file = $request->file('izin_nikah');
         $file_name = time() . "_" . $file->getClientOriginalName();
         $storage = 'assets/upload/ikhwan';
         $file->move($storage, $file_name);
         $detail->izin_nikah = $file_name;
-        
+
         $file = $request->file('keterangan_sehat');
         $file_name = time() . "_" . $file->getClientOriginalName();
         $storage = 'assets/upload/ikhwan';
@@ -135,9 +135,9 @@ class AuthUserController extends Controller
     }
 
     public function check(Request $request)
-    {   
+    {
         return User::where('email', $request->email)->count() > 0 ? 'Unavailable' : 'Available';
     }
 
-    
+
 }
