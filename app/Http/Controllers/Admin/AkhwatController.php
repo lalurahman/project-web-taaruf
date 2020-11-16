@@ -28,7 +28,6 @@ class AkhwatController extends Controller
     {
         if(request()->ajax()){
             $akhwats = Akhwat::orderBy('created_at', 'desc');
-
             return DataTables::of($akhwats)
                 ->addColumn('action', function($item){
                     return '
