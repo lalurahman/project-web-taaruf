@@ -28,12 +28,12 @@ class AkhwatController extends Controller
     {
         if(request()->ajax()){
             $akhwats = Akhwat::orderBy('created_at', 'desc');
-        
+
             return DataTables::of($akhwats)
                 ->addColumn('action', function($item){
                     return '
                         <div class="btn-group">
-                            <button 
+                            <button
                                 type="button" class="btn btn-primary dropdown-toggle mb-1 mr-1 px-2" data-toggle="dropdown">
                                 Aksi
                             </button>
@@ -50,9 +50,9 @@ class AkhwatController extends Controller
                 ->make(true);
         }
         // $akhwats = Akhwat::orderBy('created_at', 'desc');
-        
+
         // return DataTables::of($akhwats)->make(true);
-        
+
         return view('pages.admin.daftar-akhwat');
     }
 
@@ -61,7 +61,9 @@ class AkhwatController extends Controller
         $slug_nama = Str::slug($nama, ' ');
         $data['akhwat'] = Akhwat::where('nama', $slug_nama)->first();
         $data['darah'] = Darah::all();
-        $data['keterampilan'] = Keterampilan::with('akhwats')->get();
+        $data['keterampilan'] = Keterampilan::with(['akhwats' => function ($query) use ($slug_nama) {
+            $query->where('nama', $slug_nama);
+        }])->get();
         $data['kulit'] = Kulit::all();
         $data['nikah'] = Nikah::all();
         $data['organisasi'] = Organisasi::all();
