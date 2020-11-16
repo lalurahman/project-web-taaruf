@@ -125,10 +125,7 @@ class RegisterController extends Controller
 
     }
 
-    public function success()
-    {
-        return view('auth.register-success');
-    }
+    
 
     public function check(Request $request)
     {   

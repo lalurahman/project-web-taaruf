@@ -12,12 +12,12 @@
     <div class="list-group list-group-flush">
       <a
         href="{{ route('cari-akhwat') }}"
-        class="list-group-item list-group-item-action {{ (request()->is('/') || request()->is('akhwat*')) ? 'active' : '' }}"
+        class="list-group-item list-group-item-action {{ (request()->is('user') || request()->is('akhwat*')) ? 'active' : '' }}"
         >Daftar Calon</a
       >
       <a
         href="{{ route('profile') }}"
-        class="list-group-item list-group-item-action {{ (request()->is('profile*')) ? 'active' : '' }}"
+        class="list-group-item list-group-item-action {{ (request()->is('user/profile*')) ? 'active' : '' }}"
         >Profile</a
       >
     </div>
