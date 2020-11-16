@@ -65,6 +65,9 @@ class DashboardController extends Controller
                     'usia' => $value->nikah->usia,
                     // 'keterampilan' => [],
                 ];
+                // foreach ($value->skills as $item) {
+                //     array_push($tempp['keterampilan'], $item->keterampilan);
+                // }
                 array_push($data_akhwat, $tempp);
             }
             // kriteria ikhwa
