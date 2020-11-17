@@ -34,7 +34,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Nomor HP</label>
-                                            <input type="number" name="no_hp" value="{{ $akhwat->no_hp }}" class="form-control" readonly>
+                                            <input type="text" name="no_hp" value="{{ substr($akhwat->no_hp,0,8) . "XXXX" }}" class="form-control" readonly>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
