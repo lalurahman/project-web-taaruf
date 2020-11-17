@@ -17,17 +17,6 @@ class AdminSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@mail.com',
             'password' => bcrypt('12345'),
-            'status' => 'admin',
-            'is_active' => 1,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ]);
-
-        DB::table('users')->insertGetId([
-            'name' => 'User',
-            'email' => 'user@mail.com',
-            'password' => bcrypt('12345'),
-            'status' => 'user',
             'is_active' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
