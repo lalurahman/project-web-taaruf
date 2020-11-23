@@ -53,6 +53,7 @@ data-aos="fade-down"
         <ul class="navbar-nav d-block d-lg-none">
             <li class="nav-item">
             <a href="#" class="nav-link">Hi, {{ Auth::user()->name }}</a>
+            <a href="{{ route('logout') }}" class="nav-link">logout</a>
             </li>
 
         </ul>
