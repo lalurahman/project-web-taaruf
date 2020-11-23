@@ -24,10 +24,7 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        if(Auth::user()->roles == 'ADMIN'){
-            return redirect()->route('dashboard');
-        }
-
+        
         $data['darah'] = Darah::all();
         $data['keterampilan'] = Keterampilan::all();
         $data['kulit'] = Kulit::all();

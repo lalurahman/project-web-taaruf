@@ -51,7 +51,7 @@
 									<div class="control">
 										<a
 											class="button button-primary button-block"
-											href="{{ route('cari-akhwat') }}"
+											href="{{ route('login') }}"
 											>Mulai Cari Calon</a
 										>
 									</div>

@@ -15,6 +15,11 @@
         >Dashboard</a
       >
       <a
+        href="{{ route('cari-akhwat') }}"
+        class="list-group-item list-group-item-action {{ (request()->is('admin/cari-akhwat')) ? 'active' : '' }}"
+        >Cari Calon</a
+      >
+      <a
         href="{{ route('daftar-akhwat') }}"
         class="list-group-item list-group-item-action {{ (request()->is('admin/akhwat*')) ? 'active' : '' }}"
         >Data Akhwat</a
