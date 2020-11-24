@@ -21,6 +21,7 @@ Route::get('register', 'AuthUserController@register')->name('register');
 Route::post('register', 'AuthUserController@registerProcess')->name('register-process');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], function () {
+
     Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
     Route::get('/ikhwan', 'Admin\IkhwanController@index')->name('daftar-ikhwan');
     Route::get('/ikhwan/{id}', 'Admin\IkhwanController@details')->name('details-ikhwan');
@@ -30,6 +31,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
     Route::get('/pasangan', 'Admin\PasanganController@index')->name('daftar-pasangan');
     Route::get('/pasangan/15', 'Admin\PasanganController@details')->name('details-pasangan');
     Route::get('/kriteria', 'Admin\KriteriaController@index')->name('daftar-kriteria');
+    Route::get('/cari-akhwat', 'DashboardController@index')->name('cari-akhwat');
+    Route::get('/akhwat/details/{nama}', 'DashboardController@details')->name('details-calon');
 
     Route::prefix('kriteria')->group(function(){
         Route::resource('keterampilan', 'Admin\Kriteria\KeterampilanController');
@@ -58,10 +61,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
 });
 
 Route::group(['prefix'=>'user', 'middleware' => ['auth', 'admin:USER']], function () {
-    Route::get('/', 'DashboardController@index')->name('cari-akhwat');
-    Route::get('/profile', 'AccountController@index')->name('profile');
+    Route::get('/', 'AccountController@index')->name('profile');
     Route::put('/profile', 'AccountController@update')->name('profile-update');
-    Route::get('/akhwat/{nama}', 'DashboardController@details')->name('details-calon');
+    
 });
 
 // Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');
