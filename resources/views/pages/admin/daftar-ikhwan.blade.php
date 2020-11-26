@@ -24,26 +24,26 @@ data-aos="fade-up"
         >
           <li class="nav-item" role="presentation">
             <a
-              class="nav-link active"
+              class="nav-link active text-capitalize"
               id="pills-ikhwan-active-tab"
               data-toggle="pill"
               href="#pills-ikhwan-active"
               role="tab"
               aria-controls="pills-ikhwan-active"
               aria-selected="true"
-              >Sudah Terverifikasi</a
+              >Belum menemukan pasangan</a
             >
           </li>
           <li class="nav-item" role="presentation">
             <a
-              class="nav-link"
+              class="nav-link text-capitalize"
               id="pills-ikhwan-tab"
               data-toggle="pill"
               href="#pills-ikhwan"
               role="tab"
               aria-controls="pills-ikhwan"
               aria-selected="false"
-              >Belum Terverifikasi</a
+              >Sudah menemukan pasangan</a
             >
           </li>
         </ul>
@@ -67,7 +67,7 @@ data-aos="fade-up"
                   @php
                       $no = 1;
                   @endphp
-                  @foreach ($ikhwan_active as $item)
+                  @foreach ($ikhwan as $item)
                   <tr>
                     <th scope="row">{{ $no++ }}</th>
                     <td>{{ $item->name }}</td>
@@ -111,7 +111,7 @@ data-aos="fade-up"
               @php
                   $no = 1;
               @endphp
-              @foreach ($ikhwan as $item)
+              @foreach ($ikhwan_active as $item)
               <tr>
                   <th scope="row">{{ $no++ }}</th>
                   <td>{{ $item->name }}</td>

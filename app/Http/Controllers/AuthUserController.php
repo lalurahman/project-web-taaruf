@@ -28,17 +28,12 @@ class AuthUserController extends Controller
         if ($attemptLogin) {
             $user = Auth::user();
 
-            if ($user->is_active == 1) {
-                if ($user->roles == 'ADMIN') {
-                    session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'roles' => $user->roles]);
-                    return Redirect::to('admin');
-                } else if ($user->roles == 'USER') {
-                    session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'roles' => $user->roles]);
-                    return Redirect::to('/user');
-                }
-            } else {
-                Session::flash('Message', 'Akun '.$request->email.' belum di verifikasi');
-                return Redirect::to('login');
+            if ($user->roles == 'ADMIN') {
+                session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'roles' => $user->roles]);
+                return Redirect::to('admin');
+            } else if ($user->roles == 'USER') {
+                session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'roles' => $user->roles]);
+                return Redirect::to('/user');
             }
         }
         // return $this->sendFailedLoginResponse($request);

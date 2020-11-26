@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-@if (session('Message'))
+{{-- @if (session('Message'))
     <script>
          Swal.fire({
           icon: 'error',
@@ -13,7 +13,7 @@
           text: 'Akun anda belum diaktifkan!',
         })
     </script>
-@endif
+@endif --}}
 <div class="page-content page-auth">
     <div class="section-store-auth" data-aos="fade-up">
       <div class="container">
