@@ -20,7 +20,7 @@
         <div class="row align-items-center row-login">
           <div class="col-lg-6 text-center">
             <img
-              src="/images/login-placeholder.jpg"
+              src="/images/login-placeholder.png"
               class="w-50 mb-4 mb-lg-none"
             />
           </div>

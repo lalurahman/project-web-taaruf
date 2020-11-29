@@ -116,14 +116,14 @@
 
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label>Asal Suku</label>
-                                            <select class="custom-select" name="suku">
+                                            <label>Asal Suku (Ibu)</label>
+                                            <select class="custom-select" name="sukuibu">
                                                 <option selected disabled>Pilih Asal Suku</option>
                                                 @foreach ($suku as $item)
                                                 <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->suku }}</option>
                                                 @endforeach
                                             </select>
-                                            @error('suku')
+                                            @error('sukuibu')
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 {{ $message }}
                                                 <button type="button" class="close" data-dismiss="alert"
@@ -152,6 +152,26 @@
                                                 @endforeach
                                             </select>
                                             @error('tinggi')
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                {{ $message }}
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Asal Suku (Bapak)</label>
+                                            <select class="custom-select" name="sukubapak">
+                                                <option selected disabled>Pilih Asal Suku</option>
+                                                @foreach ($suku as $item)
+                                                <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->suku }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('sukubapak')
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 {{ $message }}
                                                 <button type="button" class="close" data-dismiss="alert"
@@ -236,7 +256,15 @@
                                             <select class="custom-select" name="pendidikan">
                                                 <option selected disabled>Pilih Pendidikan terakhir</option>
                                                 @foreach ($pendidikan as $item)
-                                                <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->pendidikan }}</option>
+                                                    @if ($item->pendidikan == 'SLTP')
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->pendidikan }} (SMP, MTS dan Lainnya)</option>
+                                                    @endif
+                                                    @if ($item->pendidikan == 'SLTA')
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->pendidikan }} (SMA,SMK, MAN dan Lainnya)</option>
+                                                    @endif
+                                                    @if ($item->pendidikan != 'SLTA' && $item->pendidikan != 'SLTP')
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->pendidikan }}</option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                             @error('pendidikan')

@@ -85,7 +85,7 @@
 										<path
 											d="M0 0h720v504.382L279.437 630.304c-53.102 15.177-108.454-15.567-123.631-68.669-.072-.25-.142-.5-.211-.75L0 0z"
 											fill="url(#a)"
-											fill-rule="evenodd"
+											fill-rule="evenodd" 
 										/>
 									</svg>
 								</div>
@@ -94,7 +94,7 @@
 										margin-left: auto;
 										margin-top: -60px;
 									"
-									src="/images/hero-1.jpg"
+									src="/images/hero-1.png"
 									alt=""
 									width="420"
 								/>

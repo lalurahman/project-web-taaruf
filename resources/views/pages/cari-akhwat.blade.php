@@ -92,10 +92,24 @@ data-aos="fade-up"
                         </div>
 
                         <div class="col-10 mb-3">
-                            <h6>{{ $no++ }}. Asal Suku</h6>
+                            <h6>{{ $no++ }}. Asal Suku Ibu</h6>
                             @foreach ($suku as $item)
                             <div class="form-check mb-2 ml-3">
-                                <input class="form-check-input" type="radio" name="suku" value="{{ $item->suku }}"
+                                <input class="form-check-input" type="radio" name="sukuibu" value="{{ $item->suku }}"
+                                    id="{{ $item->suku }}">
+                                <label class="form-check-label" for="{{ $item->suku }}">
+                                    {{ $item->suku }}
+                                </label>
+                            </div>
+                            @endforeach
+                        </div>
+
+
+                        <div class="col-10 mb-3">
+                            <h6>{{ $no++ }}. Asal Suku Bapak</h6>
+                            @foreach ($suku as $item)
+                            <div class="form-check mb-2 ml-3">
+                                <input class="form-check-input" type="radio" name="sukubapak" value="{{ $item->suku }}"
                                     id="{{ $item->suku }}">
                                 <label class="form-check-label" for="{{ $item->suku }}">
                                     {{ $item->suku }}

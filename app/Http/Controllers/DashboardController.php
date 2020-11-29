@@ -24,7 +24,7 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        
+
         $data['darah'] = Darah::all();
         $data['keterampilan'] = Keterampilan::all();
         $data['kulit'] = Kulit::all();
@@ -37,7 +37,7 @@ class DashboardController extends Controller
         $data['tinggi'] = Tinggi::all();
         $data['tubuh'] = Tubuh::all();
         $data['wajah'] = Wajah::all();
-        $data['akhwat'] = Akhwat::with('tribe','hair','job','face','height','body','comunity','education','skin','blood','nikah','skills:keterampilan')->get();
+        $data['akhwat'] = Akhwat::with('tribe:suku','hair','job','face','height','body','comunity','education','skin','blood','nikah','skills:keterampilan')->get();
 
         if($request->has('search')) {
             $jaccard = new JaccardSimilarity();
@@ -49,7 +49,8 @@ class DashboardController extends Controller
                 $tempp = [
                     'nama' => $value->nama,
                     'keterampilan' => collect($value->skills)->implode('keterampilan', ','),
-                    'suku' => $value->tribe->suku,
+                    'sukuibu' => $value->tribe[0]->suku,
+                    'sukubapak' => $value->tribe[1]->suku,
                     'tinggi' => $value->height->tinggi,
                     'tubuh' => $value->body->tubuh,
                     'organisasi' => $value->comunity->organisasi,
@@ -67,9 +68,12 @@ class DashboardController extends Controller
                 // }
                 array_push($data_akhwat, $tempp);
             }
+            // dd($data_akhwat);
             // kriteria ikhwa
             $kriteria = collect($request->all())->except(['search'])->all();
             $kriteria['keterampilan'] = implode(',', $kriteria['keterampilan']);
+            // $kriteria['keterampilan'] = implode(',', $kriteria['keterampilan']);
+            // dd($kriteria);
 
             // jodoh
             // dd(implode(',',$data_akhwat[0]));
