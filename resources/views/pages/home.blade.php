@@ -306,13 +306,12 @@
 									<div class="feature-inner">
 										<div class="feature-header mb-16">
 											<h4 class="feature-title m-0">
-												Cari Calon Pasangan
+												1. Masuk ke situs taaruf.bagoosmi.com 
 											</h4>
 										</div>
-										<p class="text-sm mb-0">
-											Cari calon pasangan hidup anda
-											sesuai dengan kriteria yang anda
-											harapkan.
+										<img src="/images/1-masuk.png" alt="">
+										<p class="text-sm mb-0 mt-2">
+											Ketik alamat <i>taaruf.bagoosmi.com</i> di browser.
 										</p>
 									</div>
 								</div>
@@ -320,12 +319,12 @@
 									<div class="feature-inner">
 										<div class="feature-header mb-16">
 											<h4 class="feature-title m-0">
-												Taaruf
+												2. Klik tombol mulai cari calon
 											</h4>
 										</div>
-										<p class="text-sm mb-0">
-											Kenali calon pasangan hidup anda
-											dengan jalan taaruf.
+										<img src="/images/2-mulai.png" alt="">
+										<p class="text-sm mb-0 mt-2">
+											Klik tombol mulai untuk masuk ke akun atau daftar akun jika belum memiliki akun.
 										</p>
 									</div>
 								</div>
@@ -333,12 +332,12 @@
 									<div class="feature-inner">
 										<div class="feature-header mb-16">
 											<h4 class="feature-title m-0">
-												Khitbah
+												3. Daftar akun baru
 											</h4>
 										</div>
-										<p class="text-sm mb-0">
-											Persiapkan lamaran kepada calon
-											pasanganmu, ketika kamu sudah yakin.
+										<img src="/images/3-daftar-akun.png" alt="">
+										<p class="text-sm mb-0 mt-2">
+											Masukkan semua data diri yang diminta secara lengkap.
 										</p>
 									</div>
 								</div>
@@ -346,12 +345,11 @@
 									<div class="feature-inner">
 										<div class="feature-header mb-16">
 											<h4 class="feature-title m-0">
-												Nikah
+												4. Silahkan tunggu panggilan
 											</h4>
 										</div>
-										<p class="text-sm mb-0">
-											Miliki dia seutuhnya dengan cara
-											menikahinya.
+										<p class="text-sm mb-0 mt-2">
+											Anda tidak dapat mencari pasangan secara langsung, harus dilakukan bersama dengan admin/ustadz. Silahkan tunggu panggilan untuk dapat melanjutkan mencari calon pasangan.
 										</p>
 									</div>
 								</div>
