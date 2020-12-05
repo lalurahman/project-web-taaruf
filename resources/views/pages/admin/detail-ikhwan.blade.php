@@ -164,7 +164,7 @@ data-aos="fade-up"
                       type="submit"
                       class="btn btn-success px-5"
                     >
-                      Verifikasi
+                      Sudah Mendapat Pasangan
                     </button>
                   </div>
                 </div>

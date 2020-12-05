@@ -25,7 +25,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="name">Nama Lengkap</label>
-                                            <input type="text" class="form-control" name="name" id="name" />
+                                            <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" />
                                             @error('name')
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 {{ $message }}
@@ -41,7 +41,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Nomor HP</label>
-                                            <input type="number" name="no_hp" class="form-control">
+                                            <input type="number" name="no_hp" class="form-control" value="{{ old('no_hp') }}">
                                             @error('no_hp')
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 {{ $message }}
@@ -56,7 +56,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="alamat">Alamat</label>
-                                            <input type="text" name="alamat" class="form-control">
+                                            <input type="text" name="alamat" class="form-control" value="{{ old('alamat') }}">
                                             @error('alamat')
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 {{ $message }}
@@ -390,7 +390,8 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label>Riwayat Penyakit</label>
-                                            <input type="text" class="form-control" name="riwayat_penyakit">
+                                            <input type="text" class="form-control" name="riwayat_penyakit" value="{{ old('riwayat_penyakit') }}">
+                                            <small class="text-muted mt-1">isi <strong>tidak ada</strong> jika tidak memiliki riwayat penyakit</small>
                                             @error('riwayat_penyakit')
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 {{ $message }}

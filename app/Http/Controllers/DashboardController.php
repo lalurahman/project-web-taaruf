@@ -86,7 +86,7 @@ class DashboardController extends Controller
                 array_push($jodoh, $tempp1);
             }
 
-            $data['jodoh'] = collect($jodoh)->sortByDesc('persentasi');
+            $data['jodoh'] = collect($jodoh)->sortByDesc('persentasi')->take(5);
         } else {
             $data['jodoh'] = null;
         }
