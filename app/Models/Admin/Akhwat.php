@@ -8,7 +8,7 @@ class Akhwat extends Model
 {
     public function tribe()
     {
-        return $this->belongsTo('App\Suku', 'suku_id');
+        return $this->belongsToMany('App\Suku', 'akhwat_suku', 'akhwat_id', 'suku_id');
     }
 
     public function hair()

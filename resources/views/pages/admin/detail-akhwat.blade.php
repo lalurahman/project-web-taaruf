@@ -96,18 +96,18 @@
 
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label>Asal Suku</label>
-                                            <select class="custom-select" name="suku">
+                                            <label>Asal Suku Ibu</label>
+                                            <select class="custom-select" name="sukuibu">
                                                 <option disabled>Pilih Asal Suku</option>
                                                 @foreach ($suku as $item)
-                                                    @if ($akhwat->suku_id == $item->id)
+                                                    @if ($item->suku == $akhwat->tribe[0]->suku)
                                                     <option value="{{ $item->id }}" style="text-transform: capitalize;" selected>{{ $item->suku }}</option>
                                                     @else
                                                     <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->suku }}</option>
                                                     @endif
                                                 @endforeach
                                             </select>
-                                            @error('suku')
+                                            @error('sukuibu')
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 {{ $message }}
                                                 <button type="button" class="close" data-dismiss="alert"
@@ -152,6 +152,30 @@
                                                 @endforeach
                                             </select>
                                             @error('tinggi')
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                {{ $message }}
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Asal Suku Bapak</label>
+                                            <select class="custom-select" name="sukubapak">
+                                                <option disabled>Pilih Asal Suku</option>
+                                                @foreach ($suku as $item)
+                                                    @if ($item->suku == $akhwat->tribe[1]->suku)
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;" selected>{{ $item->suku }}</option>
+                                                    @else
+                                                    <option value="{{ $item->id }}" style="text-transform: capitalize;">{{ $item->suku }}</option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
+                                            @error('sukubapak')
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 {{ $message }}
                                                 <button type="button" class="close" data-dismiss="alert"

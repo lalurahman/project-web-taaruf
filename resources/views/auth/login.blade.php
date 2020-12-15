@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-@if (session('Message'))
+{{-- @if (session('Message'))
     <script>
          Swal.fire({
           icon: 'error',
@@ -13,14 +13,14 @@
           text: 'Akun anda belum diaktifkan!',
         })
     </script>
-@endif
+@endif --}}
 <div class="page-content page-auth">
     <div class="section-store-auth" data-aos="fade-up">
       <div class="container">
         <div class="row align-items-center row-login">
           <div class="col-lg-6 text-center">
             <img
-              src="/images/login-placeholder.jpg"
+              src="/images/login-placeholder.png"
               class="w-50 mb-4 mb-lg-none"
             />
           </div>
@@ -67,6 +67,7 @@
               <button type="submit" class="btn btn-success btn-block w-75 mt-4">
                 Masuk ke akun saya
               </button>
+              <p class="mt-2 mb-1">Belum punya akun ?</p>
               <a href="{{ route('register') }}" class="btn btn-signup btn-block w-75 mt-2">
                 Daftar akun baru
               </a>

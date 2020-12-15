@@ -58,7 +58,7 @@ class AkhwatController extends Controller
     public function details($nama)
     {
         $slug_nama = Str::slug($nama, ' ');
-        $data['akhwat'] = Akhwat::where('nama', $slug_nama)->first();
+        $data['akhwat'] = Akhwat::with('tribe')->where('nama', $slug_nama)->first();
         $data['darah'] = Darah::all();
         $data['keterampilan'] = Keterampilan::with(['akhwats' => function ($query) use ($slug_nama) {
             $query->where('nama', $slug_nama);
@@ -102,7 +102,8 @@ class AkhwatController extends Controller
             'alamat' => 'required',
             'biodata' => 'required|file|mimes:doc,pdf,docx,jpeg,png,jpg|max:5048',
             'keterampilan' => 'required',
-            'suku' => 'required',
+            'sukuibu' => 'required',
+            'sukubapak' => 'required',
             'tinggi' => 'required',
             'tubuh' => 'required',
             'organisasi' => 'required',
@@ -123,7 +124,6 @@ class AkhwatController extends Controller
             $akhwat->no_hp = $request->no_hp;
             $akhwat->alamat = $request->alamat;
             $akhwat->riwayat_penyakit = $request->riwayat_penyakit;
-            $akhwat->suku_id = $request->suku;
             $akhwat->tinggi_id = $request->tinggi;
             $akhwat->tubuh_id = $request->tubuh;
             $akhwat->organisasi_id = $request->organisasi;
@@ -149,6 +149,10 @@ class AkhwatController extends Controller
                 );
             }
 
+            $suku_akhwat = Akhwat::find($akhwat->id);
+            $suku_akhwat->tribe()->attach($request->sukuibu, ['created_at' => Carbon::now(), 'updated_at' => Carbon::now()]);
+            $suku_akhwat->tribe()->attach($request->sukubapak, ['created_at' => Carbon::now(), 'updated_at' => Carbon::now()]);
+
             return redirect()->back()->with('success', 'sukses menyimpan data !');
         }
 
@@ -162,7 +166,8 @@ class AkhwatController extends Controller
             'alamat' => 'required',
             'biodata' => 'file|mimes:doc,pdf,docx,jpeg,png,jpg|max:5048',
             'keterampilan' => 'required',
-            'suku' => 'required',
+            'sukuibu' => 'required',
+            'sukubapak' => 'required',
             'tinggi' => 'required',
             'tubuh' => 'required',
             'organisasi' => 'required',
@@ -184,7 +189,7 @@ class AkhwatController extends Controller
             $akhwat->no_hp = $request->no_hp;
             $akhwat->alamat = $request->alamat;
             $akhwat->riwayat_penyakit = $request->riwayat_penyakit;
-            $akhwat->suku_id = $request->suku;
+            // $akhwat->suku_id = $request->suku;
             $akhwat->tinggi_id = $request->tinggi;
             $akhwat->tubuh_id = $request->tubuh;
             $akhwat->organisasi_id = $request->organisasi;
@@ -206,10 +211,17 @@ class AkhwatController extends Controller
                 $akhwat->cv = $nama_file;
             }
             $akhwat->save();
+            // keterampilan
             $akhwat->skills()->detach();
             foreach ($request->keterampilan as $value) {
                 $akhwat->skills()->attach($value, ['created_at' => Carbon::now(), 'updated_at' => Carbon::now()]);
             }
+
+            // suku
+            $akhwat->tribe()->detach();
+            $suku_akhwat = Akhwat::find($akhwat->id);
+            $suku_akhwat->tribe()->attach($request->sukuibu, ['created_at' => Carbon::now(), 'updated_at' => Carbon::now()]);
+            $suku_akhwat->tribe()->attach($request->sukubapak, ['created_at' => Carbon::now(), 'updated_at' => Carbon::now()]);
 
             return redirect()->route('daftar-akhwat')->with('success', 'sukses menyimpan data !');
         }

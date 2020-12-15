@@ -20,9 +20,6 @@
             alert("{{ session('success') }}")
         </script>
     @endif
-    <script>
-        $('.alert').alert()
-    </script>
   </head>
 
   <body>
