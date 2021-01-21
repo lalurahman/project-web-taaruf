@@ -23,7 +23,7 @@ data-aos="fade-up"
 
     <div class="row mt-2">
       <div class="col-12 col-md-12">
-        <p class="text-muted ml-1">Daftar calon pasangan sesuai dengan kriteria yang anda harapkan</p>
+        <p class="text-white ml-1">Daftar calon pasangan sesuai dengan kriteria yang anda harapkan</p>
         @if ($jodoh != null)
             @foreach ($jodoh as $item)
             <div class="card card-list">

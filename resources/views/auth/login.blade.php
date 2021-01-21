@@ -25,7 +25,7 @@
             />
           </div>
           <div class="col-lg-5">
-            <h2>
+            <h2 class="text-white">
               Masuk dan temukan calon <br />
               pasangan hidup anda.
             </h2>
