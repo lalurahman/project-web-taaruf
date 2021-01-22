@@ -25,10 +25,10 @@ data-aos="fade-up"
               </div>
               <div class="col-8">
                 <div class="dashboard-card-title">
-                  Ikhwan sudah berpasangan
+                  Ikhwan
                 </div>
                 <div class="dashboard-card-subtitle">
-                  {{ $ikhwan_active }} <small>orang</small>
+                  {{ $ikhwan }} <small>orang</small>
                 </div>
               </div>
               
@@ -36,7 +36,7 @@ data-aos="fade-up"
           </div>
         </div>
       </div>
-      <div class="col-md-4 mb-2">
+      <div class="col-md-4 mb-2 d-none">
         <div class="card mb-2">
           <div class="card-body">
             <div class="row">

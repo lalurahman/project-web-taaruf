@@ -26,7 +26,7 @@
       >
       <a
         href="{{ route('daftar-ikhwan') }}"
-        class="list-group-item list-group-item-action d-none {{ (request()->is('admin/ikhwan*')) ? 'active' : '' }}"
+        class="list-group-item list-group-item-action {{ (request()->is('admin/ikhwan*')) ? 'active' : '' }}"
         >Data Ikhwan</a
       >
       {{-- <a
