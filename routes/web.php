@@ -34,6 +34,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
     Route::get('/cari-akhwat', 'DashboardController@index')->name('cari-akhwat');
     Route::get('/akhwat/details/{nama}', 'DashboardController@details')->name('details-calon');
 
+    Route::get('/akhwat/laporan/{nama}', 'DashboardController@laporan_pdf')->name('laporan-pdf');
+
     Route::prefix('kriteria')->group(function(){
         Route::resource('keterampilan', 'Admin\Kriteria\KeterampilanController');
         Route::resource('suku', 'Admin\Kriteria\SukuController');

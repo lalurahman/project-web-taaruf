@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Helpers\JaccardSimilarity;
+use Barryvdh\DomPDF\PDF;
 
 class DashboardController extends Controller
 {
@@ -115,5 +116,28 @@ class DashboardController extends Controller
 
 
         return view('pages.detail-akhwat', $data);
+    }
+
+    public function laporan_pdf($nama)
+    {
+        $slug_nama = Str::slug($nama, ' ');
+        $data['akhwat'] = Akhwat::where('nama', $slug_nama)->first();
+        $data['keterampilan'] = Keterampilan::with(['akhwats' => function ($query) use ($slug_nama) {
+            $query->where('nama', $slug_nama);
+        }])->get();
+        $data['kulit'] = Kulit::all();
+        $data['nikah'] = Nikah::all();
+        $data['organisasi'] = Organisasi::all();
+        $data['pekerjaan'] = Pekerjaan::all();
+        $data['pendidikan'] = Pendidikan::all();
+        $data['rambut'] = Rambut::all();
+        $data['suku'] = Suku::all();
+        $data['tinggi'] = Tinggi::all();
+        $data['tubuh'] = Tubuh::all();
+        $data['wajah'] = Wajah::all();
+        $data['darah'] = Darah::all();
+
+        $pdf = PDF::loadview('pages.laporan', ['data' => $data]);
+        return $pdf->download('laporan.pdf');
     }
 }
