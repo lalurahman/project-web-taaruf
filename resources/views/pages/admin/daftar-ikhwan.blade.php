@@ -15,8 +15,8 @@ data-aos="fade-up"
     <p class="dashboard-subtitle">Tambahkan data Ikhwan!</p>
   </div>
   <div class="dashboard-content">
-    <div class="row mt-3">
-      <div class="col-12 mt-2">
+    {{-- <div class="row mt-3">
+      <div class="col-12 mt-2 d-none">
         <ul
           class="nav nav-pills mb-3"
           id="pills-tab"
@@ -74,9 +74,18 @@ data-aos="fade-up"
                     <td>{{ $item->email }}</td>
                     <td>
                       <div class="btn-group">
-                        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Aksi</button>
+                        <a href="{{ route('details-ikhwan', $item->id) }}" class="btn btn-primary text-white">Lihat Detail</a>
+                          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                          </button>
+                        
                         <div class="dropdown-menu">
-                            <a href="{{ route('details-ikhwan', $item->id) }}" class="dropdown-item">Lihat Detail</a>
+                            <form action="{{ route('updated-ikhwan') }}" method="post" enctype="multipart/form-data">
+                              @csrf
+                              @method('PUT')
+                              <input type="hidden" name="id" value="{{ $item->id }}">
+                              <button type="submit" class="dropdown-item">Sudah Dapat Pasangan</button>
+                            </form>
                             <form action="{{ route('delete-ikhwan', $item->id) }}" method="post">
                               @csrf
                               @method('DELETE')
@@ -118,23 +127,15 @@ data-aos="fade-up"
                   <td>{{ $item->email }}</td>
                   <td>
                       <div class="btn-group">
-                          <a href="{{ route('details-ikhwan', $item->id) }}" class="btn btn-primary text-white">Lihat Detail</a>
-                          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>
-                          </button>
+                        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Aksi</button>
                           <div class="dropdown-menu">
-                            <form action="{{ route('updated-ikhwan') }}" method="post" enctype="multipart/form-data">
-                              @csrf
-                              @method('PUT')
-                              <input type="hidden" name="id" value="{{ $item->id }}">
-                              <button type="submit" class="dropdown-item">Verifikasi</button>
-                            </form>
+                            
+                            <a href="{{ route('details-ikhwan', $item->id) }}" class="dropdown-item">Lihat Detail</a>
                             <form action="{{ route('delete-ikhwan', $item->id) }}" method="post">
                               @csrf
                               @method('DELETE')
                               <button type="submit" class="dropdown-item text-danger">Hapus</button>
                             </form>
-                            
                           </div>
                       </div>
                   </td>
@@ -146,8 +147,54 @@ data-aos="fade-up"
           </div>
         </div>
       </div>
+    </div> --}}
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <table class="table" id="ikhwanTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 </div>
 @endsection
+
+@push('addon-script')
+    <script>
+        $('#ikhwanTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ordering: true,
+            ajax: {
+                url: '{!! url()->current() !!}'
+            },
+            columns: [
+                { data: 'name', name: 'name' },
+                { data: 'email', name: 'email' },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false,
+                    width: '15%'
+                }
+            ]
+        });
+        
+    </script>
+@endpush

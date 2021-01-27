@@ -11,8 +11,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $ikhwan = User::where('is_active',0)->count();
-        $ikhwan_active = User::where('is_active',1)->count();
+        // $ikhwan = User::where('is_active',0)->count();
+        $ikhwan = User::where('roles','USER')->count();
+        $ikhwan_active = User::where('is_active',1)->where('roles','USER')->count();
         $akhwat = Akhwat::count();
         return view('pages.admin.dashboard',[
             'ikhwan' => $ikhwan,

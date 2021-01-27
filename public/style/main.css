@@ -10824,6 +10824,7 @@ body {
 }
 
 .page-content {
+  background-color: #768696;
   margin-top: 100px;
 }
 
@@ -10833,7 +10834,7 @@ footer {
 }
 
 footer p {
-  color: #979797;
+  color: #ffffff;
 }
 
 .form-control {
@@ -10846,7 +10847,7 @@ footer p {
 
 @media (max-width: 991.98px) {
   .navbar-store {
-    background-color: #fff !important;
+    background-color: #1a9929 !important;
   }
 }
 
@@ -10948,7 +10949,7 @@ footer p {
   color: #212529;
   background-color: #f3f3f3;
   border-color: transparent;
-  color: #bbb;
+  color: #575454;
 }
 
 .page-auth .section-store-auth .btn-signup:hover {
@@ -10985,7 +10986,7 @@ footer p {
 }
 
 .page-dashboard #page-content-wrapper {
-  background: #f5f5fb;
+  background: #768696;
 }
 
 .page-dashboard #sidebar-wrapper {
@@ -10994,6 +10995,7 @@ footer p {
   margin-left: -15rem;
   -webkit-transition: margin 0.25s ease-out;
   transition: margin 0.25s ease-out;
+  background-color: #dad5d5;
 }
 
 .page-dashboard #sidebar-wrapper .sidebar-heading {
@@ -11009,25 +11011,11 @@ footer p {
   margin-left: 0;
 }
 
-.page-dashboard .navbar-store {
-  margin-top: 0;
-  background-color: #f5f5fb;
-  -webkit-box-shadow: 0px 4px 5px #cacad1;
-          box-shadow: 0px 4px 5px #cacad1;
-}
-
-@media (min-width: 768px) {
-  .page-dashboard .navbar-store {
-    background-color: transparent;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-  }
-}
-
 .page-dashboard .list-group-item {
   border: 0;
   font-size: 15px;
-  color: #9191a9;
+  background-color: #dad5d5;
+  color: #0c0d36;
 }
 
 .page-dashboard .list-group-item.active {
@@ -11073,14 +11061,14 @@ footer p {
   font-size: 24px;
   font-weight: normal;
   line-height: 36px;
-  color: #0c0d36;
+  color: #ffffff;
 }
 
 .page-dashboard .section-content .dashboard-subtitle {
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
-  color: #9191a9;
+  color: #ffffff;
 }
 
 .page-dashboard .section-content .nav-pills .nav-link {
@@ -11099,7 +11087,7 @@ footer p {
 }
 
 .card {
-  background: #fefefe;
+  background: #dad5d5;
   -webkit-box-shadow: 0px 4px 15px #f1f1f8;
           box-shadow: 0px 4px 15px #f1f1f8;
   border-radius: 8px;
@@ -11110,7 +11098,7 @@ footer p {
 .card .dashboard-card-title {
   font-size: 16px;
   line-height: 24px;
-  color: #c5c5c5;
+  color: #0c0d36;
 }
 
 .card .dashboard-card-subtitle {
