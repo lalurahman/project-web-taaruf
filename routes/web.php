@@ -63,7 +63,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
 Route::group(['prefix'=>'user', 'middleware' => ['auth', 'admin:USER']], function () {
     Route::get('/', 'AccountController@index')->name('profile');
     Route::put('/profile', 'AccountController@update')->name('profile-update');
-    
+
 });
 
 // Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');
