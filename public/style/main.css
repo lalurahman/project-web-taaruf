@@ -10929,6 +10929,10 @@ footer p {
           box-shadow: 0 0 0 0.2rem rgba(33, 37, 41, 0.5);
 }
 
+.page-auth label {
+  color: #fff;
+}
+
 .page-auth .row-login {
   min-height: 75vh;
 }

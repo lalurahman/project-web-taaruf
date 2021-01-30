@@ -17,7 +17,7 @@
                     <a href="{{ route('cari-akhwat') }}" class="btn btn-secondary px-5 mb-3">
                         Kembali
                     </a>
-                    <a href="{{ route('laporan-pdf', $akhwat['nama']) }}" target="_blank" class="btn btn-primary px-5 mb-3">Cetak Laporan</a>
+                    <a href="{{ route('laporan-pdf') }}" target="_blank" class="btn btn-primary px-5 mb-3">Cetak Laporan</a>
                     <form action="#" method="POST" enctype="multipart/form-data">
                         @csrf
                         {{-- <input type="hidden" name="id" value="{{ $akhwat->id }}"> --}}
