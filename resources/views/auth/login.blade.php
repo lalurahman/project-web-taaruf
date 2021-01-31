@@ -67,7 +67,7 @@
               <button type="submit" class="btn btn-success btn-block w-75 mt-4">
                 Masuk ke akun saya
               </button>
-              <p class="mt-2 mb-1">Belum punya akun ?</p>
+              <p class="mt-2 mb-1 text-white">Belum punya akun ?</p>
               <a href="{{ route('register') }}" class="btn btn-signup btn-block w-75 mt-2">
                 Daftar akun baru
               </a>
