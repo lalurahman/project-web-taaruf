@@ -118,7 +118,7 @@ class DashboardController extends Controller
         return view('pages.detail-akhwat', $data);
     }
 
-    public function laporan_pdf()
+    public function laporan_pdf($id)
     {
         // $slug_nama = Str::slug($nama, ' ');
         // $data['akhwat'] = Akhwat::where('nama', $slug_nama)->first();
@@ -136,8 +136,9 @@ class DashboardController extends Controller
         // $data['tubuh'] = Tubuh::all();
         // $data['wajah'] = Wajah::all();
         // $data['darah'] = Darah::all();
+        $akhwat = Akhwat::find($id);
 
-        $pdf = PDF::loadview('pages.laporan');
-        return $pdf->stream('laporan.pdf');
+        $pdf = PDF::loadview('pages.laporan', ['laporan' => $akhwat])->setPaper('a4', 'potrait');
+        return $pdf->download('laporan.pdf');
     }
 }

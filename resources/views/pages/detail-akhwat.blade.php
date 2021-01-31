@@ -17,7 +17,7 @@
                     <a href="{{ route('cari-akhwat') }}" class="btn btn-secondary px-5 mb-3">
                         Kembali
                     </a>
-                    <a href="{{ route('laporan-pdf') }}" target="_blank" class="btn btn-primary px-5 mb-3">Cetak Laporan</a>
+                    <a href="{{ route('laporan-pdf', $akhwat->id) }}" target="_blank" class="btn btn-primary px-5 mb-3">Cetak Laporan</a>
                     <form action="#" method="POST" enctype="multipart/form-data">
                         @csrf
                         {{-- <input type="hidden" name="id" value="{{ $akhwat->id }}"> --}}
@@ -64,11 +64,11 @@
                                         <div class="form-group">
                                             <label for="keterampilan" class="d-block">Keterampilan</label>
                                             @foreach ($keterampilan as $item)
-                                                                                              
-                                                @foreach ($item->akhwats as $skills)  
+
+                                                @foreach ($item->akhwats as $skills)
                                                     <div class="badge badge-success mr-1 px-2 py-1">{{ $item->keterampilan }}</div>
                                                 @endforeach
-                                                
+
                                             @endforeach
                                         </div>
                                     </div>
@@ -93,11 +93,11 @@
                                                     @endif
                                                     @if ($item->tinggi == 'sedang')
                                                     <input type="text" class="form-control" readonly value="Sedang : 154-166 cm">
-                                                    
+
                                                     @endif
                                                     @if ($item->tinggi == 'tinggi')
                                                     <input type="text" class="form-control" readonly value="Tinggi : 167-180 cm">
-                                                    
+
                                                     @endif
                                                 @endif
                                             @endforeach
@@ -113,15 +113,15 @@
                                                     @endif
                                                     @if ($item->tubuh == 'normal')
                                                     <input type="text" class="form-control" readonly value="Normal : 55-64 kg">
-                                                    
+
                                                     @endif
                                                     @if ($item->tubuh == 'gemuk')
                                                     <input type="text" class="form-control" readonly value="Gemuk : 65 > kg">
-                                                    
+
                                                     @endif
                                                 @endif
                                             @endforeach
-                                            
+
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
@@ -129,9 +129,9 @@
                                             <label>Organisasi</label>
                                             @foreach ($organisasi as $item)
                                                 @if ($akhwat->organisasi_id == $item->id)
-                                                    
+
                                                     <input type="text" class="form-control" readonly value="{{ $item->organisasi }}">
-                                                    
+
                                                 @endif
                                             @endforeach
                                         </div>
@@ -141,9 +141,9 @@
                                             <label>Jenis Rambut</label>
                                             @foreach ($rambut as $item)
                                                 @if ($akhwat->rambut_id == $item->id)
-                                                    
+
                                                     <input type="text" class="form-control" readonly value="{{ $item->rambut }}">
-                                                    
+
                                                 @endif
                                             @endforeach
                                         </div>
@@ -153,12 +153,12 @@
                                             <label>Pendidikan</label>
                                             @foreach ($pendidikan as $item)
                                                 @if ($akhwat->pendidikan_id == $item->id)
-                                                    
+
                                                     <input type="text" class="form-control" readonly value="{{ $item->pendidikan }}">
-                                                    
+
                                                 @endif
                                             @endforeach
-                                            
+
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
@@ -166,9 +166,9 @@
                                             <label>Pekerjaan</label>
                                             @foreach ($pekerjaan as $item)
                                                 @if ($akhwat->pekerjaan_id == $item->id)
-                                                    
+
                                                     <input type="text" class="form-control" readonly value="{{ $item->pekerjaan }}">
-                                                    
+
                                                 @endif
                                             @endforeach
                                         </div>
@@ -178,9 +178,9 @@
                                             <label>Warna Kulit</label>
                                             @foreach ($kulit as $item)
                                                 @if ($akhwat->kulit_id == $item->id)
-                                                    
+
                                                     <input type="text" class="form-control" readonly value="{{ $item->kulit }}">
-                                                    
+
                                                 @endif
                                             @endforeach
                                         </div>
@@ -190,9 +190,9 @@
                                             <label>Golongan Darah</label>
                                             @foreach ($darah as $item)
                                                 @if ($akhwat->darah_id == $item->id)
-                                                    
+
                                                     <input type="text" class="form-control" readonly value="{{ $item->darah }}">
-                                                    
+
                                                 @endif
                                             @endforeach
                                         </div>
@@ -202,9 +202,9 @@
                                             <label>Bentuk Wajah</label>
                                             @foreach ($wajah as $item)
                                                 @if ($akhwat->wajah_id == $item->id)
-                                                    
+
                                                     <input type="text" class="form-control" readonly value="{{ $item->wajah }}">
-                                                    
+
                                                 @endif
                                             @endforeach
                                         </div>
@@ -219,11 +219,11 @@
                                                     @endif
                                                     @if ($item->usia == 'cukup')
                                                     <input type="text" class="form-control" readonly value="Cukup : 25 - 30 Tahun">
-                                                    
+
                                                     @endif
                                                     @if ($item->usia == 'waspada')
                                                     <input type="text" class="form-control" readonly value="Waspada : 31 - Tak terhingga tahun">
-                                                    
+
                                                     @endif
                                                 @endif
                                             @endforeach
@@ -231,7 +231,7 @@
                                     </div>
 
                                 </div>
-                                
+
                             </div>
                         </div>
                     </form>

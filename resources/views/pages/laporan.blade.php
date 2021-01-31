@@ -12,7 +12,7 @@
     <title>Laporan</title>
     {{-- style --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    
+
   </head>
 
   <body>
@@ -28,38 +28,41 @@
             <div class="row mb-2">
                 <div class="col-6">
                     <h5>Hasil Pencarian Jodoh :</h5>
-                    <small>Nama :</small> <br>
-                    <small>Nomor HP :</small> <br>
-                    <small>Alamat :</small> <br>
+                    <small>Nama :</small> {{ $laporan->nama }} <br>
+                    <small>Nomor HP :</small> {{ $laporan->no_hp }} <br>
+                    <small>Alamat :</small> {{ $laporan->alamat }} <br>
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-6">
                     <p>Keterampilan :</p>
                     <ol type="1" style="margin-top: -10px; margin-left: -15px">
-                        <li>Memasak</li>
-                        <li>Dekorasi</li>
+                        @foreach ($laporan->skills as $item)
+                        <li>{{ $item->keterampilan }}</li>
+                        @endforeach
                     </ol>
                 </div>
                 <div class="col-6 float-right">
                     <p>Asal Suku :</p>
+                    @foreach ($laporan->tribe as $item)
                     <ul style="margin-top: -10px; margin-left: -15px">
-                        <li>Bugis</li>
+                        <li>{{ $item->suku }}</li>
                     </ul>
+                    @endforeach
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-6">
                     <p>Tinggi Badan :</p>
                     <ul style="margin-top: -10px; margin-left: -15px">
-                        <li>Pendek : 140-153 cm</li>
-                        
+                        <li>{{ $laporan->height->tinggi }}</li>
+
                     </ul>
                 </div>
                 <div class="col-6 float-right">
                     <p>Berat Badan (berdasarkan range):</p>
                     <ul style="margin-top: -10px; margin-left: -15px">
-                        <li>Normal : 55-64 kg</li>
+                        <li>{{ $laporan->body->tubuh }}</li>
                     </ul>
                 </div>
             </div>
@@ -67,14 +70,14 @@
                 <div class="col-6">
                     <p>Organisasi :</p>
                     <ul style="margin-top: -10px; margin-left: -15px">
-                        <li>Pasif</li>
-                        
+                        <li>{{ $laporan->comunity->organisasi }}</li>
+
                     </ul>
                 </div>
                 <div class="col-6 float-right">
                     <p>Jenis Rambut :</p>
                     <ul style="margin-top: -10px; margin-left: -15px">
-                        <li>Pendek</li>
+                        <li>{{ $laporan->hair->rambut }}</li>
                     </ul>
                 </div>
             </div>
@@ -82,14 +85,13 @@
                 <div class="col-6">
                     <p>Pendidikan :</p>
                     <ul style="margin-top: -10px; margin-left: -15px">
-                        <li>S1</li>
-                        
+                        <li>{{ $laporan->education->pendidikan }}</li>
                     </ul>
                 </div>
                 <div class="col-6 float-right">
                     <p>Pekerjaan :</p>
                     <ul style="margin-top: -10px; margin-left: -15px">
-                        <li>PNS</li>
+                        <li>{{ $laporan->job->pekerjaan }}</li>
                     </ul>
                 </div>
             </div>
@@ -97,14 +99,14 @@
                 <div class="col-6">
                     <p>Warna Kulit :</p>
                     <ul style="margin-top: -10px; margin-left: -15px">
-                        <li>Putih Bersih</li>
-                        
+                        <li>{{ $laporan->skin->kulit }}</li>
+
                     </ul>
                 </div>
                 <div class="col-6 float-right">
                     <p>Golongan Darah :</p>
                     <ul style="margin-top: -10px; margin-left: -15px">
-                        <li>B</li>
+                        <li>{{ $laporan->blood->darah }}</li>
                     </ul>
                 </div>
             </div>
@@ -113,7 +115,7 @@
                     <p>Bentuk Wajah :</p>
                     <ul style="margin-top: -10px; margin-left: -15px">
                         <li>Oval</li>
-                        
+
                     </ul>
                 </div>
                 <div class="col-6 float-right">
@@ -132,8 +134,8 @@
         <hr style="border: 1px solid #000">
     </section>
     <section class="ttd mt-2">
-        <small class="d-block">Yang bertanda tangan dibawah ini :</small> 
-        <small class="d-block">Admin, tanggal</small> 
+        <small class="d-block">Yang bertanda tangan dibawah ini :</small>
+        <small class="d-block">Admin, tanggal</small>
         <small class="d-block mt-5">(nama admin)</small>
     </section>
   </body>
