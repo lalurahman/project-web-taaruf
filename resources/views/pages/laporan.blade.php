@@ -19,7 +19,7 @@
     <section class="kop">
         <div class="text-center">
             <h5>LAPORAN HASIL PENCARIAN JODOH</h5>
-            <small class="text-small">TANGGAL : 30 / 01 / 2021</small>
+            <small class="text-small">{{ date("d / m / Y") }}</small>
             <hr style="border: 1px solid #000">
         </div>
     </section>
@@ -130,13 +130,13 @@
     <section class="hasil">
         <hr style="border: 1px solid #000">
             <h5 class="text-center">HASIL PRESENTASI KECOCOKAN</h5>
-            <h5 class="text-center">100%</h5>
+            <h5 class="text-center">{{ number_format(session($laporan->nama),2) * 100 }}%</h5>
         <hr style="border: 1px solid #000">
     </section>
     <section class="ttd mt-2">
         <small class="d-block">Yang bertanda tangan dibawah ini :</small>
-        <small class="d-block">Admin, tanggal</small>
-        <small class="d-block mt-5">(nama admin)</small>
+        <small class="d-block">Ustadz, {{ date("d / m / Y") }}</small>
+        <small class="d-block mt-5">(Ustadz)</small>
     </section>
   </body>
 

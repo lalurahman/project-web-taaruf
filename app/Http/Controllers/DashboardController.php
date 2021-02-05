@@ -85,6 +85,7 @@ class DashboardController extends Controller
                     'persentasi' => $jaccard->getSimilarityCoefficient(implode(',',$kriteria), implode(',',array_slice($value,1))),
                 ];
                 array_push($jodoh, $tempp1);
+                session([$value['nama'] => $jaccard->getSimilarityCoefficient(implode(',',$kriteria), implode(',',array_slice($value,1)))]);
             }
 
             $data['jodoh'] = collect($jodoh)->sortByDesc('persentasi')->take(5);
