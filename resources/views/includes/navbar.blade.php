@@ -24,7 +24,7 @@ data-aos="fade-down"
             <li class="nav-item dropdown">
             <a
                 href="#"
-                class="nav-link"
+                class="nav-link text-white"
                 role="button"
                 id="navbarDropdown"
                 data-toggle="dropdown"

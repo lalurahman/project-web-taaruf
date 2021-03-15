@@ -5,18 +5,44 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class IkhwanController extends Controller
 {
     public function index()
     {
-        $ikhwan = User::where('is_active',0)->where('roles','user')->get(); 
-        $ikhwan_active = User::where('is_active',1)->where('roles','user')->get();
+        if(request()->ajax()){
+            $ikhwan = User::where('roles','USER')->orderBy('created_at', 'desc');
+            return DataTables::of($ikhwan)
+                ->addColumn('action', function($item){
+                    return '
+                        <div class="btn-group">
+                            <button
+                                type="button" class="btn btn-primary dropdown-toggle mb-1 mr-1 px-2" data-toggle="dropdown">
+                                Aksi
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href=" '. route('details-ikhwan', $item->id) .' " class="dropdown-item">
+                                    Lihat Detail
+                                </a>
+                                <button class="text-danger dropdown-item" onclick="hapus('. $item->id .')">Hapus</button>
+                            </div>
+                        </div>
+                    ';
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
 
-        return view('pages.admin.daftar-ikhwan',[
-            'ikhwan' => $ikhwan, 
-            'ikhwan_active' => $ikhwan_active
-        ]);
+        return view('pages.admin.daftar-ikhwan');
+
+        // $ikhwan = User::where('is_active',0)->where('roles','user')->get(); 
+        // $ikhwan_active = User::where('is_active',1)->where('roles','user')->get();
+
+        // return view('pages.admin.daftar-ikhwan',[
+        //     'ikhwan' => $ikhwan, 
+        //     'ikhwan_active' => $ikhwan_active
+        // ]);
     }
 
     public function details($id)

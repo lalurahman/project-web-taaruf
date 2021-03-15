@@ -1,6 +1,6 @@
 .page-dashboard {
     #page-content-wrapper {
-        background: #f5f5fb;
+        background: #768696;
     }
 
     #sidebar-wrapper {
@@ -8,7 +8,7 @@
         min-height: 100vh;
         margin-left: -15rem;
         transition: margin 0.25s ease-out;
-        // background-color: #9191a9;
+        background-color: #dad5d5;
 
         .sidebar-heading {
             padding: 0.875rem 1.25rem;
@@ -27,21 +27,22 @@
         }
     }
 
-    .navbar-store {
-        margin-top: 0;
-        background-color: #f5f5fb;
-        box-shadow: 0px 4px 5px #cacad1;
+    // .navbar-store {
+    //     margin-top: 0;
+    //     background-color: #1a9929;
+    //     box-shadow: 0px 4px 5px #cacad1;
 
-        @include media-breakpoint-up(md) {
-            background-color: transparent;
-            box-shadow: none;
-        }
-    }
+    //     @include media-breakpoint-up(md) {
+    //         background-color: transparent;
+    //         box-shadow: none;
+    //     }
+    // }
 
     .list-group-item {
         border: 0;
         font-size: 15px;
-        color: #9191a9;
+        background-color: #dad5d5;
+        color: #0c0d36;
 
         &.active {
             background: linear-gradient(
@@ -90,13 +91,13 @@
             font-size: 24px;
             font-weight: normal;
             line-height: 36px;
-            color: #0c0d36;
+            color: #ffffff;
         }
         .dashboard-subtitle {
             font-weight: 300;
             font-size: 16px;
             line-height: 24px;
-            color: #9191a9;
+            color: #ffffff;
         }
 
         .nav-pills {

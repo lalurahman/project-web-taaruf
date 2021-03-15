@@ -54,6 +54,22 @@ class AuthUserController extends Controller
         return view('auth.register');
     }
 
+    // download
+    public function format_biodata()
+    {
+        return response()->download(public_path().'/assets/upload/format/Biodata_Ikhwa.docx', 'biodata.docx');
+    }
+
+    public function rekomendasi()
+    {
+        return response()->download(public_path().'/assets/upload/format/Surat_Rekomendasi_Murobbi.docx', 'rekomendasi.docx');
+    }
+
+    public function surat_menikah()
+    {
+        return response()->download(public_path().'/assets/upload/format/Surat_Izin_Nikah_Dari_Orang_Tua_Atau_Wali.docx', 'surat_izin_menikah.docx');
+    }
+
     // protected function validator(array $data)
     // {
     //     return Validator::make($data, [

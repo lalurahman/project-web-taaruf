@@ -15,8 +15,8 @@ data-aos="fade-up"
     <p class="dashboard-subtitle">Tambahkan data Ikhwan!</p>
   </div>
   <div class="dashboard-content">
-    <div class="row mt-3">
-      <div class="col-12 mt-2">
+    {{-- <div class="row mt-3">
+      <div class="col-12 mt-2 d-none">
         <ul
           class="nav nav-pills mb-3"
           id="pills-tab"
@@ -147,8 +147,54 @@ data-aos="fade-up"
           </div>
         </div>
       </div>
+    </div> --}}
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                
+                <table class="table" id="ikhwanTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 </div>
 @endsection
+
+@push('addon-script')
+    <script>
+        $('#ikhwanTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ordering: true,
+            ajax: {
+                url: '{!! url()->current() !!}'
+            },
+            columns: [
+                { data: 'name', name: 'name' },
+                { data: 'email', name: 'email' },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false,
+                    width: '15%'
+                }
+            ]
+        });
+        
+    </script>
+@endpush

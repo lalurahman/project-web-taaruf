@@ -17,7 +17,7 @@
     
   </head>
 
-  <body>
+  <body style="background-color: #768696">
 
     {{-- page content --}}
    @yield('content')

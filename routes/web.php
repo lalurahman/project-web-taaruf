@@ -18,6 +18,9 @@ Route::post('login', 'AuthUserController@getlogin');
 Route::get('logout', 'AuthUserController@logout')->name('logout');
 
 Route::get('register', 'AuthUserController@register')->name('register');
+Route::get('format_biodata', 'AuthUserController@format_biodata')->name('biodata');
+Route::get('rekomendasi_murobbi', 'AuthUserController@rekomendasi')->name('rekomendasi');
+Route::get('surat_nikah', 'AuthUserController@surat_menikah')->name('menikah');
 Route::post('register', 'AuthUserController@registerProcess')->name('register-process');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], function () {
@@ -33,6 +36,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
     Route::get('/kriteria', 'Admin\KriteriaController@index')->name('daftar-kriteria');
     Route::get('/cari-akhwat', 'DashboardController@index')->name('cari-akhwat');
     Route::get('/akhwat/details/{nama}', 'DashboardController@details')->name('details-calon');
+
+    Route::get('/akhwat/laporan/{id}', 'DashboardController@laporan_pdf')->name('laporan-pdf');
 
     Route::prefix('kriteria')->group(function(){
         Route::resource('keterampilan', 'Admin\Kriteria\KeterampilanController');
@@ -63,7 +68,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
 Route::group(['prefix'=>'user', 'middleware' => ['auth', 'admin:USER']], function () {
     Route::get('/', 'AccountController@index')->name('profile');
     Route::put('/profile', 'AccountController@update')->name('profile-update');
-    
+
 });
 
 // Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');

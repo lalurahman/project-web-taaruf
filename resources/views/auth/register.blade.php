@@ -11,13 +11,13 @@
       <div class="container">
         <div class="row align-items-center justify-content-center row-login">
           <div class="col-lg-4">
-            <h2>
+            <h2 class="text-white">
               Masukkan data diri anda secara lengkap !
             </h2>
             @if($errors->any())
               <div class="alert alert-danger alert-block">
                 <button type="button" class="close" data-dismiss="alert">×</button> 
-                <span>{{ $errors->first() }}</span>
+                <span class="text-danger">{{ $errors->first() }}</span>
               </div>
             @endif
             <form action="{{ route('register-process') }}" method="post" class="mt-3" enctype="multipart/form-data">
@@ -90,17 +90,23 @@
                     </span>
                 @enderror
               </div>
-
               <div class="form-group">
                 <label for="biodata">Biodata Ikhwa</label>
-                <input
-                  type="file"
-                  name="biodata"
-                  id="biodata"
-                  class="form-control @error('biodata') is-invalid @enderror"
-                  required 
-                />
-                <small class="text-muted">dokumen biodata lengkap anda (pdf)
+                <div class="row">
+                  <div class="col-10 pr-0">
+                    <input
+                      type="file"
+                      name="biodata"
+                      id="biodata"
+                      class="form-control @error('biodata') is-invalid @enderror"
+                      required 
+                    />
+                  </div>
+                  <div class="col-1 pl-1">
+                      <a href="{{ route('biodata') }}" type="button" class="btn btn-primary">Download</a>
+                  </div>
+                </div>
+                <small class="text-white">dokumen biodata lengkap anda (pdf)
                 </small>
                 @error('biodata')
                     <span class="invalid-feedback" role="alert">
@@ -111,14 +117,21 @@
 
               <div class="form-group">
                 <label for="rekomendasi_murobbi">Surat Rekomendasi Murobbi</label>
-                <input
-                  type="file"
-                  name="rekomendasi_murobbi"
-                  id="rekomendasi_murobbi"
-                  class="form-control @error('rekomendasi_murobbi') is-invalid @enderror"
-                  required 
-                />
-                <small class="text-muted">surat keterangan dari murobbi, bahwa aktif
+                <div class="row">
+                  <div class="col-10 pr-0">
+                    <input
+                      type="file"
+                      name="rekomendasi_murobbi"
+                      id="rekomendasi_murobbi"
+                      class="form-control @error('rekomendasi_murobbi') is-invalid @enderror"
+                      required 
+                    />
+                  </div>
+                  <div class="col-1 pl-1">
+                      <a href="{{ route('rekomendasi') }}" type="button" class="btn btn-primary">Download</a>
+                  </div>
+                </div>
+                <small class="text-white">surat keterangan dari murobbi, bahwa aktif
                     tarbiyah minimal 3 bulan (pdf)</small>
 
                 @error('rekomendasi_murobbi')
@@ -130,14 +143,21 @@
 
               <div class="form-group">
                 <label for="izin_nikah">Surat Izin Nikah</label>
-                <input
-                  type="file"
-                  name="izin_nikah"
-                  id="izin_nikah"
-                  class="form-control @error('izin_nikah') is-invalid @enderror"
-                  required 
-                />
-                <small class="text-muted">surat keterangan persetujuan nikah dari wali (pdf)
+                <div class="row">
+                  <div class="col-10 pr-0">
+                    <input
+                      type="file"
+                      name="izin_nikah"
+                      id="izin_nikah"
+                      class="form-control @error('izin_nikah') is-invalid @enderror"
+                      required 
+                    />
+                  </div>
+                  <div class="col-1 pl-1">
+                    <a href="{{ route('menikah') }}" type="button" class="btn btn-primary">Download</a>
+                  </div>
+                </div>
+                <small class="text-white">surat keterangan persetujuan nikah dari wali (pdf)
                 </small>
                 @error('izin_nikah')
                     <span class="invalid-feedback" role="alert">
@@ -155,7 +175,7 @@
                   class="form-control @error('keterangan_sehat') is-invalid @enderror"
                   required 
                 />
-                <small class="text-muted">surat keterangan sehat dari dokter (pdf)
+                <small class="text-white">surat keterangan sehat dari dokter (pdf)
                 </small>
                 @error('keterangan_sehat')
                     <span class="invalid-feedback" role="alert">
