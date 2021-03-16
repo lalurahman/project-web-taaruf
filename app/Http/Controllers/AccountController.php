@@ -110,4 +110,25 @@ class AccountController extends Controller
         return redirect()->route('profile')->with('success','Profil Berhasil diperbarui');
     }
 
+    public function download_biodata()
+    {
+        $file = public_path('assets/upload/biodata/Biodata_Ikhwa.docx');
+
+        return response()->download($file);
+    }
+
+    public function download_rekomendasi()
+    {
+        $file = public_path('assets/upload/biodata/Surat_Rekomendasi_Murobbi.docx');
+
+        return response()->download($file);
+    }
+
+    public function download_izin()
+    {
+        $file = public_path('assets/upload/biodata/Surat_Izin_Nikah_Dari_Orang_Tua_Atau_Wali.docx');
+
+        return response()->download($file);
+    }
+
 }

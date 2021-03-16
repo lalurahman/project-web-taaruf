@@ -18,6 +18,10 @@ Route::post('login', 'AuthUserController@getlogin');
 Route::get('logout', 'AuthUserController@logout')->name('logout');
 
 Route::get('register', 'AuthUserController@register')->name('register');
+Route::get('download_biodata', 'AccountController@download_biodata')->name('download-biodata');
+Route::get('download_rekomendasi', 'AccountController@download_rekomendasi')->name('download-rekomendasi');
+Route::get('download_izin', 'AccountController@download_izin')->name('download-izin');
+// Route::get('download_sehat', 'AccountController@download_sehat')->name('download-sehat');
 Route::post('register', 'AuthUserController@registerProcess')->name('register-process');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], function () {
