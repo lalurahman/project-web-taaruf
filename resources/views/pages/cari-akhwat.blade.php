@@ -65,7 +65,7 @@ data-aos="fade-up"
 {{-- modal --}}
 <div class="modal fade" id="pilihKriteriaModel" tabindex="-1" aria-labelledby="pilihKriteriaModelLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="pilihKriteriaModelLabel">Pilih Kriteria Calon Pasangan</h5>
@@ -79,11 +79,11 @@ data-aos="fade-up"
                         @php
                         $no = 1;
                         @endphp
-                        <div class="col-10 mb-3">
+                        <div class="col-12 mb-3">
                             <h6>{{ $no++ }}. Keterampilan</h6>
                             @foreach ($keterampilan as $item)
-                            <div class="form-check mb-2 ml-3">
-                                <input class="form-check-input" type="checkbox" value="{{ $item->keterampilan }}" name="keterampilan[]">
+                            <div class="form-check mb-2 ml-3 d-inline">
+                                <input class="form-check-input" id="{{ $item->keterampilan }}" type="checkbox" value="{{ $item->keterampilan }}" name="keterampilan[]">
                                 <label class="form-check-label" for="{{ $item->keterampilan }}">
                                     {{ $item->keterampilan }}
                                 </label>
@@ -91,37 +91,48 @@ data-aos="fade-up"
                             @endforeach
                         </div>
 
-                        <div class="col-10 mb-3">
+                        <div class="col-6 mb-3">
                             <h6>{{ $no++ }}. Asal Suku Ibu</h6>
+                            <select class="custom-select" name="sukuibu">
                             @foreach ($suku as $item)
-                            <div class="form-check mb-2 ml-3">
+                            {{-- <div class="form-check mb-2 ml-3">
                                 <input class="form-check-input" type="radio" name="sukuibu" value="{{ $item->suku }}"
                                     id="{{ $item->suku }}">
                                 <label class="form-check-label" for="{{ $item->suku }}">
                                     {{ $item->suku }}
                                 </label>
-                            </div>
+                            </div> --}}
+                                
+                                <option value="{{ $item->suku }}">{{ $item->suku }}</option>
+                                
                             @endforeach
+                            </select>
                         </div>
 
 
-                        <div class="col-10 mb-3">
+                        <div class="col-6 mb-3">
                             <h6>{{ $no++ }}. Asal Suku Bapak</h6>
+                            <select class="custom-select" name="sukubapak">
                             @foreach ($suku as $item)
-                            <div class="form-check mb-2 ml-3">
+                            {{-- <div class="form-check mb-2 ml-3">
                                 <input class="form-check-input" type="radio" name="sukubapak" value="{{ $item->suku }}"
                                     id="{{ $item->suku }}">
                                 <label class="form-check-label" for="{{ $item->suku }}">
                                     {{ $item->suku }}
                                 </label>
-                            </div>
+                            </div> --}}
+                            <option value="{{ $item->suku }}">{{ $item->suku }}</option>
+
                             @endforeach
+                            </select>
+
                         </div>
 
-                        <div class="col-10 mb-3">
+                        <div class="col-6 mb-3">
                             <h6>{{ $no++ }}. Tinggi badan (berdasarkan range)</h6>
+                            <select class="custom-select" name="tinggi">
                             @foreach ($tinggi as $item)
-                            <div class="form-check mb-2 ml-3">
+                            {{-- <div class="form-check mb-2 ml-3">
                                 <input class="form-check-input" type="radio" name="tinggi" id="{{ $item->tinggi }}"
                                     value="{{ $item->tinggi }}">
                                 @if ($item->tinggi == "pendek")
@@ -139,14 +150,21 @@ data-aos="fade-up"
                                     Tinggi : 167 - 180 cm
                                 </label>
                                 @endif
-                            </div>
+                            </div> --}}
+                            <option value="{{ $item->tinggi }}">
+                            @if($item->tinggi == "pendek") Pendek : 140 - 153 cm @elseif($item->tinggi == "sedang") Sedang : 154 - 166 cm @else Tinggi : 167 - 180 cm @endif
+                            </option>
+
                             @endforeach
+                            </select>
+
                         </div>
 
-                        <div class="col-10 mb-3">
+                        <div class="col-6 mb-3">
                             <h6>{{ $no++ }}. Berat badan (berdasarkan range)</h6>
+                            <select class="custom-select" name="tubuh">
                             @foreach ($tubuh as $item)
-                            <div class="form-check mb-2 ml-3">
+                            {{-- <div class="form-check mb-2 ml-3">
                                 <input class="form-check-input" type="radio" name="tubuh" id="{{ $item->tubuh }}"
                                     value="{{ $item->tubuh }}">
                                 @if ($item->tubuh == "kurus")
@@ -164,105 +182,137 @@ data-aos="fade-up"
                                     Gemuk : 65 - 75 kg
                                 </label>
                                 @endif
-                            </div>
+                            </div> --}}
+                                <option value="{{ $item->tubuh }}">
+                                @if($item->tubuh == "kurus") Kurus : 45 - 54 kg @elseif($item->tubuh == "normal") Normal : 55 - 64 kg @else Gemuk : 65 - 75 kg @endif
+                                </option>
                             @endforeach
+                            </select>
                         </div>
 
-                        <div class="col-10 mb-3">
+                        <div class="col-6 mb-3">
                             <h6>{{ $no++ }}. Organisasi</h6>
+                            <select class="custom-select" name="organisasi">
                             @foreach ($organisasi as $item)
-                            <div class="form-check mb-2 ml-3">
+                            {{-- <div class="form-check mb-2 ml-3">
                                 <input class="form-check-input" type="radio" name="organisasi"
                                     id="{{ $item->organisasi }}" value="{{ $item->organisasi }}">
                                 <label class="form-check-label" for="{{ $item->organisasi }}">
                                     {{ $item->organisasi }}
                                 </label>
-                            </div>
+                            </div> --}}
+                            <option value="{{ $item->organisasi }}">{{ $item->organisasi }}</option>
+
                             @endforeach
+                            </select>
                         </div>
 
-                        <div class="col-10 mb-3">
+                        <div class="col-6 mb-3">
                             <h6>{{ $no++ }}. Pendidikan</h6>
+                            <select class="custom-select" name="pendidikan">
+
                             @foreach ($pendidikan as $item)
-                            <div class="form-check mb-2 ml-3">
+                            {{-- <div class="form-check mb-2 ml-3">
                                 <input class="form-check-input" type="radio" name="pendidikan"
                                     id="{{ $item->pendidikan }}" value="{{ $item->pendidikan }}">
                                 <label class="form-check-label" for="{{ $item->pendidikan }}">
                                     {{ $item->pendidikan }}
                                 </label>
-                            </div>
+                            </div> --}}
+                            <option value="{{ $item->pendidikan }}">{{ $item->pendidikan }}</option>
                             @endforeach
+                            </select>
                         </div>
 
-                        <div class="col-10 mb-3">
+                        <div class="col-6 mb-3">
                             <h6>{{ $no++ }}. Jenis Rambut</h6>
+                            <select class="custom-select" name="rambut">
                             @foreach ($rambut as $item)
-                            <div class="form-check mb-2 ml-3">
+                            {{-- <div class="form-check mb-2 ml-3">
                                 <input class="form-check-input" type="radio" name="rambut" id="{{ $item->rambut }}"
                                     value="{{ $item->rambut }}">
                                 <label class="form-check-label" for="{{ $item->rambut }}">
                                     {{ $item->rambut }}
                                 </label>
-                            </div>
+                            </div> --}}
+                            <option value="{{ $item->rambut }}">{{ $item->rambut }}</option>
                             @endforeach
+                            </select>
                         </div>
 
-                        <div class="col-10 mb-3">
+                        <div class="col-6 mb-3">
                             <h6>{{ $no++ }}. Warna Kulit</h6>
+                            <select class="custom-select" name="kulit">
                             @foreach ($kulit as $item)
-                            <div class="form-check mb-2 ml-3">
+                            {{-- <div class="form-check mb-2 ml-3">
                                 <input class="form-check-input" type="radio" name="kulit" id="{{ $item->kulit }}"
                                     value="{{ $item->kulit }}">
                                 <label class="form-check-label" for="{{ $item->kulit }}">
                                     {{ $item->kulit }}
                                 </label>
-                            </div>
+                            </div> --}}
+                            <option value="{{ $item->kulit }}">{{ $item->kulit }}</option>
+
                             @endforeach
+                            </select>
                         </div>
 
-                        <div class="col-10 mb-3">
+                        <div class="col-6 mb-3">
                             <h6>{{ $no++ }}. Pekerjaan</h6>
+                            <select class="custom-select" name="pekerjaan">
+
                             @foreach ($pekerjaan as $item)
-                            <div class="form-check mb-2 ml-3">
+                            {{-- <div class="form-check mb-2 ml-3">
                                 <input class="form-check-input" type="radio" name="pekerjaan"
                                     id="{{ $item->pekerjaan }}" value="{{ $item->pekerjaan }}">
                                 <label class="form-check-label" for="{{ $item->pekerjaan }}">
                                     {{ $item->pekerjaan }}
                                 </label>
-                            </div>
+                            </div> --}}
+                            <option value="{{ $item->pekerjaan }}">{{ $item->pekerjaan }}</option>
+
                             @endforeach
+                            </select>
                         </div>
 
-                        <div class="col-10 mb-3">
+                        <div class="col-6 mb-3">
                             <h6>{{ $no++ }}. Golongan Darah</h6>
+                            <select class="custom-select" name="darah">
+
                             @foreach ($darah as $item)
-                            <div class="form-check mb-2 ml-3">
+                            {{-- <div class="form-check mb-2 ml-3">
                                 <input class="form-check-input" type="radio" name="darah" id="{{ $item->darah }}"
                                     value="{{ $item->darah }}">
                                 <label class="form-check-label" for="{{ $item->darah }}">
                                     {{ $item->darah }}
                                 </label>
-                            </div>
+                            </div> --}}
+                            <option value="{{ $item->darah }}">{{ $item->darah }}</option>
                             @endforeach
+                            </select>
                         </div>
 
-                        <div class="col-10 mb-3">
+                        <div class="col-6 mb-3">
                             <h6>{{ $no++ }}. Bentuk Wajah</h6>
+                            <select class="custom-select" name="wajah">
                             @foreach ($wajah as $item)
-                            <div class="form-check mb-2 ml-3">
+                            {{-- <div class="form-check mb-2 ml-3">
                                 <input class="form-check-input" type="radio" name="wajah" id="{{ $item->wajah }}"
                                     value="{{ $item->wajah }}">
                                 <label class="form-check-label" for="{{ $item->wajah }}">
                                     {{ $item->wajah }}
                                 </label>
-                            </div>
+                            </div> --}}
+                            <option value="{{ $item->wajah }}">{{ $item->wajah }}</option>
                             @endforeach
+                            </select>
                         </div>
 
-                        <div class="col-10 mb-3">
+                        <div class="col-6 mb-3">
                             <h6>{{ $no++ }}. Usia Nikah Ideal</h6>
+                            <select class="custom-select" name="usia">
                             @foreach ($nikah as $item)
-                            <div class="form-check mb-2 ml-3">
+                            {{-- <div class="form-check mb-2 ml-3">
                                 <input class="form-check-input" type="radio" name="usia" id="{{ $item->usia }}"
                                     value="{{ $item->usia }}">
                                 @if ($item->usia == "ideal")
@@ -280,14 +330,18 @@ data-aos="fade-up"
                                     Waspada : 31 - Tak terhingga tahun
                                 </label>
                                 @endif
-                            </div>
+                            </div> --}}
+                                <option value="{{ $item->usia }}">
+                                @if($item->usia == "ideal") Ideal : 19 - 25 Tahun @elseif($item->usia == "cukup") Cukup : 26 - 30 Tahun @else Waspada : 31 - Tak terhingga tahun @endif
+                                </option>
                             @endforeach
+                            </select>
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-success px-5" name="search">Cari Pasangan</button>
                 </div>
             </form>
