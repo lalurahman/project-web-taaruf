@@ -10,11 +10,17 @@
 
     </div>
     <div class="list-group list-group-flush">
-      
+
       <a
         href="{{ route('profile') }}"
         class="list-group-item list-group-item-action {{ (request()->is('user*')) ? 'active' : '' }}"
         >Profile</a
+      >
+
+      <a
+        href="{{ route('cari-akhwat') }}"
+        class="list-group-item list-group-item-action {{ (request()->is('admin/cari-akhwat')) ? 'active' : '' }}"
+        >Cari Calon</a
       >
     </div>
 </div>

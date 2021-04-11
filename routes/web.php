@@ -34,10 +34,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
     Route::get('/pasangan', 'Admin\PasanganController@index')->name('daftar-pasangan');
     Route::get('/pasangan/15', 'Admin\PasanganController@details')->name('details-pasangan');
     Route::get('/kriteria', 'Admin\KriteriaController@index')->name('daftar-kriteria');
-    Route::get('/cari-akhwat', 'DashboardController@index')->name('cari-akhwat');
-    Route::get('/akhwat/details/{nama}', 'DashboardController@details')->name('details-calon');
+    // Route::get('/cari-akhwat', 'DashboardController@index')->name('cari-akhwat');
+    // Route::get('/akhwat/details/{nama}', 'DashboardController@details')->name('details-calon');
 
-    Route::get('/akhwat/laporan/{id}', 'DashboardController@laporan_pdf')->name('laporan-pdf');
+    // Route::get('/akhwat/laporan/{id}', 'DashboardController@laporan_pdf')->name('laporan-pdf');
 
     Route::prefix('kriteria')->group(function(){
         Route::resource('keterampilan', 'Admin\Kriteria\KeterampilanController');
@@ -68,7 +68,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
 Route::group(['prefix'=>'user', 'middleware' => ['auth', 'admin:USER']], function () {
     Route::get('/', 'AccountController@index')->name('profile');
     Route::put('/profile', 'AccountController@update')->name('profile-update');
-
+    Route::get('/cari-akhwat', 'DashboardController@index')->name('cari-akhwat');
+    Route::get('/akhwat/details/{nama}', 'DashboardController@details')->name('details-calon');
+    Route::get('/akhwat/laporan/{id}', 'DashboardController@laporan_pdf')->name('laporan-pdf');
 });
 
 // Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');
