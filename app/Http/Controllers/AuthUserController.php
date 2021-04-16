@@ -28,12 +28,18 @@ class AuthUserController extends Controller
         if ($attemptLogin) {
             $user = Auth::user();
 
-            if ($user->roles == 'ADMIN') {
-                session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'roles' => $user->roles]);
-                return Redirect::to('admin');
-            } else if ($user->roles == 'USER') {
-                session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'roles' => $user->roles]);
-                return Redirect::to('/user');
+            if ($user->is_active == 0) {
+                return Redirect::to('login')->withErrors([
+                    'email'=> trans('auth.failed')
+                ])->withInput();
+            } else {
+                if ($user->roles == 'ADMIN') {
+                    session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'roles' => $user->roles]);
+                    return Redirect::to('admin');
+                } else if ($user->roles == 'USER') {
+                    session(['id' => $user->id, 'username' => $user->name, 'email' => $user->email, 'roles' => $user->roles]);
+                    return Redirect::to('/user');
+                }
             }
         }
         // return $this->sendFailedLoginResponse($request);
@@ -110,6 +116,7 @@ class AuthUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'is_active' => 0,
         ]);
 
         $detail = new UserDetail();
