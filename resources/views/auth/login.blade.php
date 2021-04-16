@@ -37,13 +37,18 @@
                   type="email"
                   name="email"
                   id="email"
-                  class="form-control w-75 @error('email') is-invalid @enderror"
+                  class="form-control w-75 @error('email') is-invalid @enderror @error('status') is-invalid @enderror"
                   value="{{ old('email') }}"
                   required
                   autocomplete="email"
                   autofocus
                 />
                 @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                @error('status')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

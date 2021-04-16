@@ -30,7 +30,7 @@ class AuthUserController extends Controller
 
             if ($user->is_active == 0) {
                 return Redirect::to('login')->withErrors([
-                    'email'=> trans('auth.failed')
+                    'status'=> "akun di belum di aktifkan !"
                 ])->withInput();
             } else {
                 if ($user->roles == 'ADMIN') {

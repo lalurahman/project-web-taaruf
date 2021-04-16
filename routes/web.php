@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
     Route::get('/ikhwan', 'Admin\IkhwanController@index')->name('daftar-ikhwan');
     Route::get('/ikhwan/{id}', 'Admin\IkhwanController@details')->name('details-ikhwan');
     Route::put('/ikhwan/update', 'Admin\IkhwanController@update')->name('updated-ikhwan');
+    Route::patch('/ikhwan/status', 'Admin\IkhwanController@status')->name('status');
     Route::delete('/ikhwan/{id}', 'Admin\IkhwanController@destroy')->name('delete-ikhwan');
 
     Route::get('/pasangan', 'Admin\PasanganController@index')->name('daftar-pasangan');

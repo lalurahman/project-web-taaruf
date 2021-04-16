@@ -78,7 +78,7 @@ data-aos="fade-up"
                           <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="sr-only">Toggle Dropdown</span>
                           </button>
-                        
+
                         <div class="dropdown-menu">
                             <form action="{{ route('updated-ikhwan') }}" method="post" enctype="multipart/form-data">
                               @csrf
@@ -96,8 +96,8 @@ data-aos="fade-up"
                     </td>
                   </tr>
                   @endforeach
-                
-                
+
+
                 </tbody>
             </table>
           </div>
@@ -129,7 +129,7 @@ data-aos="fade-up"
                       <div class="btn-group">
                         <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Aksi</button>
                           <div class="dropdown-menu">
-                            
+
                             <a href="{{ route('details-ikhwan', $item->id) }}" class="dropdown-item">Lihat Detail</a>
                             <form action="{{ route('delete-ikhwan', $item->id) }}" method="post">
                               @csrf
@@ -141,7 +141,7 @@ data-aos="fade-up"
                   </td>
               </tr>
               @endforeach
-            
+
             </tbody>
           </table>
           </div>
@@ -152,7 +152,7 @@ data-aos="fade-up"
       <div class="col-12">
         <div class="card">
             <div class="card-body">
-                
+
                 <table class="table" id="ikhwanTable">
                     <thead>
                         <tr>
@@ -162,7 +162,7 @@ data-aos="fade-up"
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -176,6 +176,61 @@ data-aos="fade-up"
 
 @push('addon-script')
     <script>
+        function disable(id) {
+            var r = confirm('apakah permintaan anda ingin menonaktifkan akun ini ?')
+            if (r == true) {
+                $.ajax({
+                    url: "{{ route('status') }}",
+                    method: 'PATCH',
+                    headers: {
+                            'X-CSRF-TOKEN': '{!! csrf_token() !!}'
+                        },
+                    data: {
+                        id_data: id,
+                        status: 0
+                    },
+                    dataType: "JSON",
+                    success: function (response) {
+                        if (response.status == true) {
+                            alert(response.message)
+                            location.reload()
+                        }
+                    },
+                    error: function (response) {
+                        alert(response.message)
+                    },
+                });
+            }
+        }
+
+        function active(id) {
+            var r = confirm('apakah permintaan anda ingin mengaktifkan akun ini ?')
+            if (r == true) {
+                $.ajax({
+                    url: "{{ route('status') }}",
+                    method: 'PATCH',
+                    headers: {
+                            'X-CSRF-TOKEN': '{!! csrf_token() !!}'
+                        },
+                    data: {
+                        id_data: id,
+                        status: 1
+                    },
+                    dataType: "JSON",
+                    success: function (response) {
+                        if (response.status == true) {
+                            alert(response.message)
+                            location.reload()
+                        }
+                    },
+                    error: function (response) {
+                        alert(response.message)
+                    },
+                });
+            }
+        }
+
+
         $('#ikhwanTable').DataTable({
             processing: true,
             serverSide: true,
@@ -195,6 +250,6 @@ data-aos="fade-up"
                 }
             ]
         });
-        
+
     </script>
 @endpush
