@@ -133,7 +133,7 @@
             <h5 class="text-center">{{ number_format(session($laporan->nama),2) * 100 }}%</h5>
         <hr style="border: 1px solid #000">
     </section>
-    <section class="ttd mt-2">
+    <section class="ttd mt-2 float-right">
         <small class="d-block">Yang bertanda tangan dibawah ini :</small>
         <small class="d-block">Ustadz, {{ date("d / m / Y") }}</small>
         <small class="d-block mt-5">(Ustadz)</small>

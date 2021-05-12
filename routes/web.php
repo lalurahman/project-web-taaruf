@@ -12,18 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('login', 'AuthUserController@login')->name('login');
 Route::post('login', 'AuthUserController@getlogin');
 Route::get('logout', 'AuthUserController@logout')->name('logout');
 
 Route::get('register', 'AuthUserController@register')->name('register');
-Route::get('format_biodata', 'AuthUserController@format_biodata')->name('biodata');
-Route::get('rekomendasi_murobbi', 'AuthUserController@rekomendasi')->name('rekomendasi');
-Route::get('surat_nikah', 'AuthUserController@surat_menikah')->name('menikah');
+Route::get('download_biodata', 'AccountController@download_biodata')->name('download-biodata');
+Route::get('download_rekomendasi', 'AccountController@download_rekomendasi')->name('download-rekomendasi');
+Route::get('download_izin', 'AccountController@download_izin')->name('download-izin');
+// Route::get('download_sehat', 'AccountController@download_sehat')->name('download-sehat');
 Route::post('register', 'AuthUserController@registerProcess')->name('register-process');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:ADMIN']], function () {
 
     Route::get('/', 'Admin\DashboardController@index')->name('dashboard');
     Route::get('/ikhwan', 'Admin\IkhwanController@index')->name('daftar-ikhwan');
@@ -40,7 +42,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
 
     // Route::get('/akhwat/laporan/{id}', 'DashboardController@laporan_pdf')->name('laporan-pdf');
 
-    Route::prefix('kriteria')->group(function(){
+    Route::prefix('kriteria')->group(function () {
         Route::resource('keterampilan', 'Admin\Kriteria\KeterampilanController');
         Route::resource('suku', 'Admin\Kriteria\SukuController');
         Route::resource('tinggi', 'Admin\Kriteria\TinggiController');
@@ -66,7 +68,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin:ADMIN']], func
     });
 });
 
-Route::group(['prefix'=>'user', 'middleware' => ['auth', 'admin:USER']], function () {
+Route::group(['prefix' => 'user', 'middleware' => ['auth', 'admin:USER']], function () {
     Route::get('/', 'AccountController@index')->name('profile');
     Route::put('/profile', 'AccountController@update')->name('profile-update');
     Route::get('/cari-akhwat', 'DashboardController@index')->name('cari-akhwat');
@@ -77,4 +79,3 @@ Route::group(['prefix'=>'user', 'middleware' => ['auth', 'admin:USER']], functio
 // Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');
 
 // Auth::routes();
-

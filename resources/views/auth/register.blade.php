@@ -10,7 +10,7 @@
     <div class="section-store-auth" data-aos="fade-up">
       <div class="container">
         <div class="row align-items-center justify-content-center row-login">
-          <div class="col-lg-4">
+          <div class="col-8">
             <h2 class="text-white">
               Masukkan data diri anda secara lengkap !
             </h2>
@@ -22,78 +22,86 @@
             @endif
             <form action="{{ route('register-process') }}" method="post" class="mt-3" enctype="multipart/form-data">
                 @csrf
-              <div class="form-group">
-                <label for="name">Nama Lengkap</label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  class="form-control @error('name') is-invalid @enderror"
-                  v-model="name"
-                  value="{{ old('name') }}" 
-                  required 
-                  autocomplete="name"
-                  autofocus
-                />
-                
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  @change="checkForEmailAvailability()"
-                  class="form-control @error('email') is-invalid @enderror"
-                  :class="{ 'is-invalid' : this.email_unavailable }"
-                  v-model="email"
-                  value="{{ old('email') }}" required autocomplete="email"
-                />
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  class="form-control @error('password') is-invalid @enderror"
-                  required 
-                />
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-              </div>
-              <div class="form-group">
-                <label for="password_confirmation">Konfirmasi Password</label>
-                <input
-                  type="password"
-                  name="password_confirmation"
-                  id="password_confirmation"
-                  class="form-control @error('password_confirmation') is-invalid @enderror"
-                  required 
-                />
-                @error('password_confirmation')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-              </div>
-              <div class="form-group">
-                <label for="biodata">Biodata Ikhwa</label>
-                <div class="row">
-                  <div class="col-10 pr-0">
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      class="form-control @error('name') is-invalid @enderror"
+                      v-model="name"
+                      value="{{ old('name') }}" 
+                      required 
+                      autocomplete="name"
+                      autofocus
+                    />
+                    
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      @change="checkForEmailAvailability()"
+                      class="form-control @error('email') is-invalid @enderror"
+                      :class="{ 'is-invalid' : this.email_unavailable }"
+                      v-model="email"
+                      value="{{ old('email') }}" required autocomplete="email"
+                    />
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      class="form-control @error('password') is-invalid @enderror"
+                      required 
+                    />
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="password_confirmation">Konfirmasi Password</label>
+                    <input
+                      type="password"
+                      name="password_confirmation"
+                      id="password_confirmation"
+                      class="form-control @error('password_confirmation') is-invalid @enderror"
+                      required 
+                    />
+                    @error('password_confirmation')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="biodata">Biodata Ikhwa</label>
                     <input
                       type="file"
                       name="biodata"
@@ -101,24 +109,18 @@
                       class="form-control @error('biodata') is-invalid @enderror"
                       required 
                     />
-                  </div>
-                  <div class="col-1 pl-1">
-                      <a href="{{ route('biodata') }}" type="button" class="btn btn-primary">Download</a>
+                    <small class="text-white d-block">dokumen biodata lengkap anda (pdf)
+                    </small> <a href="{{ route('download-biodata') }}" class="btn btn-sm btn-primary">Lihat Contoh</a>
+                    @error('biodata')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                   </div>
                 </div>
-                <small class="text-white">dokumen biodata lengkap anda (pdf)
-                </small>
-                @error('biodata')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-              </div>
-
-              <div class="form-group">
-                <label for="rekomendasi_murobbi">Surat Rekomendasi Murobbi</label>
-                <div class="row">
-                  <div class="col-10 pr-0">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="rekomendasi_murobbi">Surat Rekomendasi Murobbi</label>
                     <input
                       type="file"
                       name="rekomendasi_murobbi"
@@ -126,25 +128,19 @@
                       class="form-control @error('rekomendasi_murobbi') is-invalid @enderror"
                       required 
                     />
-                  </div>
-                  <div class="col-1 pl-1">
-                      <a href="{{ route('rekomendasi') }}" type="button" class="btn btn-primary">Download</a>
+                    <small class="text-white d-block">surat keterangan dari murobbi, bahwa aktif
+                        tarbiyah minimal 3 bulan (pdf)</small>
+                        <a href="{{ route('download-rekomendasi') }}" class="btn btn-sm btn-primary">Lihat Contoh</a>
+                    @error('rekomendasi_murobbi')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                   </div>
                 </div>
-                <small class="text-white">surat keterangan dari murobbi, bahwa aktif
-                    tarbiyah minimal 3 bulan (pdf)</small>
-
-                @error('rekomendasi_murobbi')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-              </div>
-
-              <div class="form-group">
-                <label for="izin_nikah">Surat Izin Nikah</label>
-                <div class="row">
-                  <div class="col-10 pr-0">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="izin_nikah">Surat Izin Nikah</label>
                     <input
                       type="file"
                       name="izin_nikah"
@@ -152,36 +148,34 @@
                       class="form-control @error('izin_nikah') is-invalid @enderror"
                       required 
                     />
-                  </div>
-                  <div class="col-1 pl-1">
-                    <a href="{{ route('menikah') }}" type="button" class="btn btn-primary">Download</a>
+                    <small class="text-white d-block">surat keterangan persetujuan nikah dari wali (pdf)
+                    </small> <a href="{{ route('download-izin') }}" class="btn btn-sm btn-primary">Lihat Contoh</a>
+                    @error('izin_nikah')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                   </div>
                 </div>
-                <small class="text-white">surat keterangan persetujuan nikah dari wali (pdf)
-                </small>
-                @error('izin_nikah')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-              </div>
-
-              <div class="form-group">
-                <label for="keterangan_sehat">Surat Berbadan Sehat</label>
-                <input
-                  type="file"
-                  name="keterangan_sehat"
-                  id="keterangan_sehat"
-                  class="form-control @error('keterangan_sehat') is-invalid @enderror"
-                  required 
-                />
-                <small class="text-white">surat keterangan sehat dari dokter (pdf)
-                </small>
-                @error('keterangan_sehat')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="keterangan_sehat">Surat Berbadan Sehat</label>
+                    <input
+                      type="file"
+                      name="keterangan_sehat"
+                      id="keterangan_sehat"
+                      class="form-control @error('keterangan_sehat') is-invalid @enderror"
+                      required 
+                    />
+                    <small class="text-white">surat keterangan sehat dari dokter (pdf)
+                    </small>
+                    @error('keterangan_sehat')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                  </div>
+                </div>
               </div>
               
               <button type="submit" class="btn btn-success btn-block mt-4" :disabled="this.email_unavailable">

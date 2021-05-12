@@ -13,13 +13,13 @@
 
       <a
         href="{{ route('profile') }}"
-        class="list-group-item list-group-item-action {{ (request()->is('user*')) ? 'active' : '' }}"
+        class="list-group-item list-group-item-action {{ (request()->is('user')) ? 'active' : '' }}"
         >Profile</a
       >
 
       <a
         href="{{ route('cari-akhwat') }}"
-        class="list-group-item list-group-item-action {{ (request()->is('admin/cari-akhwat')) ? 'active' : '' }}"
+        class="list-group-item list-group-item-action {{ (request()->is('user/cari-akhwat*')) ? 'active' : '' }}"
         >Cari Calon</a
       >
     </div>

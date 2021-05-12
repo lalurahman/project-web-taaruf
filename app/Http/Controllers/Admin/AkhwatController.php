@@ -26,10 +26,10 @@ class AkhwatController extends Controller
 {
     public function index()
     {
-        if(request()->ajax()){
+        if (request()->ajax()) {
             $akhwats = Akhwat::orderBy('created_at', 'desc');
             return DataTables::of($akhwats)
-                ->addColumn('action', function($item){
+                ->addColumn('action', function ($item) {
                     return '
                         <div class="btn-group">
                             <button
@@ -37,10 +37,10 @@ class AkhwatController extends Controller
                                 Aksi
                             </button>
                             <div class="dropdown-menu">
-                                <a href=" '. route('details-akhwat', $item->nama) .' " class="dropdown-item">
+                                <a href=" ' . route('details-akhwat', $item->nama) . ' " class="dropdown-item">
                                     Lihat Detail
                                 </a>
-                                <button class="text-danger dropdown-item" onclick="hapus('. $item->id .')">Hapus</button>
+                                <button class="text-danger dropdown-item" onclick="hapus(' . $item->id . ')">Hapus</button>
                             </div>
                         </div>
                     ';
@@ -138,7 +138,7 @@ class AkhwatController extends Controller
             // save file biodata
             $file = $request->file('biodata');
             $nama_file = time() . "_" . $file->getClientOriginalName();
-            $storage = 'assets/upload/biodata/akhwat';
+            $storage = 'public/assets/upload/biodata/akhwat';
             $file->move($storage, $nama_file);
             $akhwat->cv = $nama_file;
             $akhwat->save();
@@ -155,14 +155,13 @@ class AkhwatController extends Controller
 
             return redirect()->back()->with('success', 'sukses menyimpan data !');
         }
-
     }
 
     public function update(Request $request)
     {
         $validasi = Validator::make($request->all(), [
             'name' => 'required',
-            'no_hp' => 'required|max:15|unique:akhwats,no_hp,'.$request->id,
+            'no_hp' => 'required|max:15|unique:akhwats,no_hp,' . $request->id,
             'alamat' => 'required',
             'biodata' => 'file|mimes:doc,pdf,docx,jpeg,png,jpg|max:5048',
             'keterampilan' => 'required',
@@ -203,10 +202,10 @@ class AkhwatController extends Controller
             // $akhwat->keterampilan_id = implode(" ", $request->keterampilan);
             // update file biodata
             if ($request->hasFile('biodata')) {
-                File::delete('assets/upload/biodata/akhwat' . $akhwat->cv);
+                File::delete('public/assets/upload/biodata/akhwat' . $akhwat->cv);
                 $file = $request->file('biodata');
                 $nama_file = time() . "_" . $file->getClientOriginalName();
-                $storage = 'assets/upload/biodata/akhwat';
+                $storage = 'public/assets/upload/biodata/akhwat';
                 $file->move($storage, $nama_file);
                 $akhwat->cv = $nama_file;
             }
@@ -233,7 +232,7 @@ class AkhwatController extends Controller
 
             $akhwat = Akhwat::find($request->id_data);
             if ($akhwat->cv != null) {
-                File::delete('assets/upload/biodata/akhwat/' . $akhwat->cv);
+                File::delete('public/assets/upload/biodata/akhwat/' . $akhwat->cv);
             }
             $akhwat->delete();
 
@@ -241,7 +240,6 @@ class AkhwatController extends Controller
                 "status" => true,
                 "message" => 'berhasil di hapus !',
             ], 200);
-
         } catch (\Throwable $th) {
             return response()->json([
                 "status" => false,
@@ -253,7 +251,7 @@ class AkhwatController extends Controller
     public function download($cv)
     {
         $akhwat = Akhwat::where('cv', $cv)->first();
-        $file = public_path('assets/upload/biodata/akhwat/'.$akhwat->cv);
+        $file = public_path('public/assets/upload/biodata/akhwat/' . $akhwat->cv);
 
         return response()->download($file);
     }
