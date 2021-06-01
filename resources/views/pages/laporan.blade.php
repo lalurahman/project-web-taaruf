@@ -18,7 +18,7 @@
   <body>
     <section class="kop">
         <div class="text-center">
-            <h5>LAPORAN HASIL PENCARIAN JODOH</h5>
+            <h5>REKOMENDASI HASIL PENCARIAN JODOH</h5>
             <small class="text-small">{{ date("d / m / Y") }}</small>
             <hr style="border: 1px solid #000">
         </div>
