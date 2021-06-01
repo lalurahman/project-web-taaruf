@@ -24,13 +24,19 @@
         </div>
     </section>
     <section class="data mt-2">
+        {{-- <div class="col-6">
+            <h5>Hasil Pencarian Jodoh :</h5>
+            <small>Nama :</small> {{ $laporan->nama }} <br>
+            <small>Nomor HP :</small> {{ $laporan->no_hp }} <br>
+            <small>Alamat :</small> {{ $laporan->alamat }} <br>
+        </div> --}}
         <div class="">
             <div class="row mb-2">
-                <div class="col-6">
-                    <h5>Hasil Pencarian Jodoh :</h5>
+                <div class="col-8">
+                    <h5>Hasil Pencarian Jodoh : {{ auth()->user()->name }}, direkomendasikan</h5>
                     <small>Nama :</small> {{ $laporan->nama }} <br>
-                    <small>Nomor HP :</small> {{ $laporan->no_hp }} <br>
-                    <small>Alamat :</small> {{ $laporan->alamat }} <br>
+                    {{-- <small>Nomor HP :</small> {{ $laporan->no_hp }} <br>
+                    <small>Alamat :</small> {{ $laporan->alamat }} <br> --}}
                 </div>
             </div>
             <div class="row mt-3">
