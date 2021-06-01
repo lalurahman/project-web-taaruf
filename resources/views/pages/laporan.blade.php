@@ -18,19 +18,25 @@
   <body>
     <section class="kop">
         <div class="text-center">
-            <h5>LAPORAN HASIL PENCARIAN JODOH</h5>
+            <h5>LAPORAN REKOMENDASI PENCARIAN JODOH</h5>
             <small class="text-small">{{ date("d / m / Y") }}</small>
             <hr style="border: 1px solid #000">
         </div>
     </section>
     <section class="data mt-2">
+        {{-- <div class="col-6">
+            <h5>Hasil Pencarian Jodoh :</h5>
+            <small>Nama :</small> {{ $laporan->nama }} <br>
+            <small>Nomor HP :</small> {{ $laporan->no_hp }} <br>
+            <small>Alamat :</small> {{ $laporan->alamat }} <br>
+        </div> --}}
         <div class="">
             <div class="row mb-2">
                 <div class="col-6">
-                    <h5>Hasil Pencarian Jodoh :</h5>
+                    <h5>Hasil Pencarian Jodoh : {{ auth()->user()->name }}, direkomendasikan</h5>
                     <small>Nama :</small> {{ $laporan->nama }} <br>
-                    <small>Nomor HP :</small> {{ $laporan->no_hp }} <br>
-                    <small>Alamat :</small> {{ $laporan->alamat }} <br>
+                    {{-- <small>Nomor HP :</small> {{ $laporan->no_hp }} <br>
+                    <small>Alamat :</small> {{ $laporan->alamat }} <br> --}}
                 </div>
             </div>
             <div class="row mt-3">
