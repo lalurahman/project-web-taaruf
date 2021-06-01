@@ -32,7 +32,7 @@
         </div> --}}
         <div class="">
             <div class="row mb-2">
-                <div class="col-6">
+                <div class="col-8">
                     <h5>Hasil Pencarian Jodoh : {{ auth()->user()->name }}, direkomendasikan</h5>
                     <small>Nama :</small> {{ $laporan->nama }} <br>
                     {{-- <small>Nomor HP :</small> {{ $laporan->no_hp }} <br>
