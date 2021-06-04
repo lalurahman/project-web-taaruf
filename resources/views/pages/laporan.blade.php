@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-6">
+                <div class="col-6 ">
                     <p>Keterampilan :</p>
                     <ol type="1" style="margin-top: -10px; margin-left: -15px">
                         @foreach ($laporan->skills as $item)
